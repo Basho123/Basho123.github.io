@@ -848,7 +848,7 @@
                     }
                     else if (this.touristTimeSpent > 10) {
                         let newDivItem = document.createElement('DIV');
-                        newDivItem.innerHTML += `<p class ="dropDown" style = "font-size: 20px;color:yellow; background-color: blue;">Tourist ${this.name} came for ${this.reason}, spent ${this.touristBudgetThatCameWith - this.touristBudget}$ and had a great time on your farm. The tourist came in ${time.currentMonth}<</p>`
+                        newDivItem.innerHTML += `<p class ="dropDown" style = "font-size: 20px;color:yellow; background-color: blue;">Tourist ${this.name} came for ${this.reason}, spent ${this.touristBudgetThatCameWith - this.touristBudget}$ and had a great time on your farm. The tourist came in ${time.currentMonth}</p>`
                         page.log.insertBefore(newDivItem, page.log.childNodes[0])
                         this.isOnFarm = false;
                         tourists.all.splice(this, 1);

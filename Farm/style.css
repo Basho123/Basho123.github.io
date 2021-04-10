@@ -1,6 +1,4 @@
-/* *{
-    color: blanchedalmond;
-} */
+/* style.css for Farm */
 
 @keyframes dropDown{
     0% {
@@ -153,10 +151,11 @@ h3{
 
 .divCardMain{   
     margin-top: 25px;
-    height: 200px;
+    /* height: 100%; */
     display:flex; 
     flex-wrap: wrap;
     justify-content: space-around;   
+    /* overflow:auto; */
 
     animation: dropDown;
     animation-duration: 0.5s;      
@@ -179,5 +178,78 @@ h3{
     justify-content: center;
     height: 200px;
 }
+
+/* //////////////// */
+/* MOBILE PHONE CSS */
+/* //////////////// */
+@media screen and (max-width: 750px) {
+   
+  
+   
+    
+    .icon{
+        width: 20px;
+    }
+          
+    #tools{
+        justify-content: space-around;
+        margin:  0px auto;
+        margin-top: 5px;
+        width: 50%;
+    }
+    .buyButtons{
+        width: 55px;
+        height: 55px;     
+    }
+    .buyButtonsImages{
+        border-radius: 10px;
+        padding: 0;
+        margin-top: 0px;
+        width: 100%;
+        height: 100%;
+    }    
+ 
+    h3{
+        margin: 0;
+        width: 100%;
+        font-size: 25px;
+    }     
+    
+    
+    .dropDown{
+        animation: dropDown;
+        animation-duration: 0.5s;      
+        animation-timing-function: linear;
+        animation-iteration-count:unset;
+        animation-fill-mode: forwards;     
+    }
+    
+    .divCardMain{   
+        margin-top: 25px;
+        display:flex; 
+        flex-wrap: wrap;
+        justify-content: space-around;       
+        animation: dropDown;
+        animation-duration: 0.5s;      
+        animation-timing-function: linear;
+        animation-iteration-count:unset;
+        animation-fill-mode: forwards;     
+    }
+    
+    .divCard1{   
+        display:flex;
+         flex-wrap: wrap; 
+         width:80%;
+         justify-content: space-between
+    }
+    
+    .divCard2{
+        width: 20%;
+        display:flex; 
+        justify-content: center;
+        height: 100px;
+    }
+    
+  }
 
 

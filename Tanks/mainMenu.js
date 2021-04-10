@@ -133,9 +133,9 @@
             setServoMotorsValue: (number) => +localStorage.setItem('servoMotorsUpgrade', number),
             setCannonValue: (number) => +localStorage.setItem('cannonUpgrade', number),
 
-            getEngineUpgradeCost: () => hangar.tankUpgrades.getEngineValue() * 1000,
-            getServoMotorsUpgradeCost: () => hangar.tankUpgrades.getServoMotorsValue() * 1000,
-            getCannonUpgradeCost: () => hangar.tankUpgrades.getCannonValue() * 1000,
+            getEngineUpgradeCost: () => hangar.tankUpgrades.getEngineValue() * 2000,
+            getServoMotorsUpgradeCost: () => hangar.tankUpgrades.getServoMotorsValue() * 2000,
+            getCannonUpgradeCost: () => hangar.tankUpgrades.getCannonValue() * 2000,
 
 
             resetAll: () => {
@@ -185,7 +185,7 @@
     //UPGRADES
 
     hangar.engineUpgradeButton.addEventListener('click', () => {
-        if (playerEconomy.getMoneyCount() > 1000 * hangar.tankUpgrades.getEngineValue()) {
+        if (playerEconomy.getMoneyCount() >= 2000 * hangar.tankUpgrades.getEngineValue()) {
             playerEconomy.deductMoney(hangar.tankUpgrades.getEngineUpgradeCost());
             hangar.tankUpgrades.upgradeEngine();
             hangar.refreshUpgradeValues();
@@ -196,7 +196,7 @@
     });
 
     hangar.servoMotorsUpgradeButton.addEventListener('click', () => {
-        if (playerEconomy.getMoneyCount() > 1000 * hangar.tankUpgrades.getServoMotorsValue()) {
+        if (playerEconomy.getMoneyCount() >= 2000 * hangar.tankUpgrades.getServoMotorsValue()) {
             playerEconomy.deductMoney(hangar.tankUpgrades.getServoMotorsUpgradeCost());
             hangar.tankUpgrades.upgradeServoMotors();
             hangar.refreshUpgradeValues();
@@ -206,7 +206,7 @@
     });
 
     hangar.cannonUpgradeButton.addEventListener('click', () => {
-        if (playerEconomy.getMoneyCount() > 1000 * hangar.tankUpgrades.getCannonValue()) {
+        if (playerEconomy.getMoneyCount() >= 2000 * hangar.tankUpgrades.getCannonValue()) {
             playerEconomy.deductMoney(hangar.tankUpgrades.getCannonUpgradeCost());
             hangar.tankUpgrades.upgradeCannon();
             hangar.refreshUpgradeValues();
