@@ -1562,7 +1562,7 @@ if (main.level > 0) {
         models.complexTree.texture.body = loadImage("files/models/scenery/trees/tree/treeBody/bark1.jpg");
 
 
-        models.grass = loadModel("files/models/scenery/grass/spiderPlant.obj");
+        models.grass = loadModel("files/models/scenery/grass/SpiderPlant.obj");
         textures.grass = loadImage("files/models/scenery/grass/spiderPlant/spiderLeafClean.png");
 
         options.grassScale = 1;
@@ -1590,7 +1590,7 @@ if (main.level > 0) {
         models.complexTree.texture.leaves = loadImage("files/models/scenery/trees/tree/treeBody/bladeren.jpg");
         models.complexTree.texture.flowers = loadImage("files/models/scenery/trees/tree/treeBody/bladeren.jpg");
 
-        models.grass = loadModel("files/models/scenery/grass/spiderPlant.obj");
+        models.grass = loadModel("files/models/scenery/grass/SpiderPlant.obj");
         textures.grass = loadImage("files/models/scenery/grass/spiderPlant/spiderLeafClean.png");
 
         options.grassScale = 1;
@@ -1613,7 +1613,7 @@ if (main.level > 0) {
         models.complexTree.model.flowers = loadModel("files/models/scenery/trees/tree/nothing.obj");
         models.complexTree.model.leaves = loadModel("files/models/scenery/trees/tree/nothing.obj");
 
-        models.grass = loadModel("files/models/scenery/grass/spiderPlant.obj");
+        models.grass = loadModel("files/models/scenery/grass/SpiderPlant.obj");
         textures.grass = loadImage("files/models/scenery/grass/spiderPlant/spiderLeafClean.png");
 
         options.grassScale = 1;
