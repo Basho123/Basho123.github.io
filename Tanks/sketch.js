@@ -697,13 +697,13 @@ if (main.level > 0) {
       scale(150)
       beginShape(TRIANGLE_STRIP);
       vertex(0, 0, 0, 0, 0);
-      vertex(0, 200, 0, 0, 40000);
-      vertex(200, 0, 0, 40000, 0);
-      vertex(200, 200, 0, 40000, 40000);
+      vertex(0, 200, 0, 0, 100000);
+      vertex(200, 0, 0, 100000, 0);
+      vertex(200, 200, 0, 100000, 100000);
       vertex(200, 0, 0, 0, 0);
-      vertex(200, 200, 0, 0, 40000);
-      vertex(200, 0, 0, 40000, 0);
-      vertex(200, 200, 0, 40000, 40000);
+      vertex(200, 200, 0, 0, 100000);
+      vertex(200, 0, 0, 100000, 0);
+      vertex(200, 200, 0, 100000, 100000);
       endShape(CLOSE);
       // plane(this.sizeX, this.sizeZ);
       pop();
@@ -1605,7 +1605,7 @@ if (main.level > 0) {
       //DUSK LEVEL CLOUDY
       case 0:
         textures.sky = loadImage("files/background/sky3.jpg");
-        textures.terrain = loadImage("files/background/sandTexture.jpg");
+        textures.terrain = loadImage("files/background/grassTexture1.jpg");
         textures.brick = loadImage("files/background/brick.jpg");
 
         //TREE1  
