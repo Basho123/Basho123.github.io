@@ -1,0 +1,183 @@
+/* *{
+    color: blanchedalmond;
+} */
+
+@keyframes dropDown{
+    0% {
+        margin-top: -500px;
+        opacity: 0;
+    }
+    50% {margin-top: -200px;
+        opacity: 0.1;
+    }  
+    75% {margin-top: -20px;
+        opacity: 0.3;
+    }
+    100% {
+        margin-top: 25px;
+        opacity: 1;
+    }    
+}
+
+@keyFrames fadeIn{
+    0% {       
+        opacity: 0;
+    }    
+    100% {        
+        opacity: 1;
+    }    
+}
+
+*{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+abbr{
+    text-decoration: none;
+    cursor:pointer;
+}
+
+abbr:hover:after {
+    /* animation: fadeIn;
+    animation-duration: 0.5s;   
+    animation-direction: reverse; */
+
+    content: attr(customTitle);
+    position:absolute;
+    border-radius: 5px;
+     background:#000;
+     color:#fff;
+     padding:5px 10px;
+     margin:35px 0 0 0;
+     width: 130px;
+     z-index: 9999;
+ }
+
+th{
+    width: 80px;
+    height: 30px;   
+    /* flex-wrap: wrap; */
+    justify-content: space-around;
+}
+
+td{
+    width: 500px;
+    text-align: center;
+}
+
+.icon{
+    width: 25px;
+}
+
+
+button{    
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+#tools{
+    z-index: 30;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    margin-top: 25px;
+    width: 100%;
+}
+.buyButtons{
+    width: 95px;
+    height: 95px;
+    border-radius: 10px;
+    background-color: rgb(226, 226, 226);
+    margin: 0;
+    padding: 0;
+    border-color: rgb(177, 177, 177);
+}
+.buyButtonsImages{
+    border-radius: 10px;
+    padding: 0;
+    margin-top: 5px;
+    width: 80px;
+    height: 80px;
+}
+
+table{
+    font-weight: bold;
+    border: 1px solid black;
+    border-radius: 25px;
+}
+
+#headline{
+    margin: 0px auto;
+    margin-top: 80px;
+   
+}
+h3{
+    margin: 0;
+    width: 100%;
+    font-size: 40px;
+}
+#mainDiv{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#divWithTable{
+    position:fixed;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.733);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+
+#log{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    flex-direction: column;
+    align-items:stretch;
+}
+
+.dropDown{
+    animation: dropDown;
+    animation-duration: 0.5s;      
+    animation-timing-function: linear;
+    animation-iteration-count:unset;
+    animation-fill-mode: forwards;     
+}
+
+.divCardMain{   
+    margin-top: 25px;
+    height: 200px;
+    display:flex; 
+    flex-wrap: wrap;
+    justify-content: space-around;   
+
+    animation: dropDown;
+    animation-duration: 0.5s;      
+    animation-timing-function: linear;
+    animation-iteration-count:unset;
+    animation-fill-mode: forwards;     
+}
+
+.divCard1{   
+    /* background-color: red; */
+    display:flex;
+     flex-wrap: wrap; 
+     width: 60%;
+     justify-content: space-between
+}
+
+.divCard2{
+    
+    display:flex; 
+    justify-content: center;
+    height: 200px;
+}
+
+

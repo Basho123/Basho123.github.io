@@ -1,0 +1,67 @@
+/* style.css */
+/* morse code */
+*{
+    margin: 0;    
+}
+
+*:focus{
+    outline: none;
+}
+body{
+    text-align: center;
+    background-color: black;
+    color: blanchedalmond;
+
+   
+}
+
+h2{
+    margin: 10px auto;
+    font-size: 50px;
+}
+
+h3{
+    margin: 10px auto;
+    font-size: 30px;
+    color: red;
+}
+
+p{
+    font-size: 50px;
+ 
+}
+
+main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 1200px;
+    margin: 0px auto;
+    
+}
+
+textarea{
+    margin-top: 20px;  
+    width: 45%;
+    height: 300px;
+    font-size: 30px;
+    background-color: rgb(53, 53, 53);
+    color: blanchedalmond;    
+}
+
+
+button{
+    width: 10%;
+    margin: 35px auto;
+    height: 55px;
+    width: 300px;
+    font-size: 40px;
+    border-radius: 5px;
+    background-color: rgb(7, 0, 68);
+    color: burlywood;
+
+}
+
+#toChange{
+    width: 100%;
+}

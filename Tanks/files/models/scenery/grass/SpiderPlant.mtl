@@ -1,0 +1,10 @@
+#
+## Alias OBJ Material File
+# Exported from SketchUp, (c) 2000-2012 Trimble Navigation Limited
+
+newmtl Spider_leaf_clean
+Ka 0.000000 0.000000 0.000000
+Kd 0.227451 0.243137 0.133333
+Ks 0.330000 0.330000 0.330000
+map_Kd SpiderPlant_nt/Spider_leaf_clean.png
+

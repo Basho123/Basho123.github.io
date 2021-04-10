@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <title>Tanks</title>
+</head>
+<body>
+        
+  <div id="mainMenu">
+  <div id="mainMenuHeader">
+    <h1 id="mainMenuHeadline">TANKS</h1>
+  </div>
+
+  <div id="mainMenuBody">
+    <div id="mainMenuButtonsContainer">
+      <button class="mainMenuButtons" id="continueGame">CONTINUE</button>
+      <button class="mainMenuButtons" id="newGame">NEW GAME</button>
+      <button class="mainMenuButtons" id="loadGame">LOAD GAME</button>
+      <button class="mainMenuButtons" id="controlsButton">CONTROLS</button>
+      <button class="mainMenuButtons" id="options">OPTIONS</button>
+    </div>
+    <div id="optionsContainer">
+      <button class="mainMenuButtons" id="detailLevel">DETAIL LEVEL: <span id="detailSpan"></span></button>
+      <button class="mainMenuButtons" id="difficulty">DIFFICULTY: <span id="difficultySpan"></span></button>
+      <button class="mainMenuButtons" id="back">BACK</button>
+    </div>
+    <div id="controlsContainer">
+      <table id="controlsTable">
+        <tbody>
+          <tr>
+            <td class="tableElementLeft">FORWARD:</td>
+            <td class="tableElementRight">W</td>
+          </tr>
+          <tr>
+            <td class="tableElementLeft">BACKWARD:</td>
+            <td class="tableElementRight">S</td>
+          </tr>
+          <tr>
+            <td class="tableElementLeft">TANK ROTATE LEFT:</td>
+            <td class="tableElementRight">A</td>
+          </tr>
+          <tr>
+            <td class="tableElementLeft">TANK ROTATE RIGHT:</td>
+            <td class="tableElementRight">D</td>
+          </tr>
+          <tr>
+            <td class="tableElementLeft">TURRET ROTATE LEFT:</td>
+            <td class="tableElementRight">NUM 4</td>
+          </tr>
+          <tr>
+            <td class="tableElementLeft">TURRET ROTATE RIGHT:</td>
+            <td class="tableElementRight">NUM 6</td>
+          </tr>
+          <tr>
+            <td class="tableElementLeft">CANNON UP:</td>
+            <td class="tableElementRight">NUM 8</td>
+          </tr>
+          <tr>
+            <td class="tableElementLeft">CANNON DOWN:</td>
+            <td class="tableElementRight">NUM 2</td>
+          </tr>
+          <tr>
+            <td class="tableElementLeft">FIRE:</td>
+            <td class="tableElementRight">SPACE</td>
+          </tr>
+          <tr>
+            <td class="tableElementLeft">MAIN MENU:</td>
+            <td class="tableElementRight">ESCAPE BUTTON</td>
+          </tr>
+          <tr>
+            <td class="tableElementLeft">TOGGLE CAMERA:</td>
+            <td class="tableElementRight">C</td>
+          </tr>
+          <tr>
+            <td class="tableElementLeft">FREE CAMERA LOOK:</td>
+            <td class="tableElementRight">MOUSE LEFT CLICK</td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="mainMenuButtons" id="backControls">BACK</button>
+    </div>
+  </div>
+</div>
+
+<div id="hangarMainDiv">
+  <div id="hangarBody">
+    <div id="hangarHeader">
+      <h1 id="hangarHeadline">HANGAR</h1>
+      <h2>Engine Speed <span id="engineSpeedValueSpan">1</span></h2>
+      <h2>Servo Motors <span id="servoMotorsValueSpan">1</span></h2>
+      <h2>Reload Speed <span id="cannonPowerValueSpan">1</span></h2>
+      <h2 id="hangarMoney">Money <span id="hangarMoneyValueSpan">1</span> $</h2>
+    </div>
+    <div id="hangarButtonsContainer">
+      <button class="hangarButtons" id="engineUpgradeButton">Engine Upgrade <span class="buttonPrice"
+          id="engineUpgradePriceSpan">0</span>
+        $</button>
+      <button class="hangarButtons" id="servoMotorsUpgradeButton">Servo Motors Upgrade <span class="buttonPrice"
+          id="servoMotorsUpgradePriceSpan">0</span> $</button>
+      <button class="hangarButtons" id="cannonUpgradeButton">Cannon Upgrade <span class="buttonPrice"
+          id="cannonUpgradePriceSpan">0</span>
+        $</button>
+    </div>
+    <div id="hangarFooter">
+      <h2 id="currentScore">
+        SCORE: <span id="currentScoreSpan">0</span><br>
+        HIGH SCORE: <span id="highScoreSpan">0</span>
+       </h2>
+      <!-- <h2 id="highScore">HIGH SCORE: <span id="highScoreSpan">10000</span></h2> -->
+      <button id="leaveHangar">Leave Hangar</button>
+    </div>
+  </div>
+</div>
+
+<div id="HUDContainer">
+  <div id="HUDtopLeft">
+    <h2>ENEMY TANKS:<span id="enemyTanksValue"></span></h2>
+  </div>
+  <div id="HUDtopCenter">
+    <img id="loaderGif"src="menuImages/shellLoading.gif" alt="gifOfLoadingShell">
+  </div>
+  <div id="HUDtopRight">
+    <h2>MONEY:<span id="moneyValue"></span> $</h2>
+  </div>
+</div>
+<div class="centerText">
+  <h1>YOU ARE DESTROYED!!!</h1>
+</div>
+<div class="centerText">
+  <h1>YOU HAVE WON!!!</h1>
+</div>
+
+
+<div id="p5_loading" class="loadingclass">
+  <img id="loadingGif" src="menuImages/loading.gif" alt="" width="500px">
+</div>
+
+<script src="p5.js"></script>
+<script src="p5.sound.js"></script>
+<script src="mainMenu.js"></script>
+<script src="sketch.js"></script>
+
+    
+</body>
+</html>

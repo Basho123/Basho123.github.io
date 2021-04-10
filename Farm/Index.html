@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Javascripted Farm</title>
+</head>
+
+<body>
+    <div id="mainDiv">
+        <h1 id="headline">IVAN'S FARM SIMULATION</h1>
+        <div id="divWithTable">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Month</th>
+                        <th><abbr
+                                customTitle="ACRES of Farmland and Surface Area Occupied, the more area occupied, the less fields for hay and corn."><img
+                                    class="icon" src="images/symbols/m2.png"></abbr></th>
+                        <th><abbr customTitle="MACHINES are used to boost Work Factor "><img class="icon"
+                                    src="images/symbols/machines.png"></abbr></th>
+                        <th><abbr customTitle="DWELLINGS contain beds for workers to sleep"><img class="icon"
+                                    src="images/symbols/dwellings.jpg"></abbr></th>
+                        <th><abbr customTitle="STABLES contain pens for livestock to accomodate"><img class="icon"
+                                    src="images/symbols/stables.png"></abbr></th>
+                        <th><abbr customTitle="FOOD products are used for feeding workers and shopping"><img
+                                    class="icon" src="images/symbols/food.png"></abbr></th>
+                        <th><abbr customTitle="CORN is used as livestock food"><img class="icon"
+                                    src="images/symbols/corn.png"></abbr></th>
+                        <th><abbr customTitle="HAY is used as livestock food"><img class="icon"
+                                    src="images/symbols/hay.png"></abbr></th>
+                        <th><abbr customTitle="WATER is used for drinking by humans and animals"><img class="icon"
+                                    src="images/symbols/water.png"></abbr></th>
+                        <th><abbr customTitle="WORK FACTOR is directly connected with workers' efficiency"><img
+                                    class="icon" src="images/symbols/workFactor.png"></abbr></th>
+                        <th><abbr
+                                customTitle="CURRENT MONEY is current money, after calculating worker salaries and many expenses"><img
+                                    class="icon" src="images/symbols/budget.png"></abbr></th>
+
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                </tbody>
+            </table>
+        </div>
+        <div id="tools">
+            <button class="buyButtons" id="upgradeSleepingHouse"><abbr customTitle="Upgrade sleeping House 10000$"><img
+                        class="buyButtonsImages" src="images/sleepingQuartersUpgdrade.png" alt=""></abbr></button>
+            <button class="buyButtons" id="upgradeStables"><abbr customTitle="Upgrade stables 5000$"><img
+                        class="buyButtonsImages" src="images/stablesUpgrade.png" alt=""></abbr></button>
+            <button class="buyButtons" id="upgradeWaterTower"><abbr customTitle="Upgrade water tower 5000$"><img
+                        class="buyButtonsImages" src="images/waterTowerUpgrade.png" alt=""></abbr></button>
+            <button class="buyButtons" id="buyMoreSurface"><abbr customTitle="Buy more surface area 20000$"><img
+                        class="buyButtonsImages" src="images/surfaceAreaUpgrade.png" alt=""></abbr></button>
+
+        </div>
+        <div id="log">
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</body>
+
+</html>

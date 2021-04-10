@@ -1,0 +1,319 @@
+/* style.css for CV index.html */
+
+@font-face {
+    font-family: CenturyGothicRegular;
+    src: url(fonts/CenturyGothic.ttf);
+}
+
+/* BOLD FONT IS BUGGY SO IT IS CHANGED LATER WITH REGULAR */
+@font-face {
+    font-family: CenturyGothicBold;
+    src: url(fonts/GOTHICB.TTF);
+}
+
+@keyframes quarterBar {
+    0%   {width: 0;} 
+    100% {width: 20%;}
+  }
+
+  @keyframes lessThanHalfBar {
+    0%   {width: 0;} 
+    100% {width: 40%;}
+  }
+
+ @keyframes halfBar {
+    0%   {width: 0;} 
+    100% {width: 60%;}
+  }
+
+  @keyframes threeQuartersBar {
+    0%   {width: 0;}  
+    100% {width: 75%;}
+  }
+
+  @keyframes fullBar {
+    0%   {width: 0%;}  
+    100% {width: 100%;}
+  }
+
+
+    
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{   
+    font-family: CenturyGothicRegular;
+    background-color: rgb(124, 124, 124);
+}
+
+
+li,
+p{
+    font-size: 15px;
+    line-height: 28px;  
+}
+
+.line_break{
+    width:1000px;
+    height: 5px;
+    float: left;
+    color: black;
+    padding-top: 3px;
+    background-color: rgba(255,255,255,.5);
+    border-bottom: 3px solid black;
+}
+
+#mainContainer{
+    box-sizing: border-box;
+    display: flex;
+    width: 1000px;
+    margin: 0px auto;
+}
+@media screen and (max-width: 1000px) {
+    #mainContainer{      
+        width: 100%;
+  } 
+}
+
+#fullName{
+    display: flex;
+    flex-wrap: wrap;
+}
+#firstName{
+    padding-right: 5px;
+
+}
+#lastName{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#leftSideMainContainer{
+    box-sizing: border-box;
+
+    background-color: rgb(0,51,102);
+    color: white;
+    width: 25%;
+    min-width: 160px;
+
+    min-height: 1000px;
+}
+#rightSideMainContainer{
+    background-color: rgb(255, 255, 255);
+    color: black;
+    width: 75%;
+    min-height: 1000px;
+
+    padding: 20px;
+    padding-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+}
+
+#nameContainer{
+    margin-left: 10px;
+    padding: 10px;
+    padding-top: 25px;
+}
+
+#nameContainer > h1{    
+    line-height: 45px;
+    font-size: 30px;
+}
+
+#nameContainer > h4{
+    padding-top: 15px;
+    font-size: 17px;
+}
+
+.headlineLeftContainer{    
+    margin-top: 10px;
+    padding: 10px;
+    padding-left: 20px;
+    font-size: 13px;
+    background-color: rgb(0,38,78);
+}
+
+.boldFont{
+    font-family: CenturyGothicRegular;
+}
+.italic{
+    font-style: italic;
+}
+
+.tidy{
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.contactParagraph{
+    margin-bottom: 10px;
+    line-height: 23px;
+}
+.styledAnchor{
+    color: white;
+    text-decoration: none;    
+}
+.styledAnchorBlack{
+    color: rgb(0,51,102);
+}
+
+.styledAnchorBlack:hover,
+.styledAnchor:hover{
+    color: red;
+    text-shadow: 0px 0px 20px red;
+    text-decoration: none;    
+}
+
+.skillContainer{
+    display: flex;
+    flex-direction: column;
+}
+.skillContainerName{
+    width: 100%;
+}
+.skillContainerLoaderEmpty{
+    min-height: 10px;
+    background-color: rgb(0,42,84);
+    height: 5px;
+    width: 100%;
+}
+
+.skillContainerValue{
+    width: 100%;
+    text-align: right;
+}
+
+.loaderFullBar{
+    min-height: 10px;
+    background-color: rgb(255, 255, 255);
+    height: 5px;
+    animation: fullBar;
+    animation-fill-mode: forwards;
+    animation-duration: 4s;
+}
+.loaderThreeQuartersBar{
+    min-height: 10px;
+    background-color: rgb(255, 255, 255);
+    height: 5px;
+    animation: threeQuartersBar;
+    animation-fill-mode: forwards;
+    animation-duration: 3s;
+}
+.loaderHalfBar{
+    min-height: 10px;
+    background-color: rgb(255, 255, 255);
+    height: 5px;
+    animation: halfBar;
+    animation-fill-mode: forwards;
+    animation-duration:2s;
+}
+.loaderLessThanHalfBar{
+    min-height: 10px;
+    background-color: rgb(255, 255, 255);
+    height: 5px;
+    animation: lessThanHalfBar;
+    animation-fill-mode: forwards;
+    animation-duration: 1.5s;
+}
+.loaderQuarterBar{
+    min-height: 10px;
+    background-color: rgb(255, 255, 255);
+    height: 5px;
+    animation: quarterBar;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+}
+
+
+.rightSideHeadlines{
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    color:rgb(0,70,140);
+    font-family: CenturyGothicRegular;
+}
+
+.leftSideTable{
+    width: 25%;
+    vertical-align: top;    
+}
+
+.rightSideTable{
+    width: 75%;
+}
+
+.rightSideTableHeadline{
+    margin-top: 5px;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.marginTop15{
+    margin-top: 15px;
+}
+
+
+/* //////////////// */
+/* MOBILE PHONE CSS */
+/* //////////////// */
+
+@media screen and (max-width: 600px) {
+    li,
+    p{
+        font-size: 13px;
+        line-height: 22px;  
+    }   
+#leftSideMainContainer{
+    box-sizing: border-box;
+
+    background-color: rgb(0,51,102);
+    color: white;
+    min-height: 1000px;
+}
+
+#nameContainer{
+    margin-left: 5px;
+    padding: 0;
+    padding-top: 0;
+}
+
+#nameContainer > h1{    
+    line-height: 35px;
+    font-size: calc(0.4vw + 15px);
+}
+
+#nameContainer > h4{
+    padding-top: 5px;
+    font-size: 12px;
+}
+
+.headlineLeftContainer{    
+    padding: 5px;
+    font-size: 11px;
+    background-color: rgb(0,38,78);
+}
+.boldFont{
+    font-family: CenturyGothicRegular;
+}
+.italic{
+    font-style: italic;
+}
+
+.tidy{
+    padding: 5px;
+    margin-left: 0px;
+    margin-right: 5px;
+}
+.contactParagraph{
+    font-size: 12px;
+    margin-bottom: 10px;
+    line-height: 15px;
+}
+}
+

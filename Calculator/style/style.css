@@ -1,0 +1,443 @@
+/* style.css calculator */
+
+/* DIGITAL FONT */
+@font-face{
+    font-family: "digital";
+    src: url(../fonts/TickingTimebombBB.ttf);
+}
+
+@font-face{
+    font-family: "digital2";
+    src: url(../fonts/digital-7.ttf);
+}
+
+/* ANIMATION FOR SWITCHING ON */
+@keyframes power-on {
+    0%   {
+        background-color:rgb(25, 29, 24);
+        color:  rgb(25, 29, 24);
+        box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+    }
+    5%   {
+        background-color:rgb(25, 29, 24);
+        color:  rgb(25, 29, 24)}
+    6%  {
+        background-color:rgb(50, 116, 45);
+        color: rgb(50, 116, 45);
+        box-shadow: 0px 0px 100px rgba(0, 128, 0, 0.719);
+    }
+    99%  {
+        background-color:rgb(50, 116, 45);
+        color: rgb(50, 116, 45);
+        box-shadow: 0px 0px 100px rgba(0, 128, 0, 0.719);
+    }
+    100% {
+        background-color: rgb(58, 95, 55);
+        color: rgb(20, 20, 20);
+        box-shadow: 0px 0px 100px rgba(0, 128, 0, 0.397);}
+  }
+
+  /* ANIMATION FOR SWITCHING OFF, TO REPLACE THE ON ANIMATION */
+  @keyframes power-off {
+    0%   {background-color: rgb(58, 95, 55)}
+    1%   {
+        background-color:rgb(25, 29, 24);
+        color: rgb(25,29,24);
+        box-shadow: 0px 0px 0px rgba(0, 0, 0, 0)
+    }
+    100%   {
+        background-color:rgb(25, 29, 24);
+        color: rgb(25,29,24);
+        box-shadow: 0px 0px 0px rgba(0, 0, 0, 0)
+    }    
+  }
+
+  /* //////////////////////////////////////////////// */
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: black;
+    color: wheat;
+    text-align: center;
+    margin-top: 10px;    
+}
+
+#help{
+    /* position:absolute; */
+    align-self: flex-start;   
+    background-color: rgba(65, 65, 65, 0);
+    color: rgb(255, 255, 255);
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    box-shadow: none;
+    border: none;   
+   
+}
+
+#help:hover{
+    background-color: rgb(133, 133, 133);
+}
+
+#help:focus{
+    outline: none;
+}
+
+/* DIV FOR CENTERING THE CALCULATOR HOUSING*/
+#calculator{
+    margin-top: 5vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+/* CALCULATOR HOUSING */
+#calculatorHousing {
+    width: 100%;
+    max-width: 750px;
+    height: 100%;
+    padding-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;    
+    background-color: rgb(65, 64, 64);
+    border-radius: 50px 0px 34px 25px;
+    border-bottom: 10px solid rgb(44, 44, 44);
+    border-left: 10px solid rgb(80, 80, 80);
+}
+
+/*///////////
+/* DISPLAY */
+/*/////////*/
+
+/* CALCULATOR DISPLAY CONTAINER */
+#calculatorDisplay{
+    margin-top: 25px;
+    width: 100%;
+    height: 25%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center; 
+}
+
+/* UPPER DISPLAY */
+#val1{  
+    width:85%;
+    height: 70%;
+    text-align: right;
+  
+    box-shadow: 0px 0px 100px rgba(0, 128, 0, 0.397);
+    background-color: rgb(58, 95, 55);    
+    color: rgb(20, 20, 20);
+
+    border-radius: 5px 5px 0px 0px;  
+    font-size: 100px;
+    font-family: "digital2";
+}
+
+/* LOWER DISPLAY */
+#val2 {
+    width: 85%;
+    height: 30%;
+
+    box-shadow: 0px 0px 100px rgba(0, 128, 0, 0.397);
+    background-color: rgb(58, 95, 55);    
+    color: rgb(20, 20, 20);
+   
+    border-radius: 0px 0px 5px 5px;
+    text-align: center;
+    font-size: 30px;
+    font-family: "digital2";
+}
+
+/*/////////*/
+/* BUTTONS */
+/*/////////*/
+
+/* BUTTONS DIV CONTAINER */
+#buttons{
+    margin-top: 25px;
+    width: 90%;
+    height: 75%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;   
+}
+
+/*TEXT SELECTING DISABLED*/
+::selection {
+    color: none;
+    background: none;
+}
+
+/*THE BUTTONS STATES WHEN PRESSED OF FOCUSED*/
+.smallButton:active{
+    background-color: rgb(15, 15, 15);
+}
+.smallButton:hover{
+    background-color: rgb(17, 17, 17);
+}
+.smallButton:focus{ 
+   outline: none;
+}
+
+/*THE STYLE FOR THE BUTTONS*/
+.inputNumber{    
+    font-family: "digital2", Arial, Helvetica, sans-serif;
+    margin-top: 5px;
+    width: 30%;
+    height: 55px;
+    font-size: 45px;
+    text-shadow: 0px 0px 25px white;
+
+    background-color: black;
+    color: white;
+    
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgb(46, 46, 46);
+}
+
+.operatorButton{
+    font-family: "digital2", Arial, Helvetica, sans-serif;
+    margin-top: 5px;
+    width: 40%;
+    height: 55px;
+    font-size: 45px;
+    text-shadow: 0px 0px 25px white;
+
+    background-color: black;
+    color: white;
+    
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgb(46, 46, 46);
+}
+
+/* CONTAINER FOR THE OPERATOR BUTTONS */
+#operator-buttons {
+    margin-top: 45px;
+    width: 30%;
+    height: 30%;
+}
+
+
+/*CONTAINER FOR THE NUMBER BUTTONS*/
+#number-buttons {
+    margin-top: 45px;
+    width: 46%;   
+    height: 50%;
+    display: flex;
+    flex-wrap: wrap;  
+    justify-content: space-between;      
+}
+
+/* THE POWER/AUDIO BUTTONS*/
+#utilityButtons{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* THE YELLOW POWER BUTTON*/
+#powerButton{     
+    width: 50px;
+    height: 20px;
+    font-size: 20px;
+    background-color: rgb(173, 148, 5);
+    color: rgb(0, 0, 0);
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgb(46, 46, 46); 
+}
+
+/* THE YELLOW POWER BUTTON BORDER REMOVED WHEN FOCUSED*/
+#powerButton:focus{
+    outline: none;
+}
+
+/* THE RED AUDIO BUTTON*/
+#audioButton{
+    width: 50px;
+    height: 20px;
+    font-size: 20x;
+    text-align: center;
+    background-color: rgb(104, 12, 12);
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgb(46, 46, 46); 
+}
+/* THE RED AUDIO BUTTON BORDER REMOVED WHEN FOCUSED*/
+#audioButton:focus{
+    outline: none;
+}
+
+/*ORDER OF THE BUTTONS SO THEY APPEAR PROPERLY*/
+/*MUST BE ORDERED BECAUSE OF FOR LOOP USING*/
+#zero{
+    order: 10;
+}
+#one{
+    order: 7;
+}
+#two{
+    order: 8;
+}
+#three{
+    order: 9;
+}
+#four{
+    order: 4;
+}
+#five{
+    order: 5;
+}
+#six{
+    order: 6;
+}
+#seven{
+    order: 1;
+}
+#eight{
+    order: 2;
+}
+#nine{
+    order: 3;
+}
+#clear{
+    order:11;
+}
+#dot{
+    order:9;
+}
+
+
+
+
+
+ 
+@media screen and (max-width: 500px){
+    
+    body{       
+       margin: 0;   
+    }
+    /* DIV FOR CENTERING THE CALCULATOR HOUSING*/
+#calculator{
+    margin-top: 0px;  
+}
+
+
+    #calculatorHousing {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;      
+    }
+
+    #val1{  
+        width:85%;
+        height:120px;
+        text-align: right;
+      
+        box-shadow: 0px 0px 100px rgba(0, 128, 0, 0.397);
+        background-color: rgb(58, 95, 55);    
+        color: rgb(20, 20, 20);
+    
+        border-radius: 5px 5px 0px 0px;  
+        font-size: 100px;
+        font-family: "digital";
+    }
+    
+    /* LOWER DISPLAY */
+    #val2 {
+        width: 85%;
+        height: 40px;
+    
+        box-shadow: 0px 0px 100px rgba(0, 128, 0, 0.397);
+        background-color: rgb(58, 95, 55);    
+        color: rgb(20, 20, 20);
+       
+        border-radius: 0px 0px 5px 5px;
+        text-align: center;
+        font-size: 35px;
+        font-family: "digital";
+    }
+
+    /* BUTTONS DIV CONTAINER */
+    #buttons{
+        margin-top: 0;
+        width: 100%;
+        height: 75%;
+        display: flex;        
+        flex-wrap: wrap;
+        justify-content: space-around;   
+    }
+
+    /*TEXT SELECTING DISABLED*/
+    ::selection {
+        color: none;
+        background: none;
+    }
+
+    /*THE BUTTONS STATES WHEN PRESSED OF FOCUSED*/
+    .smallButton:active{
+        background-color: rgb(26, 26, 26);
+    }
+    .smallButton:focus{ 
+    outline: none;
+    }
+
+    /*THE STYLE FOR THE BUTTONS*/
+    .inputNumber{    
+        font-family: "digital2";
+        margin-top: 5px;
+        width: 30%;
+        height: 55px;
+        font-size: 45px;
+        text-shadow: 0px 0px 25px white;
+
+        background-color: black;
+        color: white;
+        
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgb(46, 46, 46);
+    }
+
+    .operatorButton{
+        font-family: "digital2";
+        margin-top: 5px;
+        width: 32%;
+        height: 55px;
+        font-size: 45px;
+        text-shadow: 0px 0px 25px white;
+
+        background-color: black;
+        color: white;
+        
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgb(46, 46, 46);
+    }
+    
+    /*CONTAINER FOR THE NUMBER BUTTONS*/
+    #number-buttons {       
+        width:85%;   
+        height: 50%;
+        display: flex;
+        flex-wrap: wrap;  
+        justify-content: space-between;      
+    }
+
+    /* CONTAINER FOR THE OPERATOR BUTTONS */
+    #operator-buttons {
+       
+        width: 85%;
+        height: 50%;
+    }
+
+
+
+
+}

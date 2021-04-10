@@ -1,0 +1,336 @@
+
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-color: black;
+    color: white;
+    text-align: center;
+    width: 1200px;
+    display: block;
+    margin: 0px auto;
+}
+@media screen and (max-width: 1200px){
+body{
+    width: 100%;
+}
+}
+
+table{
+    
+    margin: 0px auto;
+}
+
+th,
+td{
+   
+    padding: 10px;
+}
+
+input{
+    padding: 10px;    
+    background-color: rgb(161, 161, 161);
+    color: white;    
+    border-radius: 5px;
+}
+
+button{
+    background-color: black;
+    border: white 3px solid;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+}
+
+button:active{
+    border: red 3px solid;
+}
+
+button:focus{   
+    border: red 3px solid;
+    outline: none;
+}
+
+/* //////////////////////////// */
+/* CURRENT TEMPERATURE ELEMENTS */
+/* //////////////////////////// */
+
+
+.currentHours{
+    font-size: 50px;
+}
+
+.currentDays{
+    font-size: 30px;
+}
+
+.currentTemperature{
+    font-size: 150px;
+}
+
+.currentFeelsLike{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-style: italic;
+    font-size: 20px;  
+}
+
+
+.currentWeatherDescription{    
+    font-size: 25px;
+}
+
+.currentUv{    
+    font-size: 25px;
+    font-style: italic;
+}
+
+.sunset,
+.sunrise{
+    font-size: 30px;    
+}
+
+.aqi{
+    font-size: 40px;
+}
+
+.pm2_5,
+.pm10{
+    font-size:25px;
+}
+
+/* cells class */
+
+/* ///////////////////// */
+/* HOURLY TABLE ELEMENTS */
+/* ///////////////////// */
+
+.hourlyHours{
+    font-weight: 500;
+    font-size: 25px;
+    
+}
+
+.hourlyDays{
+    color: rgb(180, 180, 180);
+}
+
+.hourlyTemperature{
+    
+    font-size: 50px;
+    padding-left: 5px;
+    padding-right: 35px;
+}
+
+.hourlyFeelsLike{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-style: italic;
+}
+
+.hourlyWeatherDescription{    
+    font-size: 15px;
+}
+
+
+.grandparentDiv{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.parentDiv{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-evenly;  
+    padding: 10px;    
+}
+
+.parentDiv2{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;    
+   
+}
+
+.div1,
+.div2,
+.div3,
+.div4,
+.div5,
+.div6{
+    display: flex;
+    flex-wrap: wrap;  
+    flex-direction: column;
+    justify-content: center; 
+    padding: 5px; 
+}  
+    
+
+.div4{
+    min-width: 130px;  
+    justify-content: space-evenly;
+}
+
+.div5{  
+    min-width: 150px;      
+    justify-content: space-evenly;
+  
+}
+
+.div6{    
+    min-width: 150px;  
+    justify-content: space-evenly;
+}
+
+.imageElement{    
+   width: 100%;
+}
+
+.tinyLetters{
+    font-size: 13px;
+}
+
+
+.smallLetters{
+    font-size: 18px;
+}
+
+.mediumLetters{
+    font-size: 45px;
+}
+
+.largeLetters{
+    font-size: 75px;
+}
+
+
+/* /////////////////////// */
+/* // MOBILE PHONE CSS  // */
+/* /////////////////////// */
+
+@media screen and (max-width: 700px){   
+        
+.currentHours{
+    font-size: 25px;
+}
+
+.currentDays{
+    font-size: 18px;
+}
+
+.currentTemperature{
+    font-size: 60px;
+}
+
+.currentFeelsLike{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-style: italic;
+    font-size: 10px;  
+}
+
+
+.currentWeatherDescription{    
+    font-size: 18px;
+}
+
+.currentUv{    
+    font-size: 15px;
+    font-style: italic;
+}
+
+.sunset,
+.sunrise{
+    font-size: 20px;    
+}
+
+.aqi{
+    font-size: 20px;
+}
+
+.pm2_5,
+.pm10{
+    font-size:15px;
+}
+
+/* cells class */
+
+/* ///////////////////// */
+/* HOURLY TABLE ELEMENTS */
+/* ///////////////////// */
+
+.hourlyHours{
+    font-weight: 500;
+    font-size: 20px;
+    
+}
+
+.hourlyDays{
+    color: rgb(153, 153, 153);
+}
+
+.hourlyTemperature{
+    
+    font-size: 50px;
+}
+
+.hourlyFeelsLike{  
+    font-size: 15px;
+}
+
+.hourlyWeatherDescription{    
+    font-size: 13px;
+}
+
+
+
+
+.parentDiv{
+    justify-content:space-between;  
+    padding: 0px;    
+}
+
+.parentDiv2{
+    height: 20px;
+}
+
+.div1,
+.div2,
+.div3,
+.div4,
+.div5,
+.div6{
+    display: flex;
+    flex-wrap: wrap;  
+    /* flex-direction: column; */
+    justify-content: center; 
+    padding-left: 10px;
+    padding-right: 10px; 
+
+}  
+    
+.tinyLetters{
+    font-size: 13px;
+}
+
+.imageElement{
+    margin: 0px auto;
+    width: 60%;
+ }
+
+
+.smallLetters{
+    font-size: 18px;
+}
+
+.mediumLetters{
+    font-size: 20px;
+}
+
+.largeLetters{
+    font-size: 45px;
+}
+    }

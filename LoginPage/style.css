@@ -1,0 +1,159 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+*:focus{
+   outline: none;
+}
+
+
+input{
+    height: 30px;    
+    border-radius: 10px;
+    padding-left: 5px;
+}
+label{
+    font-size: 20px;
+}
+
+h2{
+    margin: 20px;
+}
+
+a{
+    text-decoration: none;
+    color: red;
+}
+
+p{
+    margin: 20px;
+    font-size: 15px;
+}
+
+#logInButton{
+    width: 150px;
+    height: 40px;
+
+    border-radius: 5px;  
+    border-color: rgb(0, 113, 121); 
+    background-color: rgb(10, 114, 128);
+    color: white;
+   
+    font-size: 25px;
+}
+
+header>div:nth-of-type(1){  
+    text-align: center;
+    width: 100%;
+    height: 30%;
+    border-bottom: dashed rgba(0, 92, 92, 0.712) 2px;
+}
+
+#logInForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 150px auto;
+  
+    width: 100%;
+    max-width: 350px;
+    height: 200px;
+}
+
+#logInForm> div:nth-of-type(1){
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 10%;   
+}
+
+#logInForm> div:nth-of-type(2){
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 10%;   
+}
+
+#logInForm> div:nth-of-type(3){
+   text-align: center;    
+    width: 100%;
+    height: 10%;   
+}
+header > div:nth-of-type(3){
+    text-align: center;    
+     width: 100%;
+     height: 10%;        
+ }
+
+
+
+
+/* ///////////////// */
+
+main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+}
+
+#registerNewButton{
+    width: 250px;
+    height: 50px;
+
+    border-radius: 5px;  
+    border-color: rgb(0, 121, 0); 
+    background-color: rgb(10, 128, 26);
+    color: white;
+   
+    font-size: 25px;
+}
+
+#regFormTable{
+    margin-top: 50px;
+    display: table;    
+    width: 100%;
+    text-align: center;
+}
+.regFormTd{
+    width:250px;
+    padding-top: 50px;
+}
+
+
+#loggedInDiv{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#loggedInDiv > div:nth-of-type(1){
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+
+#loggedInDiv > div:nth-of-type(2){
+    width: 0%;
+    background-color: rgb(255, 255, 255);
+}
+
+td{
+    width: 25%;
+    height: 15px;
+}
+
+
+footer{
+    margin-top: 50px ;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+}

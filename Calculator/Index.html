@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css" type="text/css">
+
+    <title>Calculator</title>
+</head>
+<body>
+    <link rel="shortcut icon" href="#">
+    <audio src="audio/beepSofter.mp3" type="audio/mp3" id="beep"></audio>
+    <audio src="audio/dummy.mp3" type="audio/mp3" id="dummy"></audio>
+
+    <button id="help">?</button>
+
+    <div id="calculator">
+        <div id="calculatorHousing">
+
+            <div id="utilityButtons">
+                <div id="power"> <button id="powerButton"></button></div>
+                <div id="audioButtonDiv"> <button id="audioButton"></button></div>
+            </div>
+
+            <div id="calculatorDisplay">
+                <input type="text" name="" id="val1" value="0" disabled>
+                <input type="text" name="" id="val2" disabled>
+            </div>
+
+
+            <div id="buttons">
+                <div id="number-buttons">
+                    <button id="zero" class="smallButton inputNumber">0</button>
+                    <button id="one" class="smallButton inputNumber">1</button>
+                    <button id="two" class="smallButton inputNumber">2</button>
+                    <button id="three" class="smallButton inputNumber">3</button>
+                    <button id="four" class="smallButton inputNumber">4</button>
+                    <button id="five" class="smallButton inputNumber">5</button>
+                    <button id="six" class="smallButton inputNumber">6</button>
+                    <button id="seven" class="smallButton inputNumber">7</button>
+                    <button id="eight" class="smallButton inputNumber">8</button>
+                    <button id="nine" class="smallButton inputNumber">9</button>
+
+                    <button id="clear" class="smallButton inputNumber">C</button>
+                    <button id="dot" class="smallButton inputNumber">.</button>
+                </div>
+                <div id="operator-buttons">
+                    <button id="plus" class="smallButton operatorButton">+</button>
+                    <button id="minus" class="smallButton operatorButton">-</button>
+                    <button id="mult" class="smallButton operatorButton">*</button>
+                    <button id="div" class="smallButton operatorButton">/</button>
+                    <button id="square" class="smallButton operatorButton">^</button>
+                    <button id="equals" class="smallButton operatorButton">=</button>
+                    <button id="root" class="smallButton operatorButton">√</button>
+                    <button id="sinus" class="smallButton operatorButton">sin</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+    integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="lib/script.js"></script>
+</body>
+</html>

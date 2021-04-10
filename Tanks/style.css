@@ -1,0 +1,273 @@
+@font-face {
+  font-family: Orbitron;
+  src: url(files/fonts/orbitron/Orbitron-VariableFont_wght.ttf);
+}
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Orbitron;
+
+}
+
+button{
+  font-family: Orbitron;
+
+}
+canvas {
+  display: block;
+}
+
+#mainMenu{
+  display: flex;
+  flex-wrap: wrap;
+  height: 100vh;
+  background-image: url("menuImages/panzer1942.jpg");
+  background-size:cover;  
+}
+
+#mainMenuHeader{
+  width: 100%;
+  height:30vw;
+  min-height: 100px;
+  max-height: 450px;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  align-content: center;
+
+}
+
+#mainMenuHeadline{
+  width: 400px;
+  height: 50x;
+
+  font-size: 100px;
+  
+  font-family: Orbitron;
+  text-align: center;
+  margin: 0px auto;
+}
+
+#mainMenuBody{  
+  height: 500px;
+  width: 100%;
+  max-width: 600px;
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0px auto; 
+}
+
+#optionsContainer,
+#mainMenuButtonsContainer{
+  height: 100%;
+  width: 100%;
+}
+.mainMenuButtons{
+  width: 100%;
+  height: 18%;
+  font-size: 40px;  
+
+  margin-top: 5px;
+  border-radius: 20px;
+  border-style: none;
+  background-color: rgba(255,255,255, 0.5);
+}
+.mainMenuButtons:hover{
+  box-shadow: 0 0 50px;
+}
+
+.mainMenuButtons:active{
+  background-color: rgba(255,255,255, 0.6);
+  box-shadow: 0 0 50px;
+}
+
+.mainMenuButtons:focus{
+  outline: none ;
+}
+
+#controlsContainer{
+  height: 120%;
+  width: 100%;
+  margin-top: -240px;
+  /* position: static; */
+  background-color: rgba(0, 0, 0, 0.425);
+  border-radius: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  /* margin: 0px auto; */
+  color: rgb(255, 255, 255);
+}
+
+.tableElementLeft{
+  padding-left:30px;
+  padding-top: 10px;
+  font-size: 20px;
+  text-align: left;
+}
+.tableElementRight{
+  font-size: 20px;
+  color: rgb(255, 233, 106);
+  text-align: right;
+}
+
+
+
+#hangarMainDiv{
+  height: 100vh;
+  width: 100%;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  background-image: url("menuImages/hangar.jpg");
+  background-size: cover; 
+  
+}
+
+#hangarHeader{
+  width:100vw;
+  color: rgb(255, 255, 255);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+#hangarHeadline{
+  width: 100%;  
+  text-align: center;
+}
+#hangarMoney{
+width: 100%;
+text-align: center;
+}
+
+#hangarButtonsContainer{
+  height: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.hangarButtons{
+  height: 250px;
+  width: 250px;
+  font-size: 30px;
+  color: white;
+  border-radius: 25px;
+  background-color: rgba(0, 0, 0, 0.486);
+}
+
+.hangarButtons:focus{
+outline: none;
+}
+.hangarButtons:hover{
+box-shadow: 0 0 30px rgba(179, 0, 0, 0.486);
+}
+.buttonPrice{
+  width: 100%;
+  color: rgb(36, 151, 1);
+}
+
+#hangarFooter{
+  width: 100%;
+display: flex;
+flex-wrap: wrap;
+justify-content: space-around;
+margin-top: 50px;
+}
+#currentScore{
+  background-color: rgba(0, 0, 0, 0.325);
+  border-radius: 25px;
+  color: white;
+  padding-left: 40px;
+  padding-right: 20px;
+  text-align: left;
+}
+
+
+#leaveHangar{
+  height: 100px;
+  width: 250px;
+  font-size: 30px;
+  color: white;
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.486);
+}
+
+#leaveHangar:focus{
+  outline: none;
+}
+
+
+
+
+#HUDContainer{
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 60px;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.125);
+}
+
+#HUDtopRight{
+  text-align: center;
+  color: white;
+  padding-right: 50px;
+
+}
+
+/* MARGINS HAVE NEGATIVE VALUE DUE TO BIGGER GIF PICTURE */
+#HUDtopCenter{
+  margin-top: -10px;
+  text-align: center;
+  /* background-color: red; */
+  color: white;
+}
+#loaderGif{
+  display:initial;
+  margin-top: -50px;
+  margin:-200px;
+}
+
+#HUDtopLeft{
+  text-align: center;
+  color: white;
+  padding-left: 50px;
+}
+
+.centerText{
+ position: absolute;
+ display: none;
+ background-color: rgba(255, 255, 255, 0.125);
+ border-radius: 20px;
+ margin-top: 25%;
+ margin-left: 30%;
+ font-size: 30px;  
+}
+
+#p5_loading{
+  background-image: url("menuImages/sherman1942.jpg");
+  background-size: cover;
+  height: 100vh;
+}
+
+
+#loadingImage{
+  background-size: cover;
+
+}
+#loadingGif{
+  position: absolute;
+}
+
+
+

@@ -1,0 +1,20 @@
+#
+## Alias OBJ Material File
+# Exported from SketchUp, (c) 2000-2012 Trimble Navigation Limited
+
+newmtl leafs1
+Ka 0.000000 0.000000 0.000000
+Kd 0.345098 0.560784 0.078431
+Ks 0.330000 0.330000 0.330000
+
+newmtl flowers1
+Ka 0.000000 0.000000 0.000000
+Kd 0.917647 0.996078 0.270588
+Ks 0.330000 0.330000 0.330000
+
+newmtl bark1
+Ka 0.000000 0.000000 0.000000
+Kd 0.415686 0.423529 0.372549
+Ks 0.330000 0.330000 0.330000
+map_Kd treesolistovi/bark1.jpg
+
