@@ -101,14 +101,26 @@ let printTemplates = {
         let days = getDayName(response.current.dt * 1000);
 
         //SUNRISE TIME IS CONVERTED HERE
-        let sunriseToConvert = new Date(+(`${response.current.sunrise}000`))
-        let sunriseArray = sunriseToConvert.toString().split(` `);
-        let sunriseTime = sunriseArray[4].substr(0, 5);
+        let sunriseTime = new Date(+(`${response.current.sunrise}000`))
+                                                    .toString() //convert to string
+                                                    .split(` `) // split the string to array
+                                                    .slice(4, 5) //slice the time out of the full string array
+                                                    .toString() // convert the array to string
+                                                    .split(":") // split the time out of the
+                                                    .slice(0,2) // seconds
+                                                    .join(':'); // then join hours and minutes with ':' in single string
+        
 
         //SUNSET TIME IS CONVERTED HERE
-        let sunsetToConvert = new Date(+(`${response.current.sunset}000`))
-        let sunsetArray = sunsetToConvert.toString().split(` `);
-        let sunsetTime = sunsetArray[4].substr(0, 5);
+        let sunsetTime = new Date(+(`${response.current.sunset}000`))
+                                                    .toString()
+                                                    .split(` `)
+                                                    .slice(4, 5)
+                                                    .toString()
+                                                    .split(":")
+                                                    .slice(0,2)
+                                                    .join(':');
+     
 
         //DIV ELEMENTS ARE CREATED HERE
         let parentDiv = document.createElement("DIV");
