@@ -114,6 +114,11 @@ button:focus{
 
 .hourlyDays{
     color: rgb(180, 180, 180);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 60%;
+
 }
 
 .hourlyTemperature{

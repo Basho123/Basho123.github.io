@@ -12,12 +12,12 @@ let printTemplates = {
         grandparentDiv.innerHTML = ``;
 
         let divStyleBackgroundColorSwitch = true;
-        
+
         list.forEach(element => {
             //TIME AND DATE STRING ARE FETCHED HERE, 2 SEPARATE API LINKS ARE USED AND INTERTWINED, TIMEZONE SET ACCORDINGLY
             dayName = getDayName(element.dt_txt, `en-US`)
             let dateTimeArray = element.dt_txt.split(` `);
-            let date = dateTimeArray[0].substr(5).split(`-`);
+            let date = dateTimeArray[0].substr(5).split(`-`);            
             date = `${date[1]}/${date[0]}`
             hourDate = new Date(+(`${element.dt}000`) + (timezone * 1000))
             let dateArray = hourDate.toString().split(` `);
@@ -95,18 +95,18 @@ let printTemplates = {
         headline.innerHTML = `<span style = "text-transform: capitalize;">${apiParameters.globalCity}</span>`
         grandparentDiv.innerHTML = ``;
         //DATE CONVERSIONS ARE DONE HERE
-        let date = new Date(+(`${response.current.dt}000`) + (response.timezone_offset * 1000) - 3600 * 1000)
+        let date = new Date(+(`${response.current.dt}000`))
         let dateArray = date.toString().split(` `);
         let hours = dateArray[4].substr(0, 5);
         let days = getDayName(response.current.dt * 1000);
 
         //SUNRISE TIME IS CONVERTED HERE
-        let sunriseToConvert = new Date(+(`${response.current.sunrise}000`) + (response.timezone_offset * 1000) - 3600 * 1000)
+        let sunriseToConvert = new Date(+(`${response.current.sunrise}000`))
         let sunriseArray = sunriseToConvert.toString().split(` `);
         let sunriseTime = sunriseArray[4].substr(0, 5);
 
         //SUNSET TIME IS CONVERTED HERE
-        let sunsetToConvert = new Date(+(`${response.current.sunset}000`) + (response.timezone_offset * 1000) - 3600 * 1000)
+        let sunsetToConvert = new Date(+(`${response.current.sunset}000`))
         let sunsetArray = sunsetToConvert.toString().split(` `);
         let sunsetTime = sunsetArray[4].substr(0, 5);
 
@@ -182,9 +182,9 @@ let printTemplates = {
 
         let divStyleBackgroundColorSwitch = true;
 
-        response.hourly.forEach(element => {
+        response.hourly.forEach((element, index) => {
             //TIME AND DATE ARE ADJUSTED HERE, AND TIMEZONE IS CORRECTED ACCORDINGLY
-            let date = new Date(+(`${element.dt}000`) + (response.timezone_offset * 1000))
+            let date = new Date(+(`${element.dt}000`) + (response.timezone_offset * 1000) - 3600 * 1000)
             let dateArray = date.toString().split(` `);
             let hours = dateArray[4].substr(0, 5);
             let days = dateArray[0];
@@ -272,6 +272,13 @@ let printTemplates = {
 
             let days = getDayName(element.dt * 1000);
 
+            let dateText = new Date(element.dt * 1000)
+                .toDateString()
+                .split(' ')
+                .slice(1, 3);
+               dateText[1][0] == '0' ? dateText[1] = dateText[1][1] : null;
+
+
             let parentDiv = document.createElement("DIV");
             parentDiv.classList.add(`parentDiv`)
             grandparentDiv.appendChild(parentDiv);
@@ -311,7 +318,7 @@ let printTemplates = {
             parentDiv.appendChild(div5);
             parentDiv.appendChild(div6);
 
-            div1.innerHTML = `<span class = "hourlyDays">${days}</span>`
+            div1.innerHTML = `<span class = "hourlyDays">${days} ${dateText[1]} ${dateText[0]}</span>`
             div2.innerHTML = `<span class = "hourlyHours">Min. ${parseInt(element.temp.min)}°C</span>`
             div3.innerHTML = `<span class = "hourlyHours">Max. ${parseInt(element.temp.max)}°C</span>`
             div4.innerHTML = `<span style = "text-transform: capitalize;">${element.weather[0].description}</span>`
