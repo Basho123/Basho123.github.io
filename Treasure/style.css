@@ -1,0 +1,111 @@
+/* style.css for treasure */
+*{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body{
+    background-color: black;
+}
+
+canvas{
+    /* display: none; */
+    display: flex;
+    margin: 0px auto; 
+    border-radius: 25px;
+
+}
+
+#mainMenu{
+    width: 1000px;
+    height: 800px;
+
+    display: none;
+    flex-wrap: wrap;
+    align-items: center;  
+    justify-content: center;  
+    background-color: brown;
+    margin: 0px auto;
+}
+
+#continueButton{
+    display: none;
+}
+
+
+.menuButtons{
+    width: 300px;
+    height: 80px;
+
+    font-size: 40px;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+}
+
+
+
+#HUD{
+    width: 1300px;
+    height: 800px;
+    user-select: none; 
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left:8%;
+    color: rgb(255, 255, 255);
+}
+
+#movesRemainingContainer{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 20%;
+    width: 40%;
+}
+
+#objectivesContainer{
+   
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 20%;
+    width: 40%;
+}
+
+#pointsContainer{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    width: 40%;
+}
+
+#stars{
+    display: flex;
+    width: 40%;
+    justify-content: space-around;
+    margin-bottom: 5px;
+}
+
+.smallText{
+    font-size: 15px;
+}
+
+.mediumText{
+    font-size: 40px;
+}
+
+.largeText{
+    font-size: 65px;
+}
+
+
+

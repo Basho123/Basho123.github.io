@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Treasure</title>
+</head>
+
+<body>
+  <div id="mainMenu">
+    <div>
+      <div>
+        <button class="menuButtons" id="continueButton">Continue</button>
+      </div>
+      <div>
+        <button class="menuButtons" id="playButton">Play</button>
+      </div>
+      <div>
+        <button class="menuButtons" id="restartGame">Restart Game</button>
+      </div>
+      <div>
+        <button class="menuButtons" id="soundButton">Sound On/Off</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="HUD">
+    <div id="movesRemainingContainer">
+      <img src="./Images/wood.png" width="200px" height="150px" style="position: absolute; z-index: 0;" alt="">
+
+      <div id="movesRemainingCount" class="mediumText" style="z-index: 1;">0</div>
+      <div class="smallText" style="z-index: 1;">moves remaining</div>
+    </div>
+
+    <div id="objectivesContainer">
+      <img src="./Images/wood.png" width="200px" height="150px" style="position: absolute; z-index: 0;" alt="">
+      <div id="objectiveRemainingCount" class="mediumText" style="z-index: 1;">0</div>
+      <div id="objectiveName" class="smallText" style=" z-index: 1;">ObjectiveName</div>
+    </div>
+
+    <div id="pointsContainer">
+      <img src="./Images/wood.png" width="300px" height="250px" style="position: absolute; z-index: 0;" alt="">
+      <div id="stars" style="z-index: 1;">
+        <div id="star1"><img src="./Images/emptyStar.png" alt=""></div>
+        <div id="star2"><img src="./Images/emptyStar.png" alt=""></div>
+        <div id="star3"><img src="./Images/emptyStar.png" alt=""></div>
+      </div>
+
+      <div id="totalPoints" class="largeText" style="z-index: 1;">0</div>
+      <!-- <div id="currentPoints" style="z-index: 1;">CurrentPoints</div> -->
+
+    </div>
+  </div>
+
+
+
+
+  <div id="p5_loading" class="loadingclass">
+  </div>
+
+  <script src="p5/p5.js"></script>
+  <script src="p5/p5.sound.js"></script>
+
+  <script src="preload.js"></script>
+  <script src="classLibrary.js"></script>
+  <script src="GUI.js"></script>
+  <script src="sketch.js"></script>
+</body>
+
+</html>

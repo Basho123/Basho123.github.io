@@ -1755,7 +1755,7 @@ if (main.level > 0) {
 
     //MOVE AROUND WITH NUMPAD KEYS IN CERTAIN CAMERA MODES
     keyIsDown(104) ? camera.body.move(0, 0, -5) : false;  //NUM 8  FORWARD
-    keyIsDown(101) ? camera.body.move(0, 0, 5) : false;   //NUM 5  BACKWARD
+    keyIsDown(98) ? camera.body.move(0, 0, 5) : false;   //NUM 2  BACKWARD
     keyIsDown(100) ? camera.body.move(-5, 0, 0) : false;  //NUM 4  LEFT
     keyIsDown(102) ? camera.body.move(5, 0, 0) : false;   //NUM 6  RIGHT
     keyIsDown(97) ? camera.body.move(0, 5, 0) : false;   //NUM 1  DOWN
