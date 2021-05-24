@@ -9,11 +9,12 @@ body{
 
 canvas{
     /* display: none; */
-    display: flex;
+    /* display: flex;
     margin: 0px auto; 
-    border-radius: 25px;
+    border-radius: 25px; */
 
 }
+
 
 #mainMenu{
     width: 1000px;
@@ -43,47 +44,94 @@ canvas{
 }
 
 
-
-#HUD{
+#canvasDiv{
     width: 1300px;
     height: 800px;
-    user-select: none; 
-    position: absolute;
+    margin: 0px auto;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: space-around;
-    margin-left:8%;
+    justify-content: center;
+
+    position: relative;
+
+}
+
+
+
+#HUD{
+    width: 100%;
+    height: 100%;     
+
+    user-select: none; 
+
     color: rgb(255, 255, 255);
+
+    position:absolute;
+}
+
+#levelStart{
+    width: 100%;
+    height: 100%;     
+
+    user-select: none; 
+
+    display: none;
+    font-size: 50px;
+
+    z-index: 2;
+    /* margin-left:0; */
+
+    /* background-color: rebeccapurple; */
+    color: rgb(255, 255, 255);
+
+    background-color: rgba(0, 0, 0, 0.514);
+
+    position:absolute;
+}
+
+#levelFinish{
+    width: 100%;
+    height: 100%;     
+
+    user-select: none; 
+
+    display: none;
+    font-size: 50px;
+    z-index: 2;
+
+    /* margin-left:0; */
+
+    /* background-color: rebeccapurple; */
+    color: rgb(255, 255, 255);
+
+    background-color: rgba(0, 0, 0, 0.514);
+
+    position:absolute;
+}
+
+#objectiveCompletedContainer{
+    display: none;
+}
+
+#objectiveName{
+    width: 150px;
+    text-align: center;
 }
 
 #movesRemainingContainer{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+   
     height: 20%;
     width: 40%;
 }
 
-#objectivesContainer{
+#objectivesContainer{   
    
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     height: 20%;
     width: 40%;
 }
 
 #pointsContainer{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+   
     height: 50%;
     width: 40%;
 }
@@ -107,5 +155,31 @@ canvas{
     font-size: 65px;
 }
 
+.flex-center-vertical{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
 
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+.justify-around{
+    justify-content: space-around;
+}
+
+.flex-start{
+    align-items: flex-start;
+}
+
+.marginize-50{
+    margin: 50px;
+}
+
+
+.marginize-10{
+    margin: 10px;
+}
 

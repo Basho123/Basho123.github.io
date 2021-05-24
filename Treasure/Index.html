@@ -27,33 +27,65 @@
     </div>
   </div>
 
-  <div id="HUD">
-    <div id="movesRemainingContainer">
-      <img src="./Images/wood.png" width="200px" height="150px" style="position: absolute; z-index: 0;" alt="">
+  <div id="canvasDiv">
 
-      <div id="movesRemainingCount" class="mediumText" style="z-index: 1;">0</div>
-      <div class="smallText" style="z-index: 1;">moves remaining</div>
-    </div>
-
-    <div id="objectivesContainer">
-      <img src="./Images/wood.png" width="200px" height="150px" style="position: absolute; z-index: 0;" alt="">
-      <div id="objectiveRemainingCount" class="mediumText" style="z-index: 1;">0</div>
-      <div id="objectiveName" class="smallText" style=" z-index: 1;">ObjectiveName</div>
-    </div>
-
-    <div id="pointsContainer">
-      <img src="./Images/wood.png" width="300px" height="250px" style="position: absolute; z-index: 0;" alt="">
-      <div id="stars" style="z-index: 1;">
-        <div id="star1"><img src="./Images/emptyStar.png" alt=""></div>
-        <div id="star2"><img src="./Images/emptyStar.png" alt=""></div>
-        <div id="star3"><img src="./Images/emptyStar.png" alt=""></div>
+    <!-- LEVEL START -->
+    <div id="levelStart" class="flex-center-vertical">
+      <div id="levelStartContainer" class="flex-center-vertical marginize-50">
+        <div class="marginize-10">LEVEL</div>
+        <div id="levelCountStart">1</div>
       </div>
 
-      <div id="totalPoints" class="largeText" style="z-index: 1;">0</div>
-      <!-- <div id="currentPoints" style="z-index: 1;">CurrentPoints</div> -->
-
+      <div id="objectiveInfoContainer" class="flex-center-vertical marginize-50">
+        <div class="marginize-10">OBJECTIVE:</div>
+        <div id="objectiveInfoStart">Objective for the current level</div>
+      </div>
+     
     </div>
+
+    <!-- HUD -->
+    <div id="HUD" class="flex-center-vertical justify-around flex-start">
+      <div id="movesRemainingContainer" class="flex-center-vertical">
+        <img src="./Images/wood.png" width="200px" height="150px" style="position: absolute; z-index: 0;" alt="">
+
+        <div id="movesRemainingCount" class="mediumText" style="z-index: 1;">0</div>
+        <div class="smallText" style="z-index: 1;">moves remaining</div>
+      </div>
+
+      <div id="objectivesContainer" class="flex-center-vertical">
+        <img src="./Images/wood.png" width="200px" height="150px" style="position: absolute; z-index: 0;" alt="">
+        <div id="objectiveRemainingCount" class="mediumText" style="z-index: 1;">0</div>
+        <div id="objectiveName" class="smallText" style=" z-index: 1;">ObjectiveName</div>
+      </div>
+
+      <div id="pointsContainer" class="flex-center-vertical">
+        <img src="./Images/wood.png" width="300px" height="250px" style="position: absolute; z-index: 0;" alt="">
+        <div id="stars" style="z-index: 1;">
+          <div id="star1"><img src="./Images/emptyStar.png" alt=""></div>
+          <div id="star2"><img src="./Images/emptyStar.png" alt=""></div>
+          <div id="star3"><img src="./Images/emptyStar.png" alt=""></div>
+        </div>
+
+        <div id="totalPoints" class="largeText" style="z-index: 1;">0</div>
+      </div>
+    </div>
+
+
+    <!-- LEVEL FINISH -->
+    <div id="levelFinish" class="flex-center-vertical">
+      <div id="fishKilledContainer" class="flex-center-vertical marginize-50">
+        <div class="marginize-10">FISH KILLED</div>
+        <div id="fishKilledCount">0</div>
+      </div>
+
+      <div id="objectiveCompletedContainer" class="flex-center-vertical marginize-50">
+        <div class="marginize-10">OBJECTIVE COMPLETED!</div>
+        <div id="objectiveCompletedPoints">+10000 points</div>
+      </div>     
+    </div>
+
   </div>
+
 
 
 
@@ -65,6 +97,7 @@
   <script src="p5/p5.sound.js"></script>
 
   <script src="preload.js"></script>
+  <script src="objectives.js"></script>
   <script src="classLibrary.js"></script>
   <script src="GUI.js"></script>
   <script src="sketch.js"></script>

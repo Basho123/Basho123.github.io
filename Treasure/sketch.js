@@ -1,16 +1,48 @@
 // IMPORTED CLASSES FROM classLibrary.js
 // IMPORTED CLASSES FROM GUI.js
-
+let jare = '';
 ///////////// SETUP //////////////
 console.log(`You are at level ${GlobalCounter.level}`);
 
+let randomObjective = Math.floor(Math.random() * Objective.Difficulty[0].length);
+
+
+
+
+
+const currentObjective = Objective.Difficulty[0][randomObjective];
+
+
+// console.log(Objective.Objectives[0][0]);
+// const currentObjective = Objective.Objectives[0];
+
+
+HUD.objectiveName.innerHTML = currentObjective.info;
+LevelStartTooltip.objectiveInfo.innerHTML = currentObjective.info;
+LevelStartTooltip.levelCount.innerHTML = GlobalCounter.level;
+
+
 preload = () => {
-  Background.image1 = loadImage('./Images/underWater1.jpg');
+  Background.image1 = loadImage('./Images/underWater1.png');
+
+  SceneryModel.treasureChest = loadImage('./Images/treasure.png');
+  SceneryModel.bubble = loadImage('./Images/bubble.png');
+
+  FishModel.green = loadImage('./Images/fish/greenFish.png');
+  FishModel.purple = loadImage('./Images/fish/purpleFish.png');
+  FishModel.red = loadImage('./Images/fish/redFish.png');
+  FishModel.orange = loadImage('./Images/fish/orangeFish.png');
+  FishModel.blue = loadImage('./Images/fish/shark.png');
 }
 
-
 setup = () => {
-  createCanvas(1300, 800);
+  const canvas = createCanvas(1300, 800, WEBGL);
+  canvas.parent("canvasDiv");
+
+  LevelStartTooltip.show();
+  setTimeout(() => { LevelStartTooltip.hide() }, 8000);
+
+
   if (Game.getCurrentLevel() == 0) {
     Document.mainMenu.style.display = 'flex';
     Document.canvas[0].style.display = 'none';
@@ -20,13 +52,15 @@ setup = () => {
     Document.canvas[0].style.display = 'flex';
   }
 
+  console.log(Document.canvas);
+
   let rowsCount = 8;
   let columnsCount = 13;
 
   let specialFishIsInserted = false;
 
-  for (i = 550; i < columnsCount * 100; i += 50) {
-    for (g = 50; g < rowsCount * 100; g += 50) {
+  for (i = 550; i < columnsCount * 100; i += 75) {
+    for (g = 50; g < rowsCount * 100; g += 75) {
 
       if (random(200) < 2 && !specialFishIsInserted) {
         GlobalObjects.fish.push(new Fish(i, g, FishType.SPECIAL));
@@ -46,7 +80,13 @@ setup = () => {
 
 //DRAW
 draw = () => {
-  background(Background.image1);
+  background(255);
+
+  HUD.objectiveRemainingCount.innerHTML = currentObjective.counter();
+
+  GlobalObjects.drawTerrain(Background.image1);
+  translate(-1300 / 2, -800 / 2);
+
 
   HUD.setTotalPoints(GlobalCounter.totalPoints);
   HUD.setStars();
@@ -62,7 +102,7 @@ draw = () => {
     if (bullet.pos.x > windowWidth || bullet.pos.x < 0 || bullet.pos.y > windowHeight || bullet.pos.y < 0) {
       GlobalObjects.bullet.splice(i, 1);
     }
-    else if ((bullet.distanceTraveled < -20 || bullet.distanceTraveled > 20) && bullet.type != BulletType.SPECIAL) {
+    else if ((bullet.distanceTraveled < -50 || bullet.distanceTraveled > 50) && bullet.type != BulletType.SPECIAL) {
       GlobalObjects.bullet.splice(i, 1);
     }
 
@@ -83,8 +123,10 @@ draw = () => {
         GlobalObjects.bullet.push(new Bullet(fish.pos.x, fish.pos.y, 0, -20));
         GlobalObjects.bullet.push(new Bullet(fish.pos.x, fish.pos.y, -20, 0));
         GlobalObjects.fish.splice(g, 1);
-        GlobalCounter.singleHitKills++;
-        GlobalCounter.totalKills++;
+
+        // if(GlobalCounter.singleHitKills == 3 )
+        GlobalCounter.multiKillCount();
+        GlobalCounter.addKill(fish.type);
         GlobalCounter.currentPoints += 123;
       }
 
@@ -96,22 +138,33 @@ draw = () => {
       //if special item is pressed
       else if (bulletDistance < 30 && bullet.type == BulletType.SPECIAL && fish.type != FishType.TOUGH) {
         GlobalObjects.fish.splice(g, 1);
-        GlobalCounter.singleHitKills++;
-        GlobalCounter.totalKills++;
-        GlobalCounter.currentPoints += 100;
+        GlobalCounter.multiKillCount();
+        GlobalCounter.addKill(fish.type);
+        GlobalCounter.currentPoints += 123;
       }
     });
   });
 
+  // END LEVEL
   if (GlobalCounter.movesRemaining == 0 && !GlobalCounter.levelIsFinished) {
+
+    currentObjective.condition();
+    Objective.isCompletedCheck();
+
+    LevelFinishTooltip.show();
+
+
     Game.nextLevel();
     GlobalCounter.levelIsFinished = true;
     console.log(GlobalCounter.level);
-    setTimeout(() => { Document.reload(); }, 10000)
+    setTimeout(() => { Document.reload(); }, 6000);
   }
 }
 mousePressed = () => {
   if (!GlobalCounter.levelIsFinished) {
+
+    LevelStartTooltip.hide();
+
     GlobalObjects.fish.forEach((fish) => {
       let mouseDistance = dist(fish.pos.x, fish.pos.y, mouseX, mouseY);
       if (mouseDistance < 30 && fish.type != FishType.TOUGH) {
@@ -137,13 +190,12 @@ mousePressed = () => {
   };
 };
 
+// KEYBOARD PRESSES
 keyPressed = () => {
-  // keyCode === 67 ? camera.mode++ : null;  //C KEY
-  // camera.mode === 4 ? camera.mode = 0 : null; //CYCLE CAMERA TO FIRST MODE
+  // keyCode === 67  //C KEY
 
-  // if (keyCode === 32) {
-  //   pTank.fire(true);//SPACE KEY  
-  // }
+  // if (keyCode === 32) {  //   //SPACE KEY  
+
   if (keyCode === 27) { // ESCAPE KEY
     Document.showIngameMenu();
   }

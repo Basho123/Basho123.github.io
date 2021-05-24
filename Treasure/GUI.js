@@ -30,6 +30,66 @@ class Document {
     }
 }
 
+class LevelStartTooltip {
+    static container = document.getElementById('levelStart');
+
+    static levelStartContainer = document.getElementById('levelStartContainer');
+    static levelCount = document.getElementById('levelCountStart');
+
+    static objectiveInfoContainer = document.getElementById('objectiveInfoContainer');
+    static objectiveInfo = document.getElementById('objectiveInfoStart');
+
+
+    static show() {
+        this.container.style.display = 'flex';
+
+        this.levelStartContainer.style.display = 'none';
+        this.objectiveInfoContainer.style.display = 'none';
+    
+        setTimeout(() => {
+            this.levelStartContainer.style.display = 'flex';
+        }, 300);
+
+        setTimeout(() => {
+            this.objectiveInfoContainer.style.display = 'flex';
+        }, 2500);
+    }
+
+    static hide() {
+        this.container.style.display = 'none';
+        this.levelStartContainer.style.display = 'none';
+        this.objectiveInfoContainer.style.display = 'none';
+    }
+}
+
+class LevelFinishTooltip {
+    static container = document.getElementById('levelFinish');    
+
+    static fishKilledContainer = document.getElementById('fishKilledContainer');
+    static fishKilledCount = document.getElementById('fishKilledCount');
+
+    static objectiveCompletedContainer = document.getElementById('objectiveCompletedContainer');
+    static objectiveCompletedPoints = document.getElementById('objectiveCompletedPoints');
+
+    static show() {
+        this.container.style.display = 'flex';
+
+        this.fishKilledCount.innerHTML = GlobalCounter.totalKills;
+        this.fishKilledContainer.style.display = 'none';
+        this.objectiveCompletedContainer.style.display = 'none';
+
+        setTimeout(() => {
+            this.fishKilledContainer.style.display = 'flex';
+        }, 1000);     
+    }
+
+    static hide() {
+        this.container.style.display = 'none';
+        this.fishKilledContainer.style.display = 'none';
+        this.objectiveCompletedContainer.style.display = 'none';       
+    }
+}
+
 class HUD {
     static movesRemainingCount = document.getElementById('movesRemainingCount');
     static objectiveRemainingCount = document.getElementById('objectiveRemainingCount');
@@ -65,15 +125,15 @@ class HUD {
 
     static setStars() {
         let totalPoints = +this.totalPoints.innerHTML;
-        if (totalPoints > 50000) {
+        if (totalPoints > 10000) {
             GlobalCounter.stars++;
             this.star1.innerHTML = `<img src="./Images/star.png" alt="">`;
         }
-        if (totalPoints > 100000) {
+        if (totalPoints > 20000) {
             GlobalCounter.stars++;
             this.star2.innerHTML = `<img src="./Images/star.png" alt="">`;
         }
-        if (totalPoints > 150000) {
+        if (totalPoints > 30000) {
             GlobalCounter.stars++;
             this.star3.innerHTML = `<img src="./Images/star.png" alt="">`;
         }
