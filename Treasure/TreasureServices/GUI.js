@@ -30,6 +30,16 @@ class Document {
     }
 }
 
+class Tutorial {
+    static container = document.getElementById('tutorialContainer');
+    static show(){
+        this.container.style.display = 'flex';
+    };
+    static hide(){
+        this.container.style.display = 'none';
+    };
+};
+
 class LevelStartTooltip {
     static container = document.getElementById('levelStart');
 
@@ -45,7 +55,7 @@ class LevelStartTooltip {
 
         this.levelStartContainer.style.display = 'none';
         this.objectiveInfoContainer.style.display = 'none';
-    
+
         setTimeout(() => {
             this.levelStartContainer.style.display = 'flex';
         }, 300);
@@ -63,7 +73,7 @@ class LevelStartTooltip {
 }
 
 class LevelFinishTooltip {
-    static container = document.getElementById('levelFinish');    
+    static container = document.getElementById('levelFinish');
 
     static diamondsCollectedCount = document.getElementById('diamondsCollectedCount');
 
@@ -83,13 +93,13 @@ class LevelFinishTooltip {
 
         setTimeout(() => {
             this.fishKilledContainer.style.display = 'flex';
-        }, 1000);     
+        }, 1000);
     }
 
     static hide() {
         this.container.style.display = 'none';
         this.fishKilledContainer.style.display = 'none';
-        this.objectiveCompletedContainer.style.display = 'none';       
+        this.objectiveCompletedContainer.style.display = 'none';
     }
 }
 
@@ -120,7 +130,7 @@ class HUD {
         let pointsToPrint = +this.totalPoints.innerHTML;
 
         if (previousPoints < points) {
-            pointsToPrint += 63;
+            pointsToPrint += 126;
         }
 
         this.totalPoints.innerHTML = pointsToPrint;
@@ -128,15 +138,15 @@ class HUD {
 
     static setStars() {
         let totalPoints = +this.totalPoints.innerHTML;
-        if (totalPoints > 10000) {
+        if (totalPoints > 20000) {
             GlobalCounter.stars++;
             this.star1.innerHTML = `<img src="./Images/star.png" alt="">`;
         }
-        if (totalPoints > 20000) {
+        if (totalPoints > 40000) {
             GlobalCounter.stars++;
             this.star2.innerHTML = `<img src="./Images/star.png" alt="">`;
         }
-        if (totalPoints > 30000) {
+        if (totalPoints > 60000) {
             GlobalCounter.stars++;
             this.star3.innerHTML = `<img src="./Images/star.png" alt="">`;
         }

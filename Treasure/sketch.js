@@ -5,7 +5,9 @@ console.log(`You are at level ${GlobalCounter.level}`);
 
 let randomObjective = Math.floor(Math.random() * Objective.Difficulty[GlobalCounter.difficulty].length);
 const currentObjective = Objective.Difficulty[GlobalCounter.difficulty][randomObjective];
+console.log(randomObjective);
 
+if (GlobalCounter.level == 1) Tutorial.show();
 
 HUD.objectiveName.innerHTML = currentObjective.info;
 LevelStartTooltip.objectiveInfo.innerHTML = currentObjective.info;
@@ -39,7 +41,6 @@ setup = () => {
 
   console.log(GlobalCounter.difficulty);
 
-
   const canvas = createCanvas(1300, 800, WEBGL);
   canvas.parent("canvasDiv");
 
@@ -65,25 +66,39 @@ setup = () => {
   for (i = 550; i < columnsCount * 100; i += 75) {
     for (g = 50; g < rowsCount * 100; g += 75) {
 
+      //treasure chest spawn
       if (random(200) < 2 && !specialFishIsInserted) {
-        GlobalObjects.item.push(new Fish(i, g, FishType.SPECIAL));
+        GlobalObjects.item.push(new Chest(i, g, 50));
         specialFishIsInserted = true;
         continue;
       }
+
+      //bubble spawn
       if (random(100) < GlobalCounter.level) {
-        GlobalObjects.item.push(new Fish(i, g, FishType.TOUGH));
+        GlobalObjects.item.push(new Bubble(i, g, 50));
+        //diamond inside bubble spawn
+        if (random(100) < 50) {
+          GlobalObjects.item.push(new Diamond(i, g, 20, DiamondType.getRandom()));
+        }
         continue;
       }
 
+      //diamond spawn
       if (random(100) < 20) {
-        GlobalObjects.item.push(new Diamond(i, g, DiamondType.getRandom()));
+        GlobalObjects.item.push(new Diamond(i, g, 50, DiamondType.getRandom()));
         continue;
       }
 
-      GlobalObjects.item.push(new Fish(i, g, FishType.getRandom()));
+      //crystal skull spawn above level 5
+      if (random(100) < 0.5 && GlobalCounter.level >= 5) {
+        GlobalObjects.item.push(new CrystalSkull(i, g, 50));
+        continue;
+      }
+
+      //spawn a random fish if nothing was spawned prior
+      GlobalObjects.item.push(new Fish(i, g, 50, FishType.getRandom()));
     }
   }
-  // Game.setLevel(1);
 }
 
 //DRAW
@@ -112,10 +127,10 @@ draw = () => {
 
 
   MouseText.show(GlobalCounter.currentPoints * GlobalCounter.singleHitKills / 2,
-                  GlobalCounter.lastFrameClicked,
-                  frameCount,
-                  GlobalCounter.lastMouseClickedCoordinates[0],
-                  GlobalCounter.lastMouseClickedCoordinates[1]);
+    GlobalCounter.lastFrameClicked,
+    frameCount,
+    GlobalCounter.lastMouseClickedCoordinates[0],
+    GlobalCounter.lastMouseClickedCoordinates[1]);
 
 
   HUD.objectiveRemainingCount.innerHTML = currentObjective.counter();
@@ -174,7 +189,14 @@ draw = () => {
         GlobalCounter.multiKillCount();
         GlobalCounter.addKill(item);
         GlobalCounter.addPoints(item);
+      }
 
+      // if crystal skull is pressed
+      if (bulletDistance < 100 && bullet.type == BulletType.SKULL && item.type != Type.TOUGH) {
+        GlobalObjects.item.splice(g, 1);
+        GlobalCounter.multiKillCount();
+        GlobalCounter.addKill(item);
+        GlobalCounter.addPoints(item);
       }
     });
   });
@@ -191,7 +213,7 @@ draw = () => {
     Game.nextLevel();
     GlobalCounter.levelIsFinished = true;
     console.log(GlobalCounter.level);
-    setTimeout(() => { Document.reload(); }, 6000);
+    setTimeout(() => { Document.reload(); }, 10000);
   }
 }
 
@@ -199,6 +221,8 @@ draw = () => {
 mousePressed = () => {
   GlobalCounter.currentPoints = 0;
   GlobalCounter.singleHitKills = 0;
+
+  Tutorial.hide();
 
   if (!GlobalCounter.levelIsFinished) {
 
@@ -224,10 +248,10 @@ mousePressed = () => {
         GlobalObjects.bullet.push(new Bullet(mouseX, mouseY, 20, 0));
         GlobalObjects.bullet.push(new Bullet(mouseX, mouseY, 0, -20));
         GlobalObjects.bullet.push(new Bullet(mouseX, mouseY, -20, 0));
-
       };
     });
-  };
+  }
+  else Document.reload();
 };
 
 // KEYBOARD PRESSES
@@ -237,6 +261,7 @@ keyPressed = () => {
   // if (keyCode === 32) {  //   //SPACE KEY  
 
   if (keyCode === 27) { // ESCAPE KEY
+    Tutorial.hide();
     Document.showIngameMenu();
   }
 }

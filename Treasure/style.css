@@ -7,14 +7,6 @@ body{
     background-color: black;
 }
 
-canvas{
-    /* display: none; */
-    /* display: flex;
-    margin: 0px auto; 
-    border-radius: 25px; */
-
-}
-
 
 #mainMenu{
     width: 1000px;
@@ -79,14 +71,31 @@ canvas{
     font-size: 50px;
 
     z-index: 2;
-    /* margin-left:0; */
 
-    /* background-color: rebeccapurple; */
     color: rgb(255, 255, 255);
 
     background-color: rgba(0, 0, 0, 0.514);
 
     position:absolute;
+}
+
+#tutorialContainer{
+    width: 100%;
+    height: 100%;     
+
+    user-select: none; 
+
+    display: none;
+    font-size: 25px;
+
+    z-index:3;
+
+    color: rgb(255, 255, 255);
+
+    background-color: rgba(0, 0, 0, 0.514);
+
+    position:absolute;
+
 }
 
 #levelFinish{
@@ -159,6 +168,17 @@ canvas{
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+.flex-center-horizontal{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
 
     justify-content: center;
     align-items: center;

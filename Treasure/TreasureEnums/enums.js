@@ -7,6 +7,7 @@ class Type {
     static BLUE = 2;
     static SPECIAL = 3;
     static TOUGH = 4;
+    static SKULL = 5;
 
     static getRandom() {
         let randomNumber = Math.floor(random(0, 3));

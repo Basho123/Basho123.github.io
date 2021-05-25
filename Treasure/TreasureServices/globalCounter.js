@@ -93,6 +93,8 @@ class GlobalCounter {
     //if one fish is killed 64 points are added because of the formula, but actually added 65 because of the counter speed
     if (item instanceof Fish) this.currentPoints += 128;
     if (item instanceof Diamond) this.currentPoints += 512;
+    if (item instanceof Chest) this.currentPoints += 1024;
+    if (item instanceof CrystalSkull) this.currentPoints += 2048;
   }
 
   static calculatePoints() {

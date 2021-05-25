@@ -88,7 +88,7 @@ const Objective = {
         Medium = [
             one = {
                 info: "Kill 12 red fish",
-                counter: () =>  GlobalCounter.redFishKills,
+                counter: () => GlobalCounter.redFishKills,
                 questPoints: () => 25000,
                 condition: () => {
                     GlobalCounter.objectiveIsCompleted = GlobalCounter.redFishKills >= 12;
@@ -114,7 +114,7 @@ const Objective = {
 
             four = {
                 info: "Make four or more combinations with more than 6 kills",
-                counter: () => GlobalCounter.moreThan6killsCount,                 
+                counter: () => GlobalCounter.moreThan6killsCount,
                 questPoints: () => 35000,
                 condition: () => {
                     GlobalCounter.objectiveIsCompleted = GlobalCounter.moreThan6killsCount >= 4;
@@ -122,33 +122,124 @@ const Objective = {
             },
 
             five = {
-                info: "Make 9 kills at once, twice",
-                counter: () => GlobalCounter.moreThan9killsCount,                   
+                info: "Make 9 kills at once",
+                counter: () => GlobalCounter.moreThan9killsCount,
                 questPoints: () => 35000,
                 condition: () => {
-                    GlobalCounter.objectiveIsCompleted = GlobalCounter.moreThan9killsCount > 1;
+                    GlobalCounter.objectiveIsCompleted = GlobalCounter.moreThan9killsCount != 0;
+                },
+            },
+            six = {
+                info: "Collect 5 red diamonds",
+                counter: () => GlobalCounter.redDiamondsCollected,
+                questPoints: () => 30000,
+                condition: () => {
+                    GlobalCounter.objectiveIsCompleted = GlobalCounter.redDiamondsCollected >= 5;
                 },
             },
 
+            seven = {
+                info: "Collect 5 green diamonds",
+                counter: () => GlobalCounter.greenDiamondsCollected,
+                questPoints: () => 30000,
+                condition: () => {
+                    GlobalCounter.objectiveIsCompleted = GlobalCounter.greenDiamondsCollected >= 5;
+                },
+
+            },
+
+            eight = {
+                info: "Collect 5 blue diamonds",
+                counter: () => GlobalCounter.blueDiamondsCollected,
+                questPoints: () => 30000,
+                condition: () => {
+                    GlobalCounter.objectiveIsCompleted = GlobalCounter.blueDiamondsCollected >= 5;
+                },
+
+            },
+
         ],
-        Hard = {
-            one: {
+        Hard = [
+            one = {
                 info: "Don't kill green fish",
-                counter: () => GlobalCounter.greenFishKills > 0 ? "Objective failed" : "All green fish are accounted for",         
+                counter: () => GlobalCounter.greenFishKills > 0 ? "Failed" : "Good",
                 questPoints: () => 45000,
                 condition: () => {
                     GlobalCounter.objectiveIsCompleted = GlobalCounter.greenFishKills == 0;
                 },
             },
-            two: {
+            two = {
                 info: "Don't kill red fish",
-                counter: () => GlobalCounter.redFishKills > 0 ? "Objective failed" : "All red fish are accounted for",         
+                counter: () => GlobalCounter.redFishKills > 0 ? "Failed" : "Good",
                 questPoints: () => 45000,
                 condition: () => {
                     GlobalCounter.objectiveIsCompleted = GlobalCounter.redFishKills == 0;
                 },
             },
-        },
+            three = {
+                info: "Don't kill blue fish",
+                counter: () => GlobalCounter.blueFishKills > 0 ? "Failed" : "Good",
+                questPoints: () => 45000,
+                condition: () => {
+                    GlobalCounter.objectiveIsCompleted = GlobalCounter.blueFishKills == 0;
+                },
+            },
+
+            four = {
+                info: "Kill 15 red fish",
+                counter: () => GlobalCounter.redFishKills,
+                questPoints: () => 35000,
+                condition: () => {
+                    GlobalCounter.objectiveIsCompleted = GlobalCounter.redFishKills >= 15;
+                },
+            },
+            five = {
+                info: "Kill 15 green fish",
+                counter: () => GlobalCounter.greenFishKills,
+                questPoints: () => 35000,
+                condition: () => {
+                    GlobalCounter.objectiveIsCompleted = GlobalCounter.greenFishKills >= 15;
+                },
+            },
+
+            six = {
+                info: "Kill 15 blue fish",
+                counter: () => GlobalCounter.blueFishKills,
+                questPoints: () => 35000,
+                condition: () => {
+                    GlobalCounter.objectiveIsCompleted = GlobalCounter.blueFishKills >= 15;
+                },
+            },
+            seven = {
+                info: "Collect 6 red diamonds",
+                counter: () => GlobalCounter.redDiamondsCollected,
+                questPoints: () => 45000,
+                condition: () => {
+                    GlobalCounter.objectiveIsCompleted = GlobalCounter.redDiamondsCollected >= 6;
+                },
+            },
+
+            eight = {
+                info: "Collect 6 green diamonds",
+                counter: () => GlobalCounter.greenDiamondsCollected,
+                questPoints: () => 45000,
+                condition: () => {
+                    GlobalCounter.objectiveIsCompleted = GlobalCounter.greenDiamondsCollected >= 6;
+                },
+
+            },
+
+            nine = {
+                info: "Collect 6 blue diamonds",
+                counter: () => GlobalCounter.blueDiamondsCollected,
+                questPoints: () => 45000,
+                condition: () => {
+                    GlobalCounter.objectiveIsCompleted = GlobalCounter.blueDiamondsCollected >= 6;
+                },
+
+            },
+
+        ],
     ],
 
     isCompletedCheck: (questPoints) => {
