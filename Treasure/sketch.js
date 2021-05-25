@@ -1,20 +1,10 @@
 // IMPORTED CLASSES FROM classLibrary.js
 // IMPORTED CLASSES FROM GUI.js
-let jare = '';
 ///////////// SETUP //////////////
 console.log(`You are at level ${GlobalCounter.level}`);
 
-let randomObjective = Math.floor(Math.random() * Objective.Difficulty[0].length);
-
-
-
-
-
-const currentObjective = Objective.Difficulty[0][randomObjective];
-
-
-// console.log(Objective.Objectives[0][0]);
-// const currentObjective = Objective.Objectives[0];
+let randomObjective = Math.floor(Math.random() * Objective.Difficulty[GlobalCounter.difficulty].length);
+const currentObjective = Objective.Difficulty[GlobalCounter.difficulty][randomObjective];
 
 
 HUD.objectiveName.innerHTML = currentObjective.info;
@@ -24,8 +14,16 @@ LevelStartTooltip.levelCount.innerHTML = GlobalCounter.level;
 
 preload = () => {
   Background.image1 = loadImage('./Images/underWater1.png');
+  Background.image2 = loadImage('./Images/underWater2.png');
+  Background.image3 = loadImage('./Images/underWater3.png');
 
-  SceneryModel.treasureChest = loadImage('./Images/treasure.png');
+
+  SceneryModel.treasureChest = loadImage('./Images/treasures/treasure.png');
+  SceneryModel.redDiamond = loadImage('./Images/treasures/redDiamond.png');
+  SceneryModel.greenDiamond = loadImage('./Images/treasures/greenDiamond.png');
+  SceneryModel.blueDiamond = loadImage('./Images/treasures/blueDiamond.png');
+  SceneryModel.crystalSkull = loadImage('./Images/treasures/crystalSkull.png');
+
   SceneryModel.bubble = loadImage('./Images/bubble.png');
 
   FishModel.green = loadImage('./Images/fish/greenFish.png');
@@ -33,9 +31,15 @@ preload = () => {
   FishModel.red = loadImage('./Images/fish/redFish.png');
   FishModel.orange = loadImage('./Images/fish/orangeFish.png');
   FishModel.blue = loadImage('./Images/fish/shark.png');
+
+  Font.openSans = loadFont('./Fonts/Open_Sans/OpenSans-Regular.ttf');
 }
 
 setup = () => {
+
+  console.log(GlobalCounter.difficulty);
+
+
   const canvas = createCanvas(1300, 800, WEBGL);
   canvas.parent("canvasDiv");
 
@@ -52,7 +56,6 @@ setup = () => {
     Document.canvas[0].style.display = 'flex';
   }
 
-  console.log(Document.canvas);
 
   let rowsCount = 8;
   let columnsCount = 13;
@@ -63,16 +66,21 @@ setup = () => {
     for (g = 50; g < rowsCount * 100; g += 75) {
 
       if (random(200) < 2 && !specialFishIsInserted) {
-        GlobalObjects.fish.push(new Fish(i, g, FishType.SPECIAL));
+        GlobalObjects.item.push(new Fish(i, g, FishType.SPECIAL));
         specialFishIsInserted = true;
         continue;
       }
       if (random(100) < GlobalCounter.level) {
-        GlobalObjects.fish.push(new Fish(i, g, FishType.TOUGH));
+        GlobalObjects.item.push(new Fish(i, g, FishType.TOUGH));
         continue;
       }
 
-      GlobalObjects.fish.push(new Fish(i, g, FishType.ARRAY[Math.floor(random(0, 3))]))
+      if (random(100) < 20) {
+        GlobalObjects.item.push(new Diamond(i, g, DiamondType.getRandom()));
+        continue;
+      }
+
+      GlobalObjects.item.push(new Fish(i, g, FishType.getRandom()));
     }
   }
   // Game.setLevel(1);
@@ -82,20 +90,46 @@ setup = () => {
 draw = () => {
   background(255);
 
-  HUD.objectiveRemainingCount.innerHTML = currentObjective.counter();
 
-  GlobalObjects.drawTerrain(Background.image1);
+  //DRAW BACKGROUND
+  switch (GlobalCounter.difficulty) {
+    case Difficulty.EASY: //EASY
+      GlobalObjects.drawTerrain(Background.image1);
+      break;
+    case Difficulty.MEDIUM: //MEDIUM
+      GlobalObjects.drawTerrain(Background.image2);
+      break;
+    case Difficulty.HARD: //HARD
+      GlobalObjects.drawTerrain(Background.image3);
+      break;
+    default:
+      break;
+  }
+
+  //TRANSLATE ALL OBJECTS BECAUSE OF WEBGL RENDERING ITEMS FROM CENTER OF SCREEN AS 0 POINT
   translate(-1300 / 2, -800 / 2);
 
 
+
+  MouseText.show(GlobalCounter.currentPoints * GlobalCounter.singleHitKills / 2,
+                  GlobalCounter.lastFrameClicked,
+                  frameCount,
+                  GlobalCounter.lastMouseClickedCoordinates[0],
+                  GlobalCounter.lastMouseClickedCoordinates[1]);
+
+
+  HUD.objectiveRemainingCount.innerHTML = currentObjective.counter();
   HUD.setTotalPoints(GlobalCounter.totalPoints);
   HUD.setStars();
   HUD.setMovesRemaining(GlobalCounter.movesRemaining)
-  //must be in separate iterator due to flickering issue when a fish is killed
-  GlobalObjects.fish.forEach((x) => {
+
+
+  //ALL ITEMS MUST BE SHOWN IN SEPARATE ITERATOR DUE TO FLICKERING WHEN ONE IS DESTROYED
+  GlobalObjects.item.forEach((x) => {
     x.show();
   });
 
+  //THE BULLET LOGIC STARTS HERE
   GlobalObjects.bullet.forEach((bullet, i) => {
     bullet.show();
 
@@ -106,7 +140,7 @@ draw = () => {
       GlobalObjects.bullet.splice(i, 1);
     }
 
-    GlobalObjects.fish.forEach((fish, g) => {
+    GlobalObjects.item.forEach((item, g) => {
       //bullet gets property that was selected with mouse
       bullet.type = GlobalCounter.currentBulletProperty;
 
@@ -114,33 +148,33 @@ draw = () => {
       // every bullet distance gets measured with every fish in each frame, 
       // there is a less CPU hungry formula, but is more code complex,
       // so i decided to go with this one since the game mechanics is not heavy on CPU
-      let bulletDistance = dist(bullet.pos.x, bullet.pos.y, fish.pos.x, fish.pos.y);
+      let bulletDistance = dist(bullet.pos.x, bullet.pos.y, item.pos.x, item.pos.y);
 
       //if bullet colides with same color that was before, but is not special bullet
-      if (bulletDistance < 50 && bullet.type == fish.type && bullet.type != BulletType.SPECIAL && fish.type != FishType.TOUGH) {
-        GlobalObjects.bullet.push(new Bullet(fish.pos.x, fish.pos.y, 0, 20));
-        GlobalObjects.bullet.push(new Bullet(fish.pos.x, fish.pos.y, 20, 0));
-        GlobalObjects.bullet.push(new Bullet(fish.pos.x, fish.pos.y, 0, -20));
-        GlobalObjects.bullet.push(new Bullet(fish.pos.x, fish.pos.y, -20, 0));
-        GlobalObjects.fish.splice(g, 1);
+      if (bulletDistance < 50 && bullet.type == item.type && bullet.type != BulletType.SPECIAL && item.type != FishType.TOUGH) {
+        GlobalObjects.bullet.push(new Bullet(item.pos.x, item.pos.y, 0, 20));
+        GlobalObjects.bullet.push(new Bullet(item.pos.x, item.pos.y, 20, 0));
+        GlobalObjects.bullet.push(new Bullet(item.pos.x, item.pos.y, 0, -20));
+        GlobalObjects.bullet.push(new Bullet(item.pos.x, item.pos.y, -20, 0));
+        GlobalObjects.item.splice(g, 1);
 
-        // if(GlobalCounter.singleHitKills == 3 )
         GlobalCounter.multiKillCount();
-        GlobalCounter.addKill(fish.type);
-        GlobalCounter.currentPoints += 123;
+        GlobalCounter.addKill(item);
+        GlobalCounter.addPoints(item);
       }
 
       //if bullet colides with invalid item
-      else if (bulletDistance < 50 && bullet.type != fish.type && bullet.type != BulletType.SPECIAL) {
+      else if (bulletDistance < 50 && bullet.type != item.type && bullet.type != BulletType.SPECIAL) {
         GlobalObjects.bullet.splice(i, 1);
       }
 
       //if special item is pressed
-      else if (bulletDistance < 30 && bullet.type == BulletType.SPECIAL && fish.type != FishType.TOUGH) {
-        GlobalObjects.fish.splice(g, 1);
+      else if (bulletDistance < 30 && bullet.type == BulletType.SPECIAL && item.type != Type.TOUGH) {
+        GlobalObjects.item.splice(g, 1);
         GlobalCounter.multiKillCount();
-        GlobalCounter.addKill(fish.type);
-        GlobalCounter.currentPoints += 123;
+        GlobalCounter.addKill(item);
+        GlobalCounter.addPoints(item);
+
       }
     });
   });
@@ -149,7 +183,7 @@ draw = () => {
   if (GlobalCounter.movesRemaining == 0 && !GlobalCounter.levelIsFinished) {
 
     currentObjective.condition();
-    Objective.isCompletedCheck();
+    Objective.isCompletedCheck(currentObjective.questPoints());
 
     LevelFinishTooltip.show();
 
@@ -160,31 +194,37 @@ draw = () => {
     setTimeout(() => { Document.reload(); }, 6000);
   }
 }
+
+//When mouse is clicked
 mousePressed = () => {
+  GlobalCounter.currentPoints = 0;
+  GlobalCounter.singleHitKills = 0;
+
   if (!GlobalCounter.levelIsFinished) {
+
+    GlobalCounter.lastMouseClickedCoordinates = [mouseX, mouseY];
 
     LevelStartTooltip.hide();
 
-    GlobalObjects.fish.forEach((fish) => {
-      let mouseDistance = dist(fish.pos.x, fish.pos.y, mouseX, mouseY);
-      if (mouseDistance < 30 && fish.type != FishType.TOUGH) {
+    GlobalObjects.item.forEach((item) => {
+      let mouseDistance = dist(item.pos.x, item.pos.y, mouseX, mouseY);
+      if (mouseDistance < 30 && item.type != FishType.TOUGH) {
 
+        GlobalCounter.lastFrameClicked = frameCount;
         GlobalCounter.movesRemaining--;
-        GlobalCounter.singleHitKills = 0;
 
         //POINTS CALCULATOR, has timeout because it waits for the bullets to finish
-        setTimeout(() => {
-          GlobalCounter.totalPoints += GlobalCounter.currentPoints * GlobalCounter.singleHitKills / 4;
-        }, 500);
+        GlobalCounter.calculatePoints();
 
         //bullet property is stored for later use
-        GlobalCounter.currentBulletProperty = fish.type;
+        GlobalCounter.currentBulletProperty = item.type;
 
         //bulelts are fired in all directions
         GlobalObjects.bullet.push(new Bullet(mouseX, mouseY, 0, 20));
         GlobalObjects.bullet.push(new Bullet(mouseX, mouseY, 20, 0));
         GlobalObjects.bullet.push(new Bullet(mouseX, mouseY, 0, -20));
         GlobalObjects.bullet.push(new Bullet(mouseX, mouseY, -20, 0));
+
       };
     });
   };

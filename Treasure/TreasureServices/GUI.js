@@ -65,6 +65,8 @@ class LevelStartTooltip {
 class LevelFinishTooltip {
     static container = document.getElementById('levelFinish');    
 
+    static diamondsCollectedCount = document.getElementById('diamondsCollectedCount');
+
     static fishKilledContainer = document.getElementById('fishKilledContainer');
     static fishKilledCount = document.getElementById('fishKilledCount');
 
@@ -75,6 +77,7 @@ class LevelFinishTooltip {
         this.container.style.display = 'flex';
 
         this.fishKilledCount.innerHTML = GlobalCounter.totalKills;
+        this.diamondsCollectedCount.innerHTML = GlobalCounter.totalDiamondsCollected;
         this.fishKilledContainer.style.display = 'none';
         this.objectiveCompletedContainer.style.display = 'none';
 
@@ -117,7 +120,7 @@ class HUD {
         let pointsToPrint = +this.totalPoints.innerHTML;
 
         if (previousPoints < points) {
-            pointsToPrint += 123;
+            pointsToPrint += 63;
         }
 
         this.totalPoints.innerHTML = pointsToPrint;

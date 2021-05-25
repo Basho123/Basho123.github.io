@@ -40,7 +40,7 @@
         <div class="marginize-10">OBJECTIVE:</div>
         <div id="objectiveInfoStart">Objective for the current level</div>
       </div>
-     
+
     </div>
 
     <!-- HUD -->
@@ -73,6 +73,12 @@
 
     <!-- LEVEL FINISH -->
     <div id="levelFinish" class="flex-center-vertical">
+
+      <div id="totalDiamondsContainer" class="flex-center-vertical marginize-50">
+        <div class="marginize-10">DIAMONDS COLLECTED</div>
+        <div id="diamondsCollectedCount">0</div>
+      </div>
+
       <div id="fishKilledContainer" class="flex-center-vertical marginize-50">
         <div class="marginize-10">FISH KILLED</div>
         <div id="fishKilledCount">0</div>
@@ -80,8 +86,8 @@
 
       <div id="objectiveCompletedContainer" class="flex-center-vertical marginize-50">
         <div class="marginize-10">OBJECTIVE COMPLETED!</div>
-        <div id="objectiveCompletedPoints">+10000 points</div>
-      </div>     
+        <div id="objectiveCompletedPoints">+0 points</div>
+      </div>
     </div>
 
   </div>
@@ -96,10 +102,15 @@
   <script src="p5/p5.js"></script>
   <script src="p5/p5.sound.js"></script>
 
-  <script src="preload.js"></script>
-  <script src="objectives.js"></script>
-  <script src="classLibrary.js"></script>
-  <script src="GUI.js"></script>
+  <!-- USING -->
+
+  <script src="TreasureEnums/enums.js"></script>
+  <script src="TreasureLibrary/preloadModels.js"></script>
+  <script src="TreasureServices/objectives.js"></script>
+  <script src="TreasureServices/globalCounter.js"></script>
+  <script src="TreasureLibrary/classLibrary.js"></script>
+  <script src="TreasureServices/GUI.js"></script>
+  <script src="TreasureServices/mouseText.js"></script>
   <script src="sketch.js"></script>
 </body>
 
