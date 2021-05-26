@@ -244,8 +244,8 @@ const Objective = {
 
     isCompletedCheck: (questPoints) => {
         if (GlobalCounter.objectiveIsCompleted) {
-            GlobalCounter.totalPoints += questPoints;
             setTimeout(() => {
+                GlobalCounter.totalPoints += questPoints;
                 LevelFinishTooltip.objectiveCompletedPoints.innerHTML = `+${questPoints} points`;
                 LevelFinishTooltip.objectiveCompletedContainer.style.display = 'flex';
             }, 2000);

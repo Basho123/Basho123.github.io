@@ -94,7 +94,7 @@ setup = () => {
 
       //bubble spawn
       if (random(500) < GlobalCounter.level) {
-        GlobalObjects.item.push(new Bubble(i, g, 50));       
+        GlobalObjects.item.push(new Bubble(i, g, 50));
         continue;
       }
 
@@ -277,11 +277,12 @@ draw = () => {
 
 //When mouse is clicked
 mousePressed = () => {
-  GlobalCounter.currentPoints = 0;
-  GlobalCounter.singleHitKills = 0;
-  if (!GlobalCounter.splashScreenIsActive) {
-    if (!GlobalCounter.levelIsFinished) {
 
+  //last frame clicked guards for the points not being calculated on mobile device
+  if (!GlobalCounter.splashScreenIsActive &&  GlobalCounter.lastFrameClicked+30 < frameCount) {
+    if (!GlobalCounter.levelIsFinished) {
+      GlobalCounter.currentPoints = 0;
+      GlobalCounter.singleHitKills = 0;
       GlobalCounter.lastMouseClickedCoordinates = [mouseX, mouseY];
       GlobalObjects.item.forEach((item) => {
         let mouseDistance = dist(item.pos.x, item.pos.y, mouseX, mouseY);
