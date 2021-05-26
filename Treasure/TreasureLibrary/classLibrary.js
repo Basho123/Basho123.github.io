@@ -11,16 +11,20 @@ class BaseEntity {
     this.id = random(999999999);
     this.type = type;
     this.size = size;
-    this.collisionSize = 74;
+    this.collisionSize = 72;
 
-    this.isSpawnedItem = false;    
+    this.isSpawnedItem = false;
     this.color = 0;
 
 
   }
   show() {
-    throw new Error("Not implemented, implement SHOW in extended object");
-  }
+    push();
+    fill(255, 0, 0);
+    rectMode(CENTER);
+    circle(this.pos.x, this.pos.y, this.collisionSize);
+    pop();
+  };
 
   showCollisionBox() {
     push();
@@ -30,12 +34,12 @@ class BaseEntity {
     pop();
   }
 
-  move() {
+  addGravity() {
 
     this.vel.limit(50);
     this.pos.add(this.vel);
     this.vel.add(this.acc);
-    this.acc.y += 0.001;
+    this.acc.add(0,0.00981);
   }
 }
 
@@ -49,14 +53,11 @@ class Fish extends BaseEntity {
     texture(
       this.type == FishType.RED ? FishModel.red :
         this.type == FishType.GREEN ? FishModel.green :
-          this.type == FishType.BLUE ? FishModel.blue :
-            this.type == FishType.SPECIAL ? SceneryModel.treasureChest :
-              this.type == FishType.TOUGH ? SceneryModel.bubble : null);
+          this.type == FishType.BLUE ? FishModel.blue: null);   
     noStroke();
     circle(this.pos.x, this.pos.y, this.size);
     pop();
   }
-
 }
 
 class Chest extends BaseEntity {
@@ -95,7 +96,6 @@ class Bubble extends BaseEntity {
   constructor(xPosition, yPosition, size) {
     super(xPosition, yPosition, size);
     this.type = Type.TOUGH;
-
   }
 
   show() {
@@ -143,9 +143,9 @@ class Bullet extends BaseEntity {
   }
 }
 
-class SpawnPoint{
-  constructor(xPosition, yPosition, id){
-      this.pos = createVector(xPosition,yPosition);
-      this.Id = id;
+class SpawnPoint {
+  constructor(xPosition, yPosition, id) {
+    this.pos = createVector(xPosition, yPosition);
+    this.Id = id;
   }
 }

@@ -163,7 +163,7 @@ const Objective = {
             one = {
                 info: "Don't kill green fish",
                 counter: () => GlobalCounter.greenFishKills > 0 ? "Failed" : "Good",
-                questPoints: () => 45000,
+                questPoints: () => 75000,
                 condition: () => {
                     GlobalCounter.objectiveIsCompleted = GlobalCounter.greenFishKills == 0;
                 },
@@ -171,7 +171,7 @@ const Objective = {
             two = {
                 info: "Don't kill red fish",
                 counter: () => GlobalCounter.redFishKills > 0 ? "Failed" : "Good",
-                questPoints: () => 45000,
+                questPoints: () => 75000,
                 condition: () => {
                     GlobalCounter.objectiveIsCompleted = GlobalCounter.redFishKills == 0;
                 },
@@ -179,7 +179,7 @@ const Objective = {
             three = {
                 info: "Don't kill blue fish",
                 counter: () => GlobalCounter.blueFishKills > 0 ? "Failed" : "Good",
-                questPoints: () => 45000,
+                questPoints: () => 75000,
                 condition: () => {
                     GlobalCounter.objectiveIsCompleted = GlobalCounter.blueFishKills == 0;
                 },
@@ -188,7 +188,7 @@ const Objective = {
             four = {
                 info: "Kill 15 red fish",
                 counter: () => GlobalCounter.redFishKills,
-                questPoints: () => 35000,
+                questPoints: () => 55000,
                 condition: () => {
                     GlobalCounter.objectiveIsCompleted = GlobalCounter.redFishKills >= 15;
                 },
@@ -196,7 +196,7 @@ const Objective = {
             five = {
                 info: "Kill 15 green fish",
                 counter: () => GlobalCounter.greenFishKills,
-                questPoints: () => 35000,
+                questPoints: () => 55000,
                 condition: () => {
                     GlobalCounter.objectiveIsCompleted = GlobalCounter.greenFishKills >= 15;
                 },
@@ -205,7 +205,7 @@ const Objective = {
             six = {
                 info: "Kill 15 blue fish",
                 counter: () => GlobalCounter.blueFishKills,
-                questPoints: () => 35000,
+                questPoints: () => 55000,
                 condition: () => {
                     GlobalCounter.objectiveIsCompleted = GlobalCounter.blueFishKills >= 15;
                 },
@@ -213,7 +213,7 @@ const Objective = {
             seven = {
                 info: "Collect 6 red diamonds",
                 counter: () => GlobalCounter.redDiamondsCollected,
-                questPoints: () => 45000,
+                questPoints: () => 65000,
                 condition: () => {
                     GlobalCounter.objectiveIsCompleted = GlobalCounter.redDiamondsCollected >= 6;
                 },
@@ -222,7 +222,7 @@ const Objective = {
             eight = {
                 info: "Collect 6 green diamonds",
                 counter: () => GlobalCounter.greenDiamondsCollected,
-                questPoints: () => 45000,
+                questPoints: () => 65000,
                 condition: () => {
                     GlobalCounter.objectiveIsCompleted = GlobalCounter.greenDiamondsCollected >= 6;
                 },
@@ -232,7 +232,7 @@ const Objective = {
             nine = {
                 info: "Collect 6 blue diamonds",
                 counter: () => GlobalCounter.blueDiamondsCollected,
-                questPoints: () => 45000,
+                questPoints: () => 65000,
                 condition: () => {
                     GlobalCounter.objectiveIsCompleted = GlobalCounter.blueDiamondsCollected >= 6;
                 },
@@ -244,17 +244,18 @@ const Objective = {
 
     isCompletedCheck: (questPoints) => {
         if (GlobalCounter.objectiveIsCompleted) {
+            GlobalCounter.totalPoints += questPoints;
             setTimeout(() => {
-                GlobalCounter.totalPoints += questPoints;
-
                 LevelFinishTooltip.objectiveCompletedPoints.innerHTML = `+${questPoints} points`;
                 LevelFinishTooltip.objectiveCompletedContainer.style.display = 'flex';
             }, 2000);
-
-            console.log(GlobalCounter.totalPoints);
-            console.log(GlobalCounter.totalPoints);
-
-
+        }
+        else {
+            GlobalCounter.totalPoints += questPoints;
+            setTimeout(() => {
+                LevelFinishTooltip.objectiveCompletedText.innerHTML = 'OBJECTIVE FAILED!';
+                LevelFinishTooltip.objectiveCompletedContainer.style.display = 'flex';
+            }, 2000);
         };
     },
 

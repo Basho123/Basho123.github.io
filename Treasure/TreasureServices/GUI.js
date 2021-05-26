@@ -34,9 +34,11 @@ class Tutorial {
     static container = document.getElementById('tutorialContainer');
     static show() {
         this.container.style.display = 'flex';
+        GlobalCounter.splashScreenIsActive = true;
     };
     static hide() {
         this.container.style.display = 'none';
+        GlobalCounter.splashScreenIsActive = false;
     };
 };
 
@@ -51,6 +53,7 @@ class LevelStartTooltip {
 
 
     static show() {
+        GlobalCounter.splashScreenIsActive = true;
         this.container.style.display = 'flex';
 
         this.levelStartContainer.style.display = 'none';
@@ -66,6 +69,7 @@ class LevelStartTooltip {
     }
 
     static hide() {
+        GlobalCounter.splashScreenIsActive = false;
         this.container.style.display = 'none';
         this.levelStartContainer.style.display = 'none';
         this.objectiveInfoContainer.style.display = 'none';
@@ -81,13 +85,15 @@ class LevelFinishTooltip {
     static fishKilledCount = document.getElementById('fishKilledCount');
 
     static objectiveCompletedContainer = document.getElementById('objectiveCompletedContainer');
+    static objectiveCompletedText = document.getElementById('objectiveCompletedText');
+
     static objectiveCompletedPoints = document.getElementById('objectiveCompletedPoints');
 
     static show() {
         this.container.style.display = 'flex';
 
         this.fishKilledCount.innerHTML = GlobalCounter.totalKills;
-        this.diamondsCollectedCount.innerHTML = GlobalCounter.totalDiamondsCollected;
+        this.diamondsCollectedCount.innerHTML = GlobalCounter.totalDiamondsCollected;        
         this.fishKilledContainer.style.display = 'none';
         this.objectiveCompletedContainer.style.display = 'none';
 
@@ -137,7 +143,18 @@ class HUD {
         let pointsToPrint = +this.totalPoints.innerHTML;
 
         if (previousPoints < points) {
-            pointsToPrint += 126;
+            if (points - previousPoints > 1000){
+                pointsToPrint += 321;
+            }
+            else if (points - previousPoints < 1000 && points - previousPoints > 100 ){
+                pointsToPrint += 126;
+            }
+            else if (points - previousPoints < 100 && points - previousPoints > 10){
+                pointsToPrint += 12;
+            }
+            else if (points - previousPoints < 10 ){
+                pointsToPrint += 1;
+            };
         }
 
         this.totalPoints.innerHTML = pointsToPrint;
@@ -146,33 +163,71 @@ class HUD {
     static setStars() {
         let totalPoints = +this.totalPoints.innerHTML;
         if (totalPoints > 20000) {
-            GlobalCounter.stars++;
+            GlobalCounter.stars = 1;
             this.star1.innerHTML = `<img src="./Images/star.png" alt="">`;
         }
         if (totalPoints > 40000) {
-            GlobalCounter.stars++;
+            GlobalCounter.stars = 2;
             this.star2.innerHTML = `<img src="./Images/star.png" alt="">`;
         }
         if (totalPoints > 60000) {
-            GlobalCounter.stars++;
+            GlobalCounter.stars = 3;
             this.star3.innerHTML = `<img src="./Images/star.png" alt="">`;
         }
     }
 }
 
+class Points {
+    static setForLevel(number) {
+        localStorage.setItem(`starsForLevel${number}`, GlobalCounter.stars);
+        localStorage.setItem(`pointsForLevel${number}`, GlobalCounter.totalPoints);
+    };
+    static getPointsForLevel(number) {
+        return localStorage.getItem(`pointsForLevel${number}`);
+    };
+    static getStarsForLevel(number) {
+        return localStorage.getItem(`starsForLevel${number}`);
+    };
+};
+
+console.log('Points for level 1', Points.getPointsForLevel(1));
+
 class Game {
     static getCurrentLevel() {
         return +localStorage.getItem('treasureGameLevel');
     };
+
+    static getMaxLevel() {
+        return +localStorage.getItem('treasureGameMaxLevel');
+    };
+
     static setLevel(number) {
         localStorage.setItem('treasureGameLevel', number);
         GlobalCounter.level = number;
     };
+
+    static setMaxLevel() {
+        let level = +localStorage.getItem('treasureGameLevel');
+        let maxLevel = +localStorage.getItem('treasureGameMaxLevel');
+
+        if (level > maxLevel) {
+            localStorage.setItem('treasureGameMaxLevel', level);
+        };
+    };
+
+    static setImplicitMaxLevel(number) {
+        localStorage.setItem('treasureGameMaxLevel', number);
+    };
     static nextLevel() {
         let currentLevel = +localStorage.getItem('treasureGameLevel');
+        console.log('current Level', currentLevel);
         currentLevel++;
+        this.setLevel(currentLevel);
+        console.log('next level', currentLevel);
         GlobalCounter.level = currentLevel;
-        this.setLevel(GlobalCounter.level);
+        this.setMaxLevel();
+        console.log('maxLevel', this.getMaxLevel());
+        // this.setLevel(GlobalCounter.level);
     };
     static mainMenu() {
         this.setLevel(0);
@@ -185,6 +240,48 @@ class Game {
     static pause() {
         Document.mainMenu.style.display = 'block';
     };
+};
+
+class WorldMap {
+    static container = document.getElementById('worldMapContainer');
+    static buttons = document.getElementsByClassName('levelButtons');
+
+    static show() {
+        this.container.style.display = 'block';
+    }
+
+    static hide() {
+        this.container.style.display = 'none';
+    }
+
+    static populateButtons() {
+        let totalLevels = +localStorage.getItem('treasureGameMaxLevel');
+
+        for (let i = 1; i < totalLevels + 1; i++) {
+            let emptyStar = `<img src="Images/emptyStar.png" alt="">`;
+            let shinyStar = `<img src="Images/star.png" alt="">`;
+            let stars = Points.getStarsForLevel(i);
+            let points = 0;
+
+            console.log(`stars for level ${i} : ${stars}`);
+
+            if (Points.getPointsForLevel(i) != null) points = Points.getPointsForLevel(i);
+
+            this.container.innerHTML +=
+                `
+                <button class="levelButtons">
+                    <div class="levelButtonLevelValue"> Level ${i}</div>
+                    <div class="levelButtonStarValue">
+                        ${stars >= 1 ? shinyStar : emptyStar}
+                        ${stars >= 2 ? shinyStar : emptyStar} 
+                        ${stars == 3 ? shinyStar : emptyStar}
+                    </div>
+                    <div class="levelButtonScoreValue">${points}</div>
+                </button>   
+
+            `
+        }
+    }
 }
 
 if (Game.getCurrentLevel() == null) {
@@ -193,9 +290,25 @@ if (Game.getCurrentLevel() == null) {
 };
 
 
+// WORLD MAP BUTTONS
+Game.setMaxLevel();
+WorldMap.populateButtons();
+console.log(Game.getMaxLevel());
+
+for (let i = 0; i < WorldMap.buttons.length; i++) {
+    WorldMap.buttons[i].addEventListener('click', () => {
+        console.log('Level selected', i + 1);
+        localStorage.setItem('treasureGameLevel', i + 1);
+        GlobalCounter.level = i + 1;
+        Document.reload();
+    });
+};
+
 
 Document.restartGameButton.addEventListener('click', () => {
-    Game.restart();
+    Game.restart();    
+    localStorage.clear();
+    Game.setImplicitMaxLevel(1);
     Document.reload();
 });
 

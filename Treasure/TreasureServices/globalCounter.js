@@ -18,6 +18,8 @@ class GlobalCounter {
   static singleHitKills = 0;
   static totalKills = 0;
 
+  static splashScreenIsActive = false;
+
   static moreThan3killsCount = 0;
   static moreThan6killsCount = 0;
   static moreThan9killsCount = 0;
@@ -37,17 +39,20 @@ class GlobalCounter {
   static movesRemaining = 10;
   static currentPoints = 0;
   static totalPoints = 0;
+
   static level = +localStorage.getItem('treasureGameLevel');
+  static maxLevel = +localStorage.getItem('treasureGameMaxLevel');
+
   static levelIsFinished = false;
   static fireOnceInDraw = false;
-  static stars = 0; 
+  static stars = 0;
 
-  static lastMouseClickedCoordinates = [0,0];
+  static lastMouseClickedCoordinates = [0, 0];
   static lastFrameClicked = 0;
 
   static difficulty = this.level >= 0 && this.level < 5 ? Difficulty.EASY
-                      : this.level >= 5 && this.level < 10 ? Difficulty.MEDIUM
-                        : Difficulty.HARD
+    : this.level >= 5 && this.level < 10 ? Difficulty.MEDIUM
+      : Difficulty.HARD
 
   static addKill(item) {
 

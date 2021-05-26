@@ -40,6 +40,7 @@ setup = () => {
 
   console.log(GlobalCounter.difficulty);
 
+  // const canvas = createCanvas(1300, 800, WEBGL);
   const canvas = createCanvas(1300, 800, WEBGL);
   canvas.parent("canvasDiv");
 
@@ -49,45 +50,51 @@ setup = () => {
   setTimeout(() => { LevelStartTooltip.hide() }, 8000);
 
 
-  //MAIN MENU HIDE OR SHOW GAME
+  //MAIN MENU
   if (Game.getCurrentLevel() == 0) {
     Document.mainMenu.style.display = 'flex';
     Document.canvas[0].style.display = 'none';
+    WorldMap.hide();
+    HUD.hide();
   }
+
+  //WORLD MAP
+  else if (Game.getCurrentLevel() == -1) {
+    Document.mainMenu.style.display = 'none';
+    Document.canvas[0].style.display = 'none';
+    HUD.hide();
+    WorldMap.show();
+  }
+
+  //GAME CANVAS
   else {
     Document.mainMenu.style.display = 'none';
     Document.canvas[0].style.display = 'flex';
+    WorldMap.hide();
     HUD.show();
   };
 
 
   let rowsCount = 8;
   let columnsCount = 13;
-
-  let specialFishIsInserted = false;
-
+  let treasureChestIsInserted = false;
 
   for (i = 550; i < columnsCount * 100; i += 75) {
-
     //spawn points
     GlobalObjects.spawnPoints.push(new SpawnPoint(i, 0, i));
 
     for (g = 50; g < rowsCount * 100; g += 75) {
 
       // treasure chest spawn
-      if (random(200) < 2 && !specialFishIsInserted) {
+      if (random(200) < 4 && !treasureChestIsInserted) {
         GlobalObjects.item.push(new Chest(i, g, 50));
-        specialFishIsInserted = true;
+        treasureChestIsInserted = true;
         continue;
       }
 
       //bubble spawn
-      if (random(100) < GlobalCounter.level) {
-        GlobalObjects.item.push(new Bubble(i, g, 50));
-        // //diamond inside bubble spawn
-        // if (random(100) < 50) {
-        //   GlobalObjects.item.push(new Diamond(i, g, 20, DiamondType.getRandom()));
-        // }
+      if (random(500) < GlobalCounter.level) {
+        GlobalObjects.item.push(new Bubble(i, g, 50));       
         continue;
       }
 
@@ -97,7 +104,7 @@ setup = () => {
         continue;
       }
 
-      //crystal skull spawn above level 5
+      //crystal skull spawnS above level 5
       if (random(100) < 1 && GlobalCounter.level >= 5) {
         GlobalObjects.item.push(new CrystalSkull(i, g, 50));
         continue;
@@ -112,7 +119,7 @@ setup = () => {
 //DRAW
 draw = () => {
   background(255);
-
+  frameRate(60);
   //DRAW BACKGROUND
   switch (GlobalCounter.difficulty) {
     case Difficulty.EASY: //EASY
@@ -142,13 +149,15 @@ draw = () => {
   HUD.objectiveRemainingCount.innerHTML = currentObjective.counter();
   HUD.setTotalPoints(GlobalCounter.totalPoints);
   HUD.setStars();
-  HUD.setMovesRemaining(GlobalCounter.movesRemaining)
+  HUD.setMovesRemaining(GlobalCounter.movesRemaining);
+
 
 
 
   for (i = 0; i < GlobalObjects.item.length; i++) {
     GlobalObjects.item[i].show();
-    GlobalObjects.item[i].move();
+    // GlobalObjects.item[i].showCollisionBox();
+    GlobalObjects.item[i].addGravity();
 
     if (GlobalObjects.item[i].pos.y > 730) GlobalObjects.item[i].pos.y = 730;
 
@@ -156,12 +165,8 @@ draw = () => {
       if (Collision.isOccuring(GlobalObjects.item[i], GlobalObjects.item[g])) {
         GlobalObjects.item[i].vel.y = 0;
         GlobalObjects.item[i].acc.y = 0;
-
-        GlobalObjects.item[g].isSpawnedItem ? GlobalObjects.item[g].vel.y = 0 : null;
       }
     }
-
-
   }
 
   //SPAWNPOINT LOGIC
@@ -183,17 +188,14 @@ draw = () => {
       if (random(100) < 70) {
         let newFish = new Fish(spawnPoint.pos.x, spawnPoint.pos.y, 50, FishType.getRandom());
         newFish.isSpawnedItem = true;
-        GlobalObjects.item.push(newFish);
+        GlobalObjects.item.unshift(newFish);
       }
       else {
         let newDiamond = new Diamond(spawnPoint.pos.x, spawnPoint.pos.y, 50, DiamondType.getRandom());
         newDiamond.isSpawnedItem = true;
-        GlobalObjects.item.push(newDiamond);
+        GlobalObjects.item.unshift(newDiamond);
       }
-
     }
-
-
   });
 
 
@@ -213,13 +215,11 @@ draw = () => {
       bullet.type = GlobalCounter.currentBulletProperty;
 
 
-      // every bullet distance gets measured with every fish in each frame, 
-      // let bulletDistance = dist(bullet.pos.x, bullet.pos.y, item.pos.x, item.pos.y);
-
-
-
       //if bullet colides with same color that was before, but is not special bullet
-      if (Collision.isOccuring(bullet, item) && bullet.type == item.type && bullet.type != BulletType.SPECIAL && item.type != FishType.TOUGH) {
+      if (Collision.isOccuring(bullet, item)
+        && bullet.type == item.type
+        && bullet.type != BulletType.SPECIAL
+        && !(item instanceof Bubble)) {
         GlobalObjects.bullet.push(new Bullet(item.pos.x, item.pos.y, 0, 20));
         GlobalObjects.bullet.push(new Bullet(item.pos.x, item.pos.y, 20, 0));
         GlobalObjects.bullet.push(new Bullet(item.pos.x, item.pos.y, 0, -20));
@@ -236,17 +236,17 @@ draw = () => {
         GlobalObjects.bullet.splice(i, 1);
       }
 
-      //if special item is pressed
-      else if (Collision.isOccuring(bullet, item) && bullet.type == BulletType.SPECIAL && item.type != Type.TOUGH) {
+      //if treasure chest is collected
+      else if (Collision.isOccuring(bullet, item) && bullet.type == BulletType.SPECIAL && !(item instanceof Bubble)) {
         GlobalObjects.item.splice(g, 1);
         GlobalCounter.multiKillCount();
         GlobalCounter.addKill(item);
         GlobalCounter.addPoints(item);
       }
 
-      // if crystal skull is pressed, does splash damage
-      if (Collision.isOccuring(bullet, item) && bullet.type == BulletType.SKULL && item.type != Type.TOUGH) {
-        bullet.collisionSize = 250;
+      // if crystal skull is collected, does splash damage
+      if (Collision.isOccuring(bullet, item) && bullet.type == BulletType.SKULL && !(item instanceof Bubble)) {
+        bullet.collisionSize = 300;
         GlobalObjects.item.splice(g, 1);
         GlobalCounter.multiKillCount();
         GlobalCounter.addKill(item);
@@ -261,13 +261,17 @@ draw = () => {
     currentObjective.condition();
     Objective.isCompletedCheck(currentObjective.questPoints());
 
+    console.log('currentObjectiveCheck', currentObjective.questPoints());
+
     LevelFinishTooltip.show();
 
-
-    Game.nextLevel();
     GlobalCounter.levelIsFinished = true;
-    console.log(GlobalCounter.level);
-    setTimeout(() => { Document.reload(); }, 10000);
+    setTimeout(() => {
+      Points.setForLevel(GlobalCounter.level);
+      if (GlobalCounter.objectiveIsCompleted) Game.nextLevel();
+      Game.setLevel(-1);
+      Document.reload();
+    }, 10000);
   }
 }
 
@@ -275,49 +279,51 @@ draw = () => {
 mousePressed = () => {
   GlobalCounter.currentPoints = 0;
   GlobalCounter.singleHitKills = 0;
+  if (!GlobalCounter.splashScreenIsActive) {
+    if (!GlobalCounter.levelIsFinished) {
 
-  Tutorial.hide();
-
-  if (!GlobalCounter.levelIsFinished) {
-
-    GlobalCounter.lastMouseClickedCoordinates = [mouseX, mouseY];
-
-    LevelStartTooltip.hide();
-
-    GlobalObjects.item.forEach((item) => {
-      let mouseDistance = dist(item.pos.x, item.pos.y, mouseX, mouseY);
-      if (mouseDistance < 30
-         && !(item instanceof Bubble)
+      GlobalCounter.lastMouseClickedCoordinates = [mouseX, mouseY];
+      GlobalObjects.item.forEach((item) => {
+        let mouseDistance = dist(item.pos.x, item.pos.y, mouseX, mouseY);
+        if (mouseDistance < 30
+          && !(item instanceof Bubble)
           && !(item instanceof Diamond)) {
 
-        GlobalCounter.lastFrameClicked = frameCount;
-        GlobalCounter.movesRemaining--;
+          GlobalCounter.lastFrameClicked = frameCount;
+          GlobalCounter.movesRemaining--;
 
-        //POINTS CALCULATOR, has timeout because it waits for the bullets to finish
-        GlobalCounter.calculatePoints();
+          //POINTS CALCULATOR, has timeout because it waits for the bullets to finish
+          GlobalCounter.calculatePoints();
 
-        //bullet property is stored for later use
-        GlobalCounter.currentBulletProperty = item.type;
+          //bullet property is stored for later use
+          GlobalCounter.currentBulletProperty = item.type;
 
-        //bulelts are fired in all directions
-        GlobalObjects.bullet.push(new Bullet(mouseX, mouseY, 0, 20));
-        GlobalObjects.bullet.push(new Bullet(mouseX, mouseY, 20, 0));
-        GlobalObjects.bullet.push(new Bullet(mouseX, mouseY, 0, -20));
-        GlobalObjects.bullet.push(new Bullet(mouseX, mouseY, -20, 0));
-      };
-    });
-  }
-  else Document.reload();
+          //bulelts are fired in all directions
+          GlobalObjects.bullet.push(new Bullet(mouseX, mouseY, 0, 20));
+          GlobalObjects.bullet.push(new Bullet(mouseX, mouseY, 20, 0));
+          GlobalObjects.bullet.push(new Bullet(mouseX, mouseY, 0, -20));
+          GlobalObjects.bullet.push(new Bullet(mouseX, mouseY, -20, 0));
+        };
+      });
+    }
+    else {
+      Points.setForLevel(GlobalCounter.level);
+      if (GlobalCounter.objectiveIsCompleted) Game.nextLevel();
+      Game.setLevel(-1);
+      Document.reload();
+    }
+  };
+  Tutorial.hide();
+  LevelStartTooltip.hide();
 };
 
 // KEYBOARD PRESSES
 keyPressed = () => {
   // keyCode === 67  //C KEY
-
   // if (keyCode === 32) {  //   //SPACE KEY  
-
   if (keyCode === 27) { // ESCAPE KEY
     Tutorial.hide();
+    WorldMap.hide();
     Document.showIngameMenu();
     HUD.container.style.display = 'none';
   }
