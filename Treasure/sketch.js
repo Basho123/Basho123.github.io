@@ -49,6 +49,7 @@ setup = () => {
   setTimeout(() => { LevelStartTooltip.hide() }, 8000);
 
 
+  //MAIN MENU HIDE OR SHOW GAME
   if (Game.getCurrentLevel() == 0) {
     Document.mainMenu.style.display = 'flex';
     Document.canvas[0].style.display = 'none';
@@ -56,7 +57,8 @@ setup = () => {
   else {
     Document.mainMenu.style.display = 'none';
     Document.canvas[0].style.display = 'flex';
-  }
+    HUD.show();
+  };
 
 
   let rowsCount = 8;
@@ -67,7 +69,7 @@ setup = () => {
 
   for (i = 550; i < columnsCount * 100; i += 75) {
 
-    //spawn spawn points
+    //spawn points
     GlobalObjects.spawnPoints.push(new SpawnPoint(i, 0, i));
 
     for (g = 50; g < rowsCount * 100; g += 75) {
@@ -153,6 +155,8 @@ draw = () => {
     for (g = i + 1; g < GlobalObjects.item.length; g++) {
       if (Collision.isOccuring(GlobalObjects.item[i], GlobalObjects.item[g])) {
         GlobalObjects.item[i].vel.y = 0;
+        GlobalObjects.item[i].acc.y = 0;
+
         GlobalObjects.item[g].isSpawnedItem ? GlobalObjects.item[g].vel.y = 0 : null;
       }
     }
@@ -210,10 +214,12 @@ draw = () => {
 
 
       // every bullet distance gets measured with every fish in each frame, 
-      let bulletDistance = dist(bullet.pos.x, bullet.pos.y, item.pos.x, item.pos.y);
+      // let bulletDistance = dist(bullet.pos.x, bullet.pos.y, item.pos.x, item.pos.y);
+
+
 
       //if bullet colides with same color that was before, but is not special bullet
-      if (bulletDistance < 50 && bullet.type == item.type && bullet.type != BulletType.SPECIAL && item.type != FishType.TOUGH) {
+      if (Collision.isOccuring(bullet, item) && bullet.type == item.type && bullet.type != BulletType.SPECIAL && item.type != FishType.TOUGH) {
         GlobalObjects.bullet.push(new Bullet(item.pos.x, item.pos.y, 0, 20));
         GlobalObjects.bullet.push(new Bullet(item.pos.x, item.pos.y, 20, 0));
         GlobalObjects.bullet.push(new Bullet(item.pos.x, item.pos.y, 0, -20));
@@ -226,20 +232,21 @@ draw = () => {
       }
 
       //if bullet colides with invalid item
-      else if (bulletDistance < 50 && bullet.type != item.type && bullet.type != BulletType.SPECIAL) {
+      else if (Collision.isOccuring(bullet, item) && bullet.type != item.type && bullet.type != BulletType.SPECIAL) {
         GlobalObjects.bullet.splice(i, 1);
       }
 
       //if special item is pressed
-      else if (bulletDistance < 30 && bullet.type == BulletType.SPECIAL && item.type != Type.TOUGH) {
+      else if (Collision.isOccuring(bullet, item) && bullet.type == BulletType.SPECIAL && item.type != Type.TOUGH) {
         GlobalObjects.item.splice(g, 1);
         GlobalCounter.multiKillCount();
         GlobalCounter.addKill(item);
         GlobalCounter.addPoints(item);
       }
 
-      // if crystal skull is pressed
-      if (bulletDistance < 100 && bullet.type == BulletType.SKULL && item.type != Type.TOUGH) {
+      // if crystal skull is pressed, does splash damage
+      if (Collision.isOccuring(bullet, item) && bullet.type == BulletType.SKULL && item.type != Type.TOUGH) {
+        bullet.collisionSize = 250;
         GlobalObjects.item.splice(g, 1);
         GlobalCounter.multiKillCount();
         GlobalCounter.addKill(item);
@@ -279,7 +286,9 @@ mousePressed = () => {
 
     GlobalObjects.item.forEach((item) => {
       let mouseDistance = dist(item.pos.x, item.pos.y, mouseX, mouseY);
-      if (mouseDistance < 30 && item.type != FishType.TOUGH) {
+      if (mouseDistance < 30
+         && !(item instanceof Bubble)
+          && !(item instanceof Diamond)) {
 
         GlobalCounter.lastFrameClicked = frameCount;
         GlobalCounter.movesRemaining--;

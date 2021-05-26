@@ -55,6 +55,7 @@ body{
 
     user-select: none; 
 
+    display: none;
     color: rgb(255, 255, 255);
 
     position:absolute;

@@ -13,8 +13,7 @@ class BaseEntity {
     this.size = size;
     this.collisionSize = 74;
 
-    this.isSpawnedItem = false;
-    
+    this.isSpawnedItem = false;    
     this.color = 0;
 
 
@@ -126,6 +125,7 @@ class Bullet extends BaseEntity {
   constructor(xPosition, yPosition, xSpeed, ySpeed) {
     super(xPosition, yPosition);
 
+    this.collisionSize = 30;
     this.vel = createVector(xSpeed, ySpeed);
     this.type = "null";
     this.distanceTraveled = 0;

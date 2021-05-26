@@ -32,10 +32,10 @@ class Document {
 
 class Tutorial {
     static container = document.getElementById('tutorialContainer');
-    static show(){
+    static show() {
         this.container.style.display = 'flex';
     };
-    static hide(){
+    static hide() {
         this.container.style.display = 'none';
     };
 };
@@ -113,6 +113,12 @@ class HUD {
     static star2 = document.getElementById('star2');
     static star3 = document.getElementById('star3');
 
+    static show() {
+        this.container.style.display = 'flex';
+    };
+    static hide() {
+        this.container.style.display = 'none';
+    };
 
     static setMovesRemaining(moves) {
         this.movesRemainingCount.innerHTML = moves;
@@ -199,7 +205,7 @@ Document.playButton.addEventListener('click', () => {
 });
 
 Document.continueButton.addEventListener('click', () => {
-    HUD.container.style.display = 'flex';
+    HUD.show();
     Document.hideIngameMenu();
 });
 
