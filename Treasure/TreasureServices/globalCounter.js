@@ -1,6 +1,7 @@
 class GlobalObjects {
   static item = [];
   static bullet = [];
+  static spawnPoints = [];
 
   static drawTerrain(image) {
     push();

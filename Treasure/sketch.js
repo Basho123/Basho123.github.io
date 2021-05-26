@@ -7,7 +7,6 @@ let randomObjective = Math.floor(Math.random() * Objective.Difficulty[GlobalCoun
 const currentObjective = Objective.Difficulty[GlobalCounter.difficulty][randomObjective];
 console.log(randomObjective);
 
-if (GlobalCounter.level == 1) Tutorial.show();
 
 HUD.objectiveName.innerHTML = currentObjective.info;
 LevelStartTooltip.objectiveInfo.innerHTML = currentObjective.info;
@@ -44,7 +43,9 @@ setup = () => {
   const canvas = createCanvas(1300, 800, WEBGL);
   canvas.parent("canvasDiv");
 
-  LevelStartTooltip.show();
+  if (GlobalCounter.level > 1) LevelStartTooltip.show();
+  if (GlobalCounter.level == 1) Tutorial.show();
+
   setTimeout(() => { LevelStartTooltip.hide() }, 8000);
 
 
@@ -63,10 +64,15 @@ setup = () => {
 
   let specialFishIsInserted = false;
 
+
   for (i = 550; i < columnsCount * 100; i += 75) {
+
+    //spawn spawn points
+    GlobalObjects.spawnPoints.push(new SpawnPoint(i, 0, i));
+
     for (g = 50; g < rowsCount * 100; g += 75) {
 
-      //treasure chest spawn
+      // treasure chest spawn
       if (random(200) < 2 && !specialFishIsInserted) {
         GlobalObjects.item.push(new Chest(i, g, 50));
         specialFishIsInserted = true;
@@ -76,10 +82,10 @@ setup = () => {
       //bubble spawn
       if (random(100) < GlobalCounter.level) {
         GlobalObjects.item.push(new Bubble(i, g, 50));
-        //diamond inside bubble spawn
-        if (random(100) < 50) {
-          GlobalObjects.item.push(new Diamond(i, g, 20, DiamondType.getRandom()));
-        }
+        // //diamond inside bubble spawn
+        // if (random(100) < 50) {
+        //   GlobalObjects.item.push(new Diamond(i, g, 20, DiamondType.getRandom()));
+        // }
         continue;
       }
 
@@ -90,12 +96,12 @@ setup = () => {
       }
 
       //crystal skull spawn above level 5
-      if (random(100) < 0.5 && GlobalCounter.level >= 5) {
+      if (random(100) < 1 && GlobalCounter.level >= 5) {
         GlobalObjects.item.push(new CrystalSkull(i, g, 50));
         continue;
       }
 
-      //spawn a random fish if nothing was spawned prior
+      // spawn a random fish if nothing was spawned prior
       GlobalObjects.item.push(new Fish(i, g, 50, FishType.getRandom()));
     }
   }
@@ -104,7 +110,6 @@ setup = () => {
 //DRAW
 draw = () => {
   background(255);
-
 
   //DRAW BACKGROUND
   switch (GlobalCounter.difficulty) {
@@ -125,7 +130,6 @@ draw = () => {
   translate(-1300 / 2, -800 / 2);
 
 
-
   MouseText.show(GlobalCounter.currentPoints * GlobalCounter.singleHitKills / 2,
     GlobalCounter.lastFrameClicked,
     frameCount,
@@ -139,10 +143,55 @@ draw = () => {
   HUD.setMovesRemaining(GlobalCounter.movesRemaining)
 
 
-  //ALL ITEMS MUST BE SHOWN IN SEPARATE ITERATOR DUE TO FLICKERING WHEN ONE IS DESTROYED
-  GlobalObjects.item.forEach((x) => {
-    x.show();
+
+  for (i = 0; i < GlobalObjects.item.length; i++) {
+    GlobalObjects.item[i].show();
+    GlobalObjects.item[i].move();
+
+    if (GlobalObjects.item[i].pos.y > 730) GlobalObjects.item[i].pos.y = 730;
+
+    for (g = i + 1; g < GlobalObjects.item.length; g++) {
+      if (Collision.isOccuring(GlobalObjects.item[i], GlobalObjects.item[g])) {
+        GlobalObjects.item[i].vel.y = 0;
+        GlobalObjects.item[g].isSpawnedItem ? GlobalObjects.item[g].vel.y = 0 : null;
+      }
+    }
+
+
+  }
+
+  //SPAWNPOINT LOGIC
+  GlobalObjects.spawnPoints.forEach(spawnPoint => {
+
+    //MEASURE AND RECORD EVERY DISTANCE FROM EVERY SPAWN POINT
+    let spawnPointDistances = [];
+    GlobalObjects.item.forEach(entity => {
+      let spawnPointDistance = dist(spawnPoint.pos.x, spawnPoint.pos.y, entity.pos.x, entity.pos.y);
+      spawnPointDistances.push(spawnPointDistance);
+    });
+
+    spawnPointDistances.sort((x, y) => x - y);
+
+
+    //if there is enough place to spawn an item, it will be spawned every 600 frames or 10 seconds
+    // 70/30 % chance for Fish vs Diamond
+    if (spawnPointDistances[0] > 150 && frameCount % 300 == 0) {
+      if (random(100) < 70) {
+        let newFish = new Fish(spawnPoint.pos.x, spawnPoint.pos.y, 50, FishType.getRandom());
+        newFish.isSpawnedItem = true;
+        GlobalObjects.item.push(newFish);
+      }
+      else {
+        let newDiamond = new Diamond(spawnPoint.pos.x, spawnPoint.pos.y, 50, DiamondType.getRandom());
+        newDiamond.isSpawnedItem = true;
+        GlobalObjects.item.push(newDiamond);
+      }
+
+    }
+
+
   });
+
 
   //THE BULLET LOGIC STARTS HERE
   GlobalObjects.bullet.forEach((bullet, i) => {
@@ -161,8 +210,6 @@ draw = () => {
 
 
       // every bullet distance gets measured with every fish in each frame, 
-      // there is a less CPU hungry formula, but is more code complex,
-      // so i decided to go with this one since the game mechanics is not heavy on CPU
       let bulletDistance = dist(bullet.pos.x, bullet.pos.y, item.pos.x, item.pos.y);
 
       //if bullet colides with same color that was before, but is not special bullet
@@ -263,6 +310,7 @@ keyPressed = () => {
   if (keyCode === 27) { // ESCAPE KEY
     Tutorial.hide();
     Document.showIngameMenu();
+    HUD.container.style.display = 'none';
   }
 }
 

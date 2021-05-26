@@ -5,13 +5,38 @@
 class BaseEntity {
   constructor(xPosition, yPosition, size, type) {
     this.pos = createVector(xPosition, yPosition);
+    this.vel = createVector();
+    this.acc = createVector();
+
     this.id = random(999999999);
     this.type = type;
     this.size = size;
+    this.collisionSize = 74;
+
+    this.isSpawnedItem = false;
+    
+    this.color = 0;
+
 
   }
   show() {
     throw new Error("Not implemented, implement SHOW in extended object");
+  }
+
+  showCollisionBox() {
+    push();
+    fill(this.color, 255, 0);
+    rectMode(CENTER);
+    rect(this.pos.x, this.pos.y, this.collisionSize);
+    pop();
+  }
+
+  move() {
+
+    this.vel.limit(50);
+    this.pos.add(this.vel);
+    this.vel.add(this.acc);
+    this.acc.y += 0.001;
   }
 }
 
@@ -32,6 +57,7 @@ class Fish extends BaseEntity {
     circle(this.pos.x, this.pos.y, this.size);
     pop();
   }
+
 }
 
 class Chest extends BaseEntity {
@@ -114,5 +140,12 @@ class Bullet extends BaseEntity {
 
     this.pos.add(this.vel);
     this.distanceTraveled += this.vel.x + this.vel.y;
+  }
+}
+
+class SpawnPoint{
+  constructor(xPosition, yPosition, id){
+      this.pos = createVector(xPosition,yPosition);
+      this.Id = id;
   }
 }

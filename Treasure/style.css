@@ -16,7 +16,6 @@ body{
     flex-wrap: wrap;
     align-items: center;  
     justify-content: center;  
-    background-color: brown;
     margin: 0px auto;
 }
 
@@ -92,7 +91,7 @@ body{
 
     color: rgb(255, 255, 255);
 
-    background-color: rgba(0, 0, 0, 0.514);
+    background-color: rgba(0, 0, 0, 0.863);
 
     position:absolute;
 

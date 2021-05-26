@@ -104,6 +104,7 @@ class LevelFinishTooltip {
 }
 
 class HUD {
+    static container = document.getElementById('HUD');
     static movesRemainingCount = document.getElementById('movesRemainingCount');
     static objectiveRemainingCount = document.getElementById('objectiveRemainingCount');
     static objectiveName = document.getElementById('objectiveName');
@@ -198,6 +199,7 @@ Document.playButton.addEventListener('click', () => {
 });
 
 Document.continueButton.addEventListener('click', () => {
+    HUD.container.style.display = 'flex';
     Document.hideIngameMenu();
 });
 
