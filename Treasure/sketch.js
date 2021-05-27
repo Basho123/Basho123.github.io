@@ -1,12 +1,12 @@
-// IMPORTED CLASSES FROM classLibrary.js
-// IMPORTED CLASSES FROM GUI.js
-///////////// SETUP //////////////
+// imported classes from TreasureLibrary Folder
+// imported classes from TreasureServices Folder
+// imported classes from TreasureEnums Folder
+
+
 console.log(`You are at level ${GlobalCounter.level}`);
+Game.startSession();
 
-let randomObjective = Math.floor(Math.random() * Objective.Difficulty[GlobalCounter.difficulty].length);
-const currentObjective = Objective.Difficulty[GlobalCounter.difficulty][randomObjective];
-console.log(randomObjective);
-
+const currentObjective = Objective.setRandom()
 
 HUD.objectiveName.innerHTML = currentObjective.info;
 LevelStartTooltip.objectiveInfo.innerHTML = currentObjective.info;
@@ -17,7 +17,6 @@ preload = () => {
   Background.image1 = loadImage('./Images/underWater1.png');
   Background.image2 = loadImage('./Images/underWater2.png');
   Background.image3 = loadImage('./Images/underWater3.png');
-
 
   SceneryModel.treasureChest = loadImage('./Images/treasures/treasure.png');
   SceneryModel.redDiamond = loadImage('./Images/treasures/redDiamond.png');
@@ -33,21 +32,33 @@ preload = () => {
   FishModel.orange = loadImage('./Images/fish/orangeFish.png');
   FishModel.blue = loadImage('./Images/fish/shark.png');
 
+  Sound.bubble1 = loadSound('./Sounds/bubble1.mp3');
+  Sound.bubble2 = loadSound('./Sounds/bubble2.mp3');
+  Sound.bubble3 = loadSound('./Sounds/bubble3.mp3');
+  Sound.bubble4 = loadSound('./Sounds/bubble4.mp3');
+  Sound.bubble5 = loadSound('./Sounds/bubble5.mp3');
+  Sound.bubble6 = loadSound('./Sounds/bubble6.mp3');
+  Sound.bubble7 = loadSound('./Sounds/bubble7.mp3');
+  Sound.bubble8 = loadSound('./Sounds/bubble8.mp3');
+  Sound.bubbleBackground = loadSound('./Sounds/bubbleBackground.mp3');
+  Sound.music1 = loadSound('./Sounds/music1.mp3');
+  Sound.music2 = loadSound('./Sounds/music2.mp3');
+
   Font.openSans = loadFont('./Fonts/Open_Sans/OpenSans-Regular.ttf');
 }
 
 setup = () => {
-
-  console.log(GlobalCounter.difficulty);
-
-  // const canvas = createCanvas(1300, 800, WEBGL);
+  // setAttributes('antialias', true);
   const canvas = createCanvas(1300, 800, WEBGL);
   canvas.parent("canvasDiv");
 
   if (GlobalCounter.level > 1) LevelStartTooltip.show();
   if (GlobalCounter.level == 1) Tutorial.show();
 
+  Sound.checkForOnOffState();
+
   setTimeout(() => { LevelStartTooltip.hide() }, 8000);
+  Sound.playMusic();
 
 
   //MAIN MENU
@@ -56,6 +67,8 @@ setup = () => {
     Document.canvas[0].style.display = 'none';
     WorldMap.hide();
     HUD.hide();
+    Sound.stopBackground();
+    Sound.stopMusic();
   }
 
   //WORLD MAP
@@ -64,6 +77,8 @@ setup = () => {
     Document.canvas[0].style.display = 'none';
     HUD.hide();
     WorldMap.show();
+    Sound.stopMusic();
+    Sound.stopBackground();
   }
 
   //GAME CANVAS
@@ -72,6 +87,7 @@ setup = () => {
     Document.canvas[0].style.display = 'flex';
     WorldMap.hide();
     HUD.show();
+    Sound.playBackground();
   };
 
 
@@ -80,7 +96,7 @@ setup = () => {
   let treasureChestIsInserted = false;
 
   for (i = 550; i < columnsCount * 100; i += 75) {
-    //spawn points
+    //spawn points when space opens up
     GlobalObjects.spawnPoints.push(new SpawnPoint(i, 0, i));
 
     for (g = 50; g < rowsCount * 100; g += 75) {
@@ -93,7 +109,7 @@ setup = () => {
       }
 
       //bubble spawn
-      if (random(500) < GlobalCounter.level) {
+      if (random(100) < GlobalCounter.level) {
         GlobalObjects.item.push(new Bubble(i, g, 50));
         continue;
       }
@@ -104,22 +120,32 @@ setup = () => {
         continue;
       }
 
-      //crystal skull spawnS above level 5
+      //crystal skull spawns above level 5
       if (random(100) < 1 && GlobalCounter.level >= 5) {
         GlobalObjects.item.push(new CrystalSkull(i, g, 50));
         continue;
       }
-
-      // spawn a random fish if nothing was spawned prior
+      // spawn a random fish if nothing special was spawned prior
       GlobalObjects.item.push(new Fish(i, g, 50, FishType.getRandom()));
     }
   }
+
+  //populate initial background bubbles
+  for (i = 0; i < 20; i++) {
+    GlobalObjects.backgroundBubbles.push(new BackgroundBubble(random(-200, 1600), random(100, 800), random(15) + 5));
+  }
+
 }
 
 //DRAW
 draw = () => {
   background(255);
   frameRate(60);
+  currentObjective.condition();
+
+
+
+
   //DRAW BACKGROUND
   switch (GlobalCounter.difficulty) {
     case Difficulty.EASY: //EASY
@@ -134,9 +160,18 @@ draw = () => {
     default:
       break;
   }
-
   //TRANSLATE ALL OBJECTS BECAUSE OF WEBGL RENDERING ITEMS FROM CENTER OF SCREEN AS 0 POINT
   translate(-1300 / 2, -800 / 2);
+
+  //populate continiously background with background bubbles 
+  if (random(1000) < 25) {
+    GlobalObjects.backgroundBubbles.push(new BackgroundBubble(random(-200, 1600), 900, random(15) + 5));
+  }
+  GlobalObjects.backgroundBubbles.forEach((bubble, index) => {
+    bubble.show();
+    bubble.addBuoyency();
+    if (bubble.pos.y < 0) GlobalObjects.backgroundBubbles.splice(index, 1);
+  })
 
 
   MouseText.show(GlobalCounter.currentPoints * GlobalCounter.singleHitKills / 2,
@@ -146,12 +181,10 @@ draw = () => {
     GlobalCounter.lastMouseClickedCoordinates[1]);
 
 
-  HUD.objectiveRemainingCount.innerHTML = currentObjective.counter();
+  HUD.setObjectiveRemainingCount(currentObjective.counter());
   HUD.setTotalPoints(GlobalCounter.totalPoints);
   HUD.setStars();
   HUD.setMovesRemaining(GlobalCounter.movesRemaining);
-
-
 
 
   for (i = 0; i < GlobalObjects.item.length; i++) {
@@ -258,17 +291,16 @@ draw = () => {
   // END LEVEL
   if (GlobalCounter.movesRemaining == 0 && !GlobalCounter.levelIsFinished) {
 
-    currentObjective.condition();
-    Objective.isCompletedCheck(currentObjective.questPoints());
-
-    console.log('currentObjectiveCheck', currentObjective.questPoints());
-
     LevelFinishTooltip.show();
+
+    setTimeout(() => {
+      LevelFinishTooltip.showObjectiveCompletedLog(GlobalCounter.objectiveIsCompleted, currentObjective.questPoints());
+    }, 2000)
 
     GlobalCounter.levelIsFinished = true;
     setTimeout(() => {
       Points.setForLevel(GlobalCounter.level);
-      if (GlobalCounter.objectiveIsCompleted) Game.nextLevel();
+      if (GlobalCounter.objectiveIsCompleted && GlobalCounter.level < 30) Game.nextLevel();
       Game.setLevel(-1);
       Document.reload();
     }, 10000);
@@ -279,7 +311,7 @@ draw = () => {
 mousePressed = () => {
 
   //last frame clicked guards for the points not being calculated on mobile device
-  if (!GlobalCounter.splashScreenIsActive &&  GlobalCounter.lastFrameClicked+30 < frameCount) {
+  if (!GlobalCounter.splashScreenIsActive && GlobalCounter.lastFrameClicked + 30 < frameCount) {
     if (!GlobalCounter.levelIsFinished) {
       GlobalCounter.currentPoints = 0;
       GlobalCounter.singleHitKills = 0;
@@ -290,6 +322,7 @@ mousePressed = () => {
           && !(item instanceof Bubble)
           && !(item instanceof Diamond)) {
 
+          Sound.fireRandom();
           GlobalCounter.lastFrameClicked = frameCount;
           GlobalCounter.movesRemaining--;
 
@@ -309,7 +342,7 @@ mousePressed = () => {
     }
     else {
       Points.setForLevel(GlobalCounter.level);
-      if (GlobalCounter.objectiveIsCompleted) Game.nextLevel();
+      if (GlobalCounter.objectiveIsCompleted && GlobalCounter.level < 30) Game.nextLevel();
       Game.setLevel(-1);
       Document.reload();
     }

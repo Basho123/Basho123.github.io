@@ -242,22 +242,10 @@ const Objective = {
         ],
     ],
 
-    isCompletedCheck: (questPoints) => {
-        if (GlobalCounter.objectiveIsCompleted) {
-            setTimeout(() => {
-                GlobalCounter.totalPoints += questPoints;
-                LevelFinishTooltip.objectiveCompletedPoints.innerHTML = `+${questPoints} points`;
-                LevelFinishTooltip.objectiveCompletedContainer.style.display = 'flex';
-            }, 2000);
-        }
-        else {
-            GlobalCounter.totalPoints += questPoints;
-            setTimeout(() => {
-                LevelFinishTooltip.objectiveCompletedText.innerHTML = 'OBJECTIVE FAILED!';
-                LevelFinishTooltip.objectiveCompletedContainer.style.display = 'flex';
-            }, 2000);
-        };
-    },
+    setRandom: ()=>{
+        let randomObjective = Math.floor(Math.random() * Objective.Difficulty[GlobalCounter.difficulty].length);
+        return Objective.Difficulty[GlobalCounter.difficulty][randomObjective];
+    }
 
 
 }

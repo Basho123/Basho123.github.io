@@ -7,6 +7,8 @@ class Document {
     static continueButton = document.getElementById('continueButton');
 
     static restartGameButton = document.getElementById('restartGame');
+    static worldMapButton = document.getElementById('worldMapButton');
+
     static soundButton = document.getElementById('soundButton');
 
     static reload() {
@@ -93,7 +95,7 @@ class LevelFinishTooltip {
         this.container.style.display = 'flex';
 
         this.fishKilledCount.innerHTML = GlobalCounter.totalKills;
-        this.diamondsCollectedCount.innerHTML = GlobalCounter.totalDiamondsCollected;        
+        this.diamondsCollectedCount.innerHTML = GlobalCounter.totalDiamondsCollected;
         this.fishKilledContainer.style.display = 'none';
         this.objectiveCompletedContainer.style.display = 'none';
 
@@ -106,6 +108,21 @@ class LevelFinishTooltip {
         this.container.style.display = 'none';
         this.fishKilledContainer.style.display = 'none';
         this.objectiveCompletedContainer.style.display = 'none';
+    }
+
+    static showObjectiveCompletedLog(objectiveIsCompleted, questPoints) {
+        if (objectiveIsCompleted) {
+            GlobalCounter.totalPoints += questPoints;
+            LevelFinishTooltip.objectiveCompletedPoints.innerHTML = `<span class="green-text">+${questPoints} points</span>`;
+            LevelFinishTooltip.objectiveCompletedContainer.style.display = 'flex';
+
+        }
+        else {
+            GlobalCounter.totalPoints += questPoints;
+            LevelFinishTooltip.objectiveCompletedText.innerHTML = '<span style="color: red;">OBJECTIVE FAILED!</span>';
+            LevelFinishTooltip.objectiveCompletedPoints.innerHTML = ``;
+            LevelFinishTooltip.objectiveCompletedContainer.style.display = 'flex';
+        };
     }
 }
 
@@ -127,11 +144,17 @@ class HUD {
     };
 
     static setMovesRemaining(moves) {
-        this.movesRemainingCount.innerHTML = moves;
+        if (moves <= 10) this.movesRemainingCount.innerHTML = `<span class="green-text">${moves}</span>`;
+        if (moves <= 6) this.movesRemainingCount.innerHTML = `<span class="yellow-text">${moves}</span>`;
+        if (moves <= 3) this.movesRemainingCount.innerHTML = `<span class="red-text">${moves}</span>`;
     };
 
     static setObjectiveRemainingCount(objectiveCount) {
         this.objectiveRemainingCount.innerHTML = objectiveCount;
+
+        if (GlobalCounter.objectiveIsCompleted) {
+            this.objectiveRemainingCount.innerHTML = `<span class="green-text" style="font-size: 25px;">Done!</span>`
+        }
     }
 
     static setObjectiveName(objectiveName) {
@@ -143,16 +166,16 @@ class HUD {
         let pointsToPrint = +this.totalPoints.innerHTML;
 
         if (previousPoints < points) {
-            if (points - previousPoints > 1000){
+            if (points - previousPoints > 1000) {
                 pointsToPrint += 321;
             }
-            else if (points - previousPoints < 1000 && points - previousPoints > 100 ){
+            else if (points - previousPoints < 1000 && points - previousPoints > 100) {
                 pointsToPrint += 126;
             }
-            else if (points - previousPoints < 100 && points - previousPoints > 10){
+            else if (points - previousPoints < 100 && points - previousPoints > 10) {
                 pointsToPrint += 12;
             }
-            else if (points - previousPoints < 10 ){
+            else if (points - previousPoints < 10) {
                 pointsToPrint += 1;
             };
         }
@@ -190,8 +213,6 @@ class Points {
     };
 };
 
-console.log('Points for level 1', Points.getPointsForLevel(1));
-
 class Game {
     static getCurrentLevel() {
         return +localStorage.getItem('treasureGameLevel');
@@ -220,14 +241,10 @@ class Game {
     };
     static nextLevel() {
         let currentLevel = +localStorage.getItem('treasureGameLevel');
-        console.log('current Level', currentLevel);
         currentLevel++;
         this.setLevel(currentLevel);
-        console.log('next level', currentLevel);
         GlobalCounter.level = currentLevel;
         this.setMaxLevel();
-        console.log('maxLevel', this.getMaxLevel());
-        // this.setLevel(GlobalCounter.level);
     };
     static mainMenu() {
         this.setLevel(0);
@@ -239,6 +256,14 @@ class Game {
     };
     static pause() {
         Document.mainMenu.style.display = 'block';
+    };
+
+    static startSession() {
+        if (+sessionStorage.getItem('sessionStarted') != 1) {
+            this.mainMenu();
+            sessionStorage.setItem('sessionStarted', 1);
+            Document.reload();
+        }
     };
 };
 
@@ -257,13 +282,12 @@ class WorldMap {
     static populateButtons() {
         let totalLevels = +localStorage.getItem('treasureGameMaxLevel');
 
+        // UNLOCKED LEVEL BUTTONS
         for (let i = 1; i < totalLevels + 1; i++) {
             let emptyStar = `<img src="Images/emptyStar.png" alt="">`;
             let shinyStar = `<img src="Images/star.png" alt="">`;
             let stars = Points.getStarsForLevel(i);
             let points = 0;
-
-            console.log(`stars for level ${i} : ${stars}`);
 
             if (Points.getPointsForLevel(i) != null) points = Points.getPointsForLevel(i);
 
@@ -279,7 +303,24 @@ class WorldMap {
                     <div class="levelButtonScoreValue">${points}</div>
                 </button>   
 
-            `
+            `;
+        }
+        // LOCKED LEVEL BUTTONS
+        for (let i = totalLevels + 1; i < 30 + 1; i++) {
+            let emptyStar = `<img src="Images/emptyStar.png" alt="">`;
+            this.container.innerHTML +=
+                `
+                <button class="levelButtonDisabled" disabled>
+                    <div class="levelButtonLevelValue"> Level ${i}</div>
+                    <div class="levelButtonStarValue">
+                        ${emptyStar}
+                        ${emptyStar} 
+                        ${emptyStar}
+                    </div>
+                    <div class="levelButtonScoreValue">0</div>
+                </button>   
+
+            `;
         }
     }
 }
@@ -293,7 +334,6 @@ if (Game.getCurrentLevel() == null) {
 // WORLD MAP BUTTONS
 Game.setMaxLevel();
 WorldMap.populateButtons();
-console.log(Game.getMaxLevel());
 
 for (let i = 0; i < WorldMap.buttons.length; i++) {
     WorldMap.buttons[i].addEventListener('click', () => {
@@ -306,7 +346,7 @@ for (let i = 0; i < WorldMap.buttons.length; i++) {
 
 
 Document.restartGameButton.addEventListener('click', () => {
-    Game.restart();    
+    Game.restart();
     localStorage.clear();
     Game.setImplicitMaxLevel(1);
     Document.reload();
@@ -317,9 +357,18 @@ Document.playButton.addEventListener('click', () => {
     Document.reload();
 });
 
+Document.worldMapButton.addEventListener('click', () => {
+    Game.setLevel(-1);
+    Document.reload();
+});
+
 Document.continueButton.addEventListener('click', () => {
     HUD.show();
     Document.hideIngameMenu();
+});
+
+Document.soundButton.addEventListener('click',()=>{   
+    Sound.muteSwitch();
 });
 
 

@@ -13,6 +13,10 @@ class BaseEntity {
     this.size = size;
     this.collisionSize = 72;
 
+    this.collisionIsSet = true;
+
+    this.sinusMovement = random(40) + 20;
+
     this.isSpawnedItem = false;
     this.color = 0;
 
@@ -39,7 +43,7 @@ class BaseEntity {
     this.vel.limit(50);
     this.pos.add(this.vel);
     this.vel.add(this.acc);
-    this.acc.add(0,0.00981);
+    this.acc.add(0, 0.00981);
   }
 }
 
@@ -53,9 +57,12 @@ class Fish extends BaseEntity {
     texture(
       this.type == FishType.RED ? FishModel.red :
         this.type == FishType.GREEN ? FishModel.green :
-          this.type == FishType.BLUE ? FishModel.blue: null);   
+          this.type == FishType.BLUE ? FishModel.blue : null);
     noStroke();
-    circle(this.pos.x, this.pos.y, this.size);
+    circle(
+      this.pos.x + (sin((frameCount / this.sinusMovement)) * 2),
+      this.pos.y + (sin((frameCount / this.sinusMovement)) * 1),
+      this.size);
     pop();
   }
 }
@@ -70,7 +77,7 @@ class Chest extends BaseEntity {
     push();
     texture(SceneryModel.treasureChest);
     noStroke();
-    circle(this.pos.x, this.pos.y, this.size);
+    circle(this.pos.x + (sin((frameCount / this.sinusMovement)) * 2), this.pos.y, this.size);
     pop();
   }
 }
@@ -87,7 +94,7 @@ class Diamond extends BaseEntity {
         this.type == DiamondType.GREEN ? SceneryModel.greenDiamond :
           this.type == DiamondType.BLUE ? SceneryModel.blueDiamond : null);
     noStroke();
-    circle(this.pos.x, this.pos.y, this.size);
+    circle(this.pos.x + (sin((frameCount / this.sinusMovement)) * 2), this.pos.y, this.size);
     pop();
   }
 }
@@ -102,7 +109,7 @@ class Bubble extends BaseEntity {
     push();
     texture(SceneryModel.bubble);
     noStroke();
-    circle(this.pos.x, this.pos.y, this.size);
+    circle(this.pos.x + (sin((frameCount / this.sinusMovement)) * 2), this.pos.y, this.size);
     pop();
   }
 };
@@ -147,5 +154,35 @@ class SpawnPoint {
   constructor(xPosition, yPosition, id) {
     this.pos = createVector(xPosition, yPosition);
     this.Id = id;
+  }
+}
+
+class BackgroundBubble extends Bubble {
+
+  constructor(xPosition, yPosition, size) {
+    super(xPosition, yPosition, size)
+    this.collisionIsSet = false;  
+  }
+  show() {
+    push();
+    texture(SceneryModel.bubble);
+    noStroke();
+    circle(this.pos.x + (sin((frameCount / this.sinusMovement)) * this.size) , this.pos.y, this.size);
+    pop();
+  }
+
+  addGravity(){
+    this.vel.limit(50);
+    this.pos.add(this.vel);
+    this.vel.add(this.acc);
+    this.acc.add(0, -0.00981);
+  }
+
+
+  addBuoyency() {
+    this.vel.limit(this.size/15);
+    this.pos.add(this.vel);
+    this.vel.add(this.acc);
+    this.acc.add(0, -0.000981);
   }
 }

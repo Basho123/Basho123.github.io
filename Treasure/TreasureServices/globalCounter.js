@@ -2,6 +2,7 @@ class GlobalObjects {
   static item = [];
   static bullet = [];
   static spawnPoints = [];
+  static backgroundBubbles = [];
 
   static drawTerrain(image) {
     push();
@@ -40,6 +41,8 @@ class GlobalCounter {
   static currentPoints = 0;
   static totalPoints = 0;
 
+  static sessionStarted = sessionStorage.getItem('sessionStarted');
+
   static level = +localStorage.getItem('treasureGameLevel');
   static maxLevel = +localStorage.getItem('treasureGameMaxLevel');
 
@@ -55,7 +58,6 @@ class GlobalCounter {
       : Difficulty.HARD
 
   static addKill(item) {
-
     if ((item instanceof Fish)) {
       this.totalKills++;
       switch (item.type) {
