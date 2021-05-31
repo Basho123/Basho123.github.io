@@ -1,6 +1,6 @@
 // classLibrary.js for treasureGame
-//database
-//Enums
+
+
 //Abstract class
 class BaseEntity {
   constructor(xPosition, yPosition, size, type) {
@@ -11,7 +11,7 @@ class BaseEntity {
     this.id = random(999999999);
     this.type = type;
     this.size = size;
-    this.collisionSize = 72;
+    this.collisionSize = this.size * GlobalCounter.entityCollisionSize;
 
     this.collisionIsSet = true;
 
@@ -161,17 +161,17 @@ class BackgroundBubble extends Bubble {
 
   constructor(xPosition, yPosition, size) {
     super(xPosition, yPosition, size)
-    this.collisionIsSet = false;  
+    this.collisionIsSet = false;
   }
   show() {
     push();
     texture(SceneryModel.bubble);
     noStroke();
-    circle(this.pos.x + (sin((frameCount / this.sinusMovement)) * this.size) , this.pos.y, this.size);
+    circle(this.pos.x + (sin((frameCount / this.sinusMovement)) * this.size), this.pos.y, this.size);
     pop();
   }
 
-  addGravity(){
+  addGravity() {
     this.vel.limit(50);
     this.pos.add(this.vel);
     this.vel.add(this.acc);
@@ -180,7 +180,7 @@ class BackgroundBubble extends Bubble {
 
 
   addBuoyency() {
-    this.vel.limit(this.size/15);
+    this.vel.limit(this.size / 15);
     this.pos.add(this.vel);
     this.vel.add(this.acc);
     this.acc.add(0, -0.000981);

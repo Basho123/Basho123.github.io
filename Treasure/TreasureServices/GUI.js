@@ -187,15 +187,15 @@ class HUD {
         let totalPoints = +this.totalPoints.innerHTML;
         if (totalPoints > 20000) {
             GlobalCounter.stars = 1;
-            this.star1.innerHTML = `<img src="./Images/star.png" alt="">`;
+            this.star1.innerHTML = `<img src="./Images/star.png" alt="" class="hud-stars">`;
         }
         if (totalPoints > 40000) {
             GlobalCounter.stars = 2;
-            this.star2.innerHTML = `<img src="./Images/star.png" alt="">`;
+            this.star2.innerHTML = `<img src="./Images/star.png" alt="" class="hud-stars">`;
         }
         if (totalPoints > 60000) {
             GlobalCounter.stars = 3;
-            this.star3.innerHTML = `<img src="./Images/star.png" alt="">`;
+            this.star3.innerHTML = `<img src="./Images/star.png" alt="" class="hud-stars">`;
         }
     }
 }

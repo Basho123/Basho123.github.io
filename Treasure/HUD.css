@@ -1,0 +1,128 @@
+#HUD {
+    width: 100%;
+    height: 100%;
+    margin-top: 1%;
+    user-select: none;
+    display: none;
+    color: rgb(255, 255, 255);
+    position: absolute;
+}
+
+#HUDElementsContainer {
+    height: 100%;
+    width: 30%;
+    min-width: 250px;
+    max-width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    /* background-color: red; */
+}
+
+/* MOVES */
+
+#movesRemainingContainer {
+    height: 20%;
+    width: 60%;
+}
+
+/* OBJECTIVES */
+
+#objectivesContainer {
+    height: 20%;
+    width: 60%;
+}
+
+#objectiveRemainingCount {
+    /* background-color: blue; */
+    width: 100%;
+}
+
+#objectiveName {
+    width: 80%;
+    text-align: center;
+}
+
+/* STARS */
+
+#pointsContainer {
+    height: 50%;
+    max-width: 300px;
+    width: 100%;
+}
+
+#stars {
+    display: flex;
+    width: 35%;
+    justify-content: space-around;
+    margin-bottom: 5px;
+}
+
+/* DUMMY PLACEHOLDER */
+
+#canvasDummyHUD {
+    width: 70%;
+    height: 100%;
+    /* background-color: blue; */
+}
+
+/* MOBILE PHONE */
+
+@media screen and (max-width: 600px) {
+    #HUD {
+        flex-wrap: wrap;
+    }
+    #HUDElementsContainer {
+        height: 10%;
+        width: 100%;
+        flex-wrap: wrap;
+        display: flex;
+    }
+    .hud-wood {
+        display: none;
+    }
+    /* MOVES */
+    #movesRemainingContainer {
+        height: 100%;
+        width: 30%;
+
+        order: 2;
+
+    }
+    /* OBJECTIVES */
+    #objectivesContainer {
+        height: 100%;
+        width: 30%;
+
+        order: 1;
+    }
+    #objectiveRemainingCount {
+    }
+    
+    #objectiveName {
+        width: 100%;
+    }
+    /* STARS */
+    #pointsContainer {
+        height: 100%;
+        width: 30%;
+
+        order: 3;
+    }
+    #stars {
+        display: none;
+    }
+    /* DUMMY PLACEHOLDER */
+    #canvasDummyHUD {
+        width: 100%;
+        height: 90%;
+    }
+    .smallText {
+        font-size: 10px;
+    }
+    .mediumText {
+        font-size: 25px;
+    }
+    .largeText {
+        font-size: 25px;
+    }
+}

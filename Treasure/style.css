@@ -1,33 +1,30 @@
 /* style.css for treasure */
-*{
+
+* {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-body{
+body {
     background-color: black;
 }
 
-
-#mainMenu{
+#mainMenu {
     width: 1000px;
     height: 800px;
-
     display: none;
     flex-wrap: wrap;
-    align-items: center;  
-    justify-content: center;  
+    align-items: center;
+    justify-content: center;
     margin: 0px auto;
 }
 
-#continueButton{
+#continueButton {
     display: none;
 }
 
-
-.menuButtons{
+.menuButtons {
     width: 300px;
     height: 80px;
-
     font-size: 40px;
     border-radius: 20px;
     background-color: black;
@@ -35,9 +32,10 @@ body{
 }
 
 
-#canvasDiv{
-    width: 1300px;
-    height: 800px;
+
+#canvasDiv {
+    width: 100%;
+    height: 100%;
     margin: 0px auto;
     display: flex;
     flex-wrap: wrap;
@@ -45,23 +43,16 @@ body{
     position: relative;
 }
 
-#worldMapContainer{
-   
+#worldMapContainer {
     width: 100%;
-
-    min-width: 1200px;
-    min-height: 1000px;
-
     z-index: 1;
-    display: none;    
-    user-select: none; 
-
-    background-image: url('Images/Textures/sandTexture.jpg') ;
+    display: none;
+    user-select: none;
+    background-image: url('Images/Textures/sandTexture.jpg');
     background-color: black;
-
 }
 
-.levelButtons{
+.levelButtons {
     width: 330px;
     height: 200px;
     background-color: burlywood;
@@ -71,14 +62,13 @@ body{
     box-shadow: rgba(0, 0, 0, 0.493) 20px 20px 30px;
 }
 
-.levelButtons:active{  
+.levelButtons:active {
     border-left: 5px solid black;
-    border-top: 5px solid black; 
+    border-top: 5px solid black;
     background-color: rgb(231, 210, 183);
 }
 
-
-.levelButtonDisabled{
+.levelButtonDisabled {
     width: 330px;
     height: 200px;
     background-color: rgb(185, 167, 144);
@@ -91,174 +81,127 @@ body{
 
 
 
-#HUD{
+
+
+
+
+
+
+
+
+
+
+#levelStart {
     width: 100%;
-    height: 100%;     
-    margin-top: 40px;
-    user-select: none; 
-
-    display: none;
-    color: rgb(255, 255, 255);
-
-    position:absolute;
-}
-
-#levelStart{
-    width: 100%;
-    height: 100%;     
-
-    user-select: none; 
-
+    height: 100%;
+    user-select: none;
     display: none;
     font-size: 50px;
-
     z-index: 2;
-
     color: rgb(255, 255, 255);
-
     background-color: rgba(0, 0, 0, 0.514);
-
-    position:absolute;
+    position: absolute;
 }
 
-#tutorialContainer{
+#tutorialContainer {
     width: 100%;
-    height: 100%;     
-
-    user-select: none; 
-
+    height: 100%;
+    user-select: none;
     display: none;
     font-size: 25px;
-
-    z-index:3;
-
+    z-index: 3;
     color: rgb(255, 255, 255);
-
     background-color: rgba(0, 0, 0, 0.863);
-
-    position:absolute;
-
+    position: absolute;
 }
 
-#levelFinish{
+#levelFinish {
     width: 100%;
-    height: 100%;     
-
-    user-select: none; 
-
+    height: 100%;
+    user-select: none;
     display: none;
     font-size: 50px;
     z-index: 2;
-
-  
     color: rgb(255, 255, 255);
-
     background-color: rgba(0, 0, 0, 0.514);
-
-    position:absolute;
+    position: absolute;
 }
 
-#objectiveCompletedContainer{
+#objectiveCompletedContainer {
     display: none;
 }
 
-#objectiveName{
-    width: 150px;
-    text-align: center;
-}
 
-#movesRemainingContainer{
-   
-    height: 20%;
-    width: 40%;
-}
 
-#objectivesContainer{   
-   
-    height: 20%;
-    width: 40%;
-}
 
-#pointsContainer{
-   
-    height: 50%;
-    width: 40%;
-}
 
-#stars{
-    display: flex;
-    width: 40%;
-    justify-content: space-around;
-    margin-bottom: 5px;
-}
-
-.smallText{
+.smallText {
     font-size: 15px;
 }
 
-.mediumText{
+.mediumText {
     font-size: 40px;
 }
 
-.largeText{
+.largeText {
     font-size: 65px;
 }
 
-.flex-center-vertical{
+.flex-center-vertical {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-
     justify-content: center;
     align-items: center;
-
     text-align: center;
 }
 
-.flex-center-horizontal{
+.flex-center-horizontal {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-
     justify-content: center;
     align-items: center;
-
     text-align: center;
 }
 
-.justify-around{
+.justify-around {
     justify-content: space-around;
 }
 
-.flex-start{
+.flex-start {
     align-items: flex-start;
 }
 
-.marginize-50{
+.marginize-50 {
     margin: 50px;
 }
 
-
-.marginize-10{
+.marginize-10 {
     margin: 10px;
 }
 
-.green-text{
-    color:rgb(0, 255, 0);
+.green-text {
+    color: rgb(0, 255, 0);
 }
 
-.yellow-text{
-    color:rgb(255, 255, 0);
+.yellow-text {
+    color: rgb(255, 255, 0);
 }
 
-.orange-text{
-    color:rgb(255, 153, 0);
+.orange-text {
+    color: rgb(255, 153, 0);
 }
 
-.red-text{
-    color:red;
+.red-text {
+    color: red;
 }
 
-.shadow{
+.shadow {
     box-shadow: 0px 0px 50px rgba(80, 197, 187, 0.788);
 }
+
+.position-relative{
+    position: relative;
+}
+

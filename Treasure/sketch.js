@@ -48,8 +48,38 @@ preload = () => {
 }
 
 setup = () => {
-  // setAttributes('antialias', true);
-  const canvas = createCanvas(1300, 800, WEBGL);
+
+  // GLOBAL VALUES SET
+
+  GlobalCounter.resolutionX = windowWidth - windowWidth / 30;
+  GlobalCounter.resolutionY = windowHeight - windowHeight / 30;
+  GlobalCounter.floor = GlobalCounter.resolutionY / 10;
+
+  // Entity size formula
+  GlobalCounter.entitySize = ((GlobalCounter.resolutionX + GlobalCounter.resolutionY) / 2) / 20;
+
+  const { entitySize, entityCollisionSize } = GlobalCounter;
+  const { resolutionX, resolutionY, floor } = GlobalCounter;
+
+  let spawnStartPositionX = 0;
+  let spawnStartPositionY = 0;
+  // IF ON DESKTOP (LANDSCAPE) HOW TO POPULATE
+  if (resolutionX > resolutionY) {
+    spawnStartPositionX = resolutionX / 3;
+    spawnStartPositionY = entitySize * entityCollisionSize;
+  }
+  // IF ON MOBILE PHONE (VERTICAL RESOLUTION) HOW TO POPULATE
+  else {
+    spawnStartPositionX = entitySize * entityCollisionSize * 2;
+    spawnStartPositionY = entitySize * entityCollisionSize * 2;
+  }
+
+
+
+
+
+  const canvas = createCanvas(GlobalCounter.resolutionX, GlobalCounter.resolutionY, WEBGL);
+  // const canvas = createCanvas(windowWidth > 1300 ? 1300 : windowWidth, windowHeight > 800 ? 800 : windowHeight, WEBGL);
   canvas.parent("canvasDiv");
 
   if (GlobalCounter.level > 1) LevelStartTooltip.show();
@@ -90,43 +120,42 @@ setup = () => {
     Sound.playBackground();
   };
 
-
-  let rowsCount = 8;
-  let columnsCount = 13;
   let treasureChestIsInserted = false;
 
-  for (i = 550; i < columnsCount * 100; i += 75) {
+
+  for (i = spawnStartPositionX; i < resolutionX - resolutionX / 20; i += entitySize * entityCollisionSize + 5) {
     //spawn points when space opens up
     GlobalObjects.spawnPoints.push(new SpawnPoint(i, 0, i));
 
-    for (g = 50; g < rowsCount * 100; g += 75) {
+
+    for (g = spawnStartPositionY; g < resolutionY - floor - entitySize; g += entitySize * entityCollisionSize) {
 
       // treasure chest spawn
       if (random(200) < 4 && !treasureChestIsInserted) {
-        GlobalObjects.item.push(new Chest(i, g, 50));
+        GlobalObjects.item.push(new Chest(i, g, entitySize));
         treasureChestIsInserted = true;
         continue;
       }
 
       //bubble spawn
       if (random(100) < GlobalCounter.level) {
-        GlobalObjects.item.push(new Bubble(i, g, 50));
+        GlobalObjects.item.push(new Bubble(i, g, entitySize));
         continue;
       }
 
       //diamond spawn
       if (random(100) < 20) {
-        GlobalObjects.item.push(new Diamond(i, g, 50, DiamondType.getRandom()));
+        GlobalObjects.item.push(new Diamond(i, g, entitySize, DiamondType.getRandom()));
         continue;
       }
 
       //crystal skull spawns above level 5
       if (random(100) < 1 && GlobalCounter.level >= 5) {
-        GlobalObjects.item.push(new CrystalSkull(i, g, 50));
+        GlobalObjects.item.push(new CrystalSkull(i, g, entitySize));
         continue;
       }
       // spawn a random fish if nothing special was spawned prior
-      GlobalObjects.item.push(new Fish(i, g, 50, FishType.getRandom()));
+      GlobalObjects.item.push(new Fish(i, g, entitySize, FishType.getRandom()));
     }
   }
 
@@ -134,19 +163,18 @@ setup = () => {
   for (i = 0; i < 20; i++) {
     GlobalObjects.backgroundBubbles.push(new BackgroundBubble(random(-200, 1600), random(100, 800), random(15) + 5));
   }
-
 }
+
+
 
 //DRAW
 draw = () => {
-  background(255);
+  background(0);
   frameRate(60);
   currentObjective.condition();
 
 
-
-
-  //DRAW BACKGROUND
+  // DRAW BACKGROUND
   switch (GlobalCounter.difficulty) {
     case Difficulty.EASY: //EASY
       GlobalObjects.drawTerrain(Background.image1);
@@ -161,11 +189,14 @@ draw = () => {
       break;
   }
   //TRANSLATE ALL OBJECTS BECAUSE OF WEBGL RENDERING ITEMS FROM CENTER OF SCREEN AS 0 POINT
-  translate(-1300 / 2, -800 / 2);
+  translate(-GlobalCounter.resolutionX / 2, -GlobalCounter.resolutionY / 2);
 
   //populate continiously background with background bubbles 
   if (random(1000) < 25) {
-    GlobalObjects.backgroundBubbles.push(new BackgroundBubble(random(-200, 1600), 900, random(15) + 5));
+    GlobalObjects.backgroundBubbles.push(
+      new BackgroundBubble(random(-200, 1600),
+        GlobalCounter.resolutionY,
+        random(15) + 5));
   }
   GlobalObjects.backgroundBubbles.forEach((bubble, index) => {
     bubble.show();
@@ -192,7 +223,12 @@ draw = () => {
     // GlobalObjects.item[i].showCollisionBox();
     GlobalObjects.item[i].addGravity();
 
-    if (GlobalObjects.item[i].pos.y > 730) GlobalObjects.item[i].pos.y = 730;
+    // FLOOR
+
+    const floorBound = GlobalCounter.resolutionY - GlobalCounter.entitySize - GlobalCounter.floor;
+    if (GlobalObjects.item[i].pos.y > floorBound) {
+      GlobalObjects.item[i].pos.y = floorBound;
+    }
 
     for (g = i + 1; g < GlobalObjects.item.length; g++) {
       if (Collision.isOccuring(GlobalObjects.item[i], GlobalObjects.item[g])) {
@@ -219,12 +255,24 @@ draw = () => {
     // 70/30 % chance for Fish vs Diamond
     if (spawnPointDistances[0] > 150 && frameCount % 300 == 0) {
       if (random(100) < 70) {
-        let newFish = new Fish(spawnPoint.pos.x, spawnPoint.pos.y, 50, FishType.getRandom());
+
+        let newFish = new Fish(
+          spawnPoint.pos.x, spawnPoint.pos.y,
+          GlobalCounter.entitySize,
+          FishType.getRandom()
+        );
+
         newFish.isSpawnedItem = true;
         GlobalObjects.item.unshift(newFish);
       }
       else {
-        let newDiamond = new Diamond(spawnPoint.pos.x, spawnPoint.pos.y, 50, DiamondType.getRandom());
+
+        let newDiamond = new Diamond(
+          spawnPoint.pos.x, spawnPoint.pos.y,
+          GlobalCounter.entitySize,
+          DiamondType.getRandom()
+        );
+
         newDiamond.isSpawnedItem = true;
         GlobalObjects.item.unshift(newDiamond);
       }
@@ -236,10 +284,18 @@ draw = () => {
   GlobalObjects.bullet.forEach((bullet, i) => {
     bullet.show();
 
-    if (bullet.pos.x > windowWidth || bullet.pos.x < 0 || bullet.pos.y > windowHeight || bullet.pos.y < 0) {
+    if (
+      bullet.pos.x > windowWidth
+      || bullet.pos.x < 0
+      || bullet.pos.y > windowHeight
+      || bullet.pos.y < 0) {
       GlobalObjects.bullet.splice(i, 1);
     }
-    else if ((bullet.distanceTraveled < -50 || bullet.distanceTraveled > 50) && bullet.type != BulletType.SPECIAL) {
+
+    else if (
+      (bullet.distanceTraveled < -GlobalCounter.entitySize * GlobalCounter.entityCollisionSize
+        || bullet.distanceTraveled > GlobalCounter.entitySize * GlobalCounter.entityCollisionSize)
+      && bullet.type != BulletType.SPECIAL) {
       GlobalObjects.bullet.splice(i, 1);
     }
 
@@ -311,7 +367,7 @@ draw = () => {
 mousePressed = () => {
 
   //last frame clicked guards for the points not being calculated on mobile device
-  if (!GlobalCounter.splashScreenIsActive && GlobalCounter.lastFrameClicked + 30 < frameCount) {
+  if (!GlobalCounter.splashScreenIsActive && GlobalCounter.lastFrameClicked + 60 < frameCount) {
     if (!GlobalCounter.levelIsFinished) {
       GlobalCounter.currentPoints = 0;
       GlobalCounter.singleHitKills = 0;

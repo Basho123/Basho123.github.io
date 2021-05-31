@@ -5,9 +5,11 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="HUD.css">
+
   <title>Treasure</title>
 </head>
 
@@ -34,11 +36,11 @@
       <div class="flex-center-horizontal">
         <button class="menuButtons" id="soundButton">Sound On/Off</button>
       </div>
-      <div>    
-        <p style="color: white; text-align: center; font-size: 12px;">Ivan Jamandilovski v1.0</p>  
+      <div>
+        <p style="color: white; text-align: center; font-size: 12px;">Ivan Jamandilovski v1.0</p>
       </div>
     </div>
-   
+
 
 
   </div>
@@ -77,30 +79,40 @@
     </div>
 
     <!-- HUD -->
-    <div id="HUD" class="flex-center-vertical justify-around flex-start">
-      <div id="movesRemainingContainer" class="flex-center-vertical">
-        <img src="./Images/wood.png" width="200px" height="150px" style="position: absolute; z-index: 0;" alt="">
+    <div id="HUD" class="flex-start">
 
-        <div id="movesRemainingCount" class="mediumText" style="z-index: 1;">0</div>
-        <div class="smallText" style="z-index: 1;">moves remaining</div>
-      </div>
+      <div id="HUDElementsContainer" class="flex-center-vertical justify-around ">
+        <div id="movesRemainingContainer" class="flex-center-vertical position-relative">
+          <img class="hud-wood" src="./Images/wood.png" width="100%" height="150px"
+            style="position: absolute; z-index: 0;" alt="">
 
-      <div id="objectivesContainer" class="flex-center-vertical">
-        <img src="./Images/wood.png"  width="200px" height="150px" style="position: absolute; z-index: 0;" alt="">
-        <div id="objectiveRemainingCount" class="mediumText" style="z-index: 1;">0</div>
-        <div id="objectiveName" class="smallText" style=" z-index: 1;">ObjectiveName</div>
-      </div>
-
-      <div id="pointsContainer" class="flex-center-vertical">
-        <img src="./Images/wood.png"  width="300px" height="250px" style="position: absolute; z-index: 0;" alt="">
-        <div id="stars" style="z-index: 1;">
-          <div id="star1"><img src="./Images/emptyStar.png" alt=""></div>
-          <div id="star2"><img src="./Images/emptyStar.png" alt=""></div>
-          <div id="star3"><img src="./Images/emptyStar.png" alt=""></div>
+          <div id="movesRemainingCount" class="mediumText" style="z-index: 1;">0</div>
+          <div class="smallText" style="z-index: 1;">moves remaining</div>
         </div>
 
-        <div id="totalPoints" class="largeText" style="z-index: 1;">0</div>
+        <div id="objectivesContainer" class="flex-center-vertical position-relative">
+          <img class="hud-wood" src="./Images/wood.png" width="100%" height="150px"
+            style="position: absolute; z-index: 0;" alt="">
+          <div id="objectiveRemainingCount" class="mediumText" style="z-index: 1;">0</div>
+          <div id="objectiveName" class="smallText" style=" z-index: 1;">ObjectiveName</div>
+        </div>
+
+        <div id="pointsContainer" class="flex-center-vertical position-relative">
+          <img class="hud-wood" src="./Images/wood.png" width="100%" height="250px"
+            style="position: absolute; z-index: 0;" alt="">
+          <div id="stars" style="z-index: 1;">
+            <div id="star1" class="hud-stars"><img src="./Images/emptyStar.png" alt=""></div>
+            <div id="star2" class="hud-stars"><img src="./Images/emptyStar.png" alt=""></div>
+            <div id="star3" class="hud-stars"><img src="./Images/emptyStar.png" alt=""></div>
+          </div>
+
+          <div id="totalPoints" class="largeText" style="z-index: 1;">0</div>
+        </div>
       </div>
+
+      <div id="canvasDummyHUD">
+      </div>
+
     </div>
 
     <!-- WORLD MAP -->
@@ -141,7 +153,7 @@
     </div>
   </div>
   <div id="p5_loading" class="loadingclass">
-     <img id="loadingGif" src="Images/" alt="" width="500px">D
+    <img id="loadingGif" src="Images/" alt="" width="500px">D
   </div>
 
   <!-- LIBRARY -->

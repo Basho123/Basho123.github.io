@@ -16,6 +16,13 @@ class GlobalObjects {
 class GlobalCounter {
   static currentBulletProperty = "";
 
+  static resolutionX = 0;
+  static resolutionY = 0;
+  static floor = 0;
+
+  static entitySize = 0;
+  static entityCollisionSize = 1.3;
+
   static singleHitKills = 0;
   static totalKills = 0;
 
