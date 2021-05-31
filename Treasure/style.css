@@ -9,13 +9,23 @@ body {
 }
 
 #mainMenu {
-    width: 1000px;
-    height: 800px;
+    width: 100%;
+    height: 60vw;
+    /* margin-top: 10%; */
     display: none;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     margin: 0px auto;
+
+}
+
+#logoImage{
+    width: 85vw;
+    max-width: 600px;
+    margin-top: 120px;
+    margin-bottom: 50px;
+
 }
 
 #continueButton {
@@ -48,17 +58,24 @@ body {
     z-index: 1;
     display: none;
     user-select: none;
+
+    flex-wrap: wrap;
+
+    justify-content: space-around;
+    align-items:center;
     background-image: url('Images/Textures/sandTexture.jpg');
     background-color: black;
 }
 
 .levelButtons {
-    width: 330px;
+    width: 100%;
+    max-width: 330px;
+
+
     height: 200px;
     background-color: burlywood;
     font-size: 40px;
     border-radius: 25px;
-    margin: 25px;
     box-shadow: rgba(0, 0, 0, 0.493) 20px 20px 30px;
 }
 
@@ -69,12 +86,16 @@ body {
 }
 
 .levelButtonDisabled {
-    width: 330px;
+
+    width: 100%;
+    max-width: 330px;
     height: 200px;
     background-color: rgb(185, 167, 144);
     font-size: 40px;
     border-radius: 25px;
-    margin: 25px;
+    margin-top: 25px;
+
+    /* margin: 25px; */
     box-shadow: rgba(0, 0, 0, 0.493) 20px 20px 30px;
 }
 
@@ -108,7 +129,7 @@ body {
     height: 100%;
     user-select: none;
     display: none;
-    font-size: 25px;
+    font-size: 17px;
     z-index: 3;
     color: rgb(255, 255, 255);
     background-color: rgba(0, 0, 0, 0.863);

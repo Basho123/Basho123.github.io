@@ -272,7 +272,7 @@ class WorldMap {
     static buttons = document.getElementsByClassName('levelButtons');
 
     static show() {
-        this.container.style.display = 'block';
+        this.container.style.display = 'flex';
     }
 
     static hide() {

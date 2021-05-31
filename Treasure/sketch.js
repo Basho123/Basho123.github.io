@@ -52,30 +52,47 @@ setup = () => {
   // GLOBAL VALUES SET
 
   GlobalCounter.resolutionX = windowWidth - windowWidth / 30;
-  GlobalCounter.resolutionY = windowHeight - windowHeight / 30;
+  GlobalCounter.resolutionY = windowHeight - windowHeight / 20;
   GlobalCounter.floor = GlobalCounter.resolutionY / 10;
 
   // Entity size formula
   GlobalCounter.entitySize = ((GlobalCounter.resolutionX + GlobalCounter.resolutionY) / 2) / 20;
 
-  const { entitySize, entityCollisionSize } = GlobalCounter;
-  const { resolutionX, resolutionY, floor } = GlobalCounter;
 
   let spawnStartPositionX = 0;
   let spawnStartPositionY = 0;
+
+  let spawnEndPositionX = 0;
+  let spawnEndPositionY = 0;
+
   // IF ON DESKTOP (LANDSCAPE) HOW TO POPULATE
-  if (resolutionX > resolutionY) {
-    spawnStartPositionX = resolutionX / 3;
-    spawnStartPositionY = entitySize * entityCollisionSize;
+  if (GlobalCounter.resolutionX > GlobalCounter.resolutionY) {
+    spawnStartPositionX = GlobalCounter.resolutionX / 3;
+    spawnStartPositionY = GlobalCounter.entitySize * GlobalCounter.entityCollisionSize;
+
+    spawnEndPositionX = GlobalCounter.resolutionX - GlobalCounter.resolutionX / 20;
+    spawnEndPositionY = GlobalCounter.resolutionY - GlobalCounter.floor - GlobalCounter.entitySize;
+
   }
   // IF ON MOBILE PHONE (VERTICAL RESOLUTION) HOW TO POPULATE
   else {
-    spawnStartPositionX = entitySize * entityCollisionSize * 2;
-    spawnStartPositionY = entitySize * entityCollisionSize * 2;
+    GlobalCounter.entitySize = ((GlobalCounter.resolutionX + GlobalCounter.resolutionY) / 2) / 18;
+
+    GlobalCounter.resolutionX = windowWidth - windowWidth / 3.4
+    GlobalCounter.resolutionY = windowHeight - windowHeight / 3.2
+    GlobalCounter.floor = 0;
+
+
+    spawnStartPositionX = GlobalCounter.entitySize;
+    spawnStartPositionY = GlobalCounter.entitySize * GlobalCounter.entityCollisionSize * 2;
+
+
+
+    spawnEndPositionX = GlobalCounter.resolutionX - GlobalCounter.resolutionX / 20;
+    spawnEndPositionY = GlobalCounter.resolutionY - GlobalCounter.floor - GlobalCounter.entityCollisionSize;
   }
 
-
-
+  const { entitySize, entityCollisionSize } = GlobalCounter;
 
 
   const canvas = createCanvas(GlobalCounter.resolutionX, GlobalCounter.resolutionY, WEBGL);
@@ -123,12 +140,12 @@ setup = () => {
   let treasureChestIsInserted = false;
 
 
-  for (i = spawnStartPositionX; i < resolutionX - resolutionX / 20; i += entitySize * entityCollisionSize + 5) {
+  for (i = spawnStartPositionX; i < spawnEndPositionX; i += entitySize * entityCollisionSize + 5) {
     //spawn points when space opens up
     GlobalObjects.spawnPoints.push(new SpawnPoint(i, 0, i));
 
 
-    for (g = spawnStartPositionY; g < resolutionY - floor - entitySize; g += entitySize * entityCollisionSize) {
+    for (g = spawnStartPositionY; g < spawnEndPositionY; g += entitySize * entityCollisionSize) {
 
       // treasure chest spawn
       if (random(200) < 4 && !treasureChestIsInserted) {
