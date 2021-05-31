@@ -1,17 +1,17 @@
-class Sound {
-    static bubble1 = '';
-    static bubble2 = '';
-    static bubble3 = '';
-    static bubble4 = '';
-    static bubble5 = '';
-    static bubble6 = '';
-    static bubble7 = '';
-    static bubble8 = '';
-    static bubbleBackground = '';
-    static music1 = '';
-    static music2 = '';
+const Sound = {
+    bubble1: '',
+    bubble2: '',
+    bubble3: '',
+    bubble4: '',
+    bubble5: '',
+    bubble6: '',
+    bubble7: '',
+    bubble8: '',
+    bubbleBackground: '',
+    music1: '',
+    music2: '',
 
-    static fireRandom() {
+    fireRandom() {
         if (GlobalCounter.level > 0 && HUD.container.style.display != 'none') {
             let arrayOfSounds = [
                 this.bubble1,
@@ -27,10 +27,10 @@ class Sound {
             let randomNumber = Math.floor(random(arrayOfSounds.length));
             arrayOfSounds[randomNumber].play();
         }
-    }
+    },
 
 
-    static playMusic() {
+    playMusic() {
         let songArray = [
             this.music1,
             this.music2
@@ -43,24 +43,24 @@ class Sound {
 
         randomSong.setVolume(0.2);
         randomSong.play();
-    }
+    },
 
-    static stopMusic() {
+    stopMusic() {
         this.music1.stop();
         this.music2.stop();
-    }
+    },
 
-    static playBackground() {
+    playBackground() {
         this.bubbleBackground.setLoop(true);
         this.bubbleBackground.setVolume(0.3);
         this.bubbleBackground.play();
-    }
+    },
 
-    static stopBackground() {
+    stopBackground() {
         this.bubbleBackground.stop();
-    }
+    },
 
-    static muteSwitch() {
+    muteSwitch() {
         let mute = +sessionStorage.getItem('mute');
 
         if (mute == 1) {
@@ -72,13 +72,13 @@ class Sound {
             sessionStorage.setItem('mute', 1);
             masterVolume(0);
         }
-    }
+    },
 
-    static checkForOnOffState() {
+    checkForOnOffState() {
         let mute = +sessionStorage.getItem('mute');
         if (mute == 1) masterVolume(0);
         else masterVolume(1);
 
-    }
+    },
 }
 

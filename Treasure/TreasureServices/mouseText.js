@@ -1,7 +1,7 @@
 
 
-class MouseText {
-    static show(points, startingFrame, currentFrame, positionX, positionY) {
+const MouseText = {
+    show(points, startingFrame, currentFrame, positionX, positionY) {
 
         //each frame the position goes up by 0.3
         GlobalCounter.lastMouseClickedCoordinates[1]-= 0.3;
@@ -33,5 +33,5 @@ class MouseText {
                 fill(255);
             }
         }        
-    }
+    },
 }

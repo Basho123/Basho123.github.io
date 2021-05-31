@@ -51,13 +51,14 @@ setup = () => {
 
   // GLOBAL VALUES SET
 
-  GlobalCounter.resolutionX = windowWidth - windowWidth / 30;
-  GlobalCounter.resolutionY = windowHeight - windowHeight / 20;
+  GlobalCounter.resolutionX = window.innerWidth;
+  GlobalCounter.resolutionY = window.innerHeight;
   GlobalCounter.floor = GlobalCounter.resolutionY / 10;
 
   // Entity size formula
   GlobalCounter.entitySize = ((GlobalCounter.resolutionX + GlobalCounter.resolutionY) / 2) / 20;
 
+  console.log(window.innerWidth);
 
   let spawnStartPositionX = 0;
   let spawnStartPositionY = 0;
@@ -70,18 +71,18 @@ setup = () => {
     spawnStartPositionX = GlobalCounter.resolutionX / 3;
     spawnStartPositionY = GlobalCounter.entitySize * GlobalCounter.entityCollisionSize;
 
+    GlobalCounter.resolutionX -= 15;
+    GlobalCounter.resolutionY -= 30;
+
     spawnEndPositionX = GlobalCounter.resolutionX - GlobalCounter.resolutionX / 20;
     spawnEndPositionY = GlobalCounter.resolutionY - GlobalCounter.floor - GlobalCounter.entitySize;
 
   }
   // IF ON MOBILE PHONE (VERTICAL RESOLUTION) HOW TO POPULATE
   else {
-    GlobalCounter.entitySize = ((GlobalCounter.resolutionX + GlobalCounter.resolutionY) / 2) / 18;
+    GlobalCounter.entitySize = ((GlobalCounter.resolutionX + GlobalCounter.resolutionY) / 2) / 17;
 
-    GlobalCounter.resolutionX = windowWidth - windowWidth / 3.4
-    GlobalCounter.resolutionY = windowHeight - windowHeight / 3.2
     GlobalCounter.floor = 0;
-
 
     spawnStartPositionX = GlobalCounter.entitySize;
     spawnStartPositionY = GlobalCounter.entitySize * GlobalCounter.entityCollisionSize * 2;
@@ -89,14 +90,15 @@ setup = () => {
 
 
     spawnEndPositionX = GlobalCounter.resolutionX - GlobalCounter.resolutionX / 20;
-    spawnEndPositionY = GlobalCounter.resolutionY - GlobalCounter.floor - GlobalCounter.entityCollisionSize;
+    spawnEndPositionY = GlobalCounter.resolutionY - GlobalCounter.floor - GlobalCounter.entitySize;
+
   }
 
   const { entitySize, entityCollisionSize } = GlobalCounter;
 
 
+  // CREATE CANVAS
   const canvas = createCanvas(GlobalCounter.resolutionX, GlobalCounter.resolutionY, WEBGL);
-  // const canvas = createCanvas(windowWidth > 1300 ? 1300 : windowWidth, windowHeight > 800 ? 800 : windowHeight, WEBGL);
   canvas.parent("canvasDiv");
 
   if (GlobalCounter.level > 1) LevelStartTooltip.show();
@@ -180,6 +182,56 @@ setup = () => {
   for (i = 0; i < 20; i++) {
     GlobalObjects.backgroundBubbles.push(new BackgroundBubble(random(-200, 1600), random(100, 800), random(15) + 5));
   }
+
+
+  //SPAWNPOINT LOGIC
+  //CHECK EVERY 5 SECONDS FOR NEW SPAWN
+  setInterval(() => {
+    GlobalObjects.spawnPoints.forEach(spawnPoint => {
+
+      //MEASURE AND RECORD EVERY DISTANCE FROM EVERY SPAWN POINT
+      let spawnPointDistances = [];
+      GlobalObjects.item.forEach(entity => {
+        const spawnPointDistance = dist(spawnPoint.pos.x, spawnPoint.pos.y, entity.pos.x, entity.pos.y);
+
+        spawnPointDistances.push(spawnPointDistance);
+      });
+
+      spawnPointDistances.sort((x, y) => x - y);
+
+      //if there is enough place to spawn an item, it will be spawned every 600 frames or 10 seconds
+      // 70/30 % chance for Fish vs Diamond
+
+      if (spawnPointDistances[0] > 150) {
+        if (random(100) < 70) {
+
+          let newFish = new Fish(
+            spawnPoint.pos.x, spawnPoint.pos.y,
+            GlobalCounter.entitySize,
+            FishType.getRandom()
+          );
+
+          newFish.collisionSize = GlobalCounter.entitySize * 1.3;
+          newFish.isSpawnedItem = true;
+          GlobalObjects.item.unshift(newFish);
+        }
+        else {
+
+          let newDiamond = new Diamond(
+            spawnPoint.pos.x, spawnPoint.pos.y,
+            GlobalCounter.entitySize,
+            DiamondType.getRandom()
+          );
+
+          newDiamond.collisionSize = GlobalCounter.entitySize * 1.3;
+          newDiamond.isSpawnedItem = true;
+          GlobalObjects.item.unshift(newDiamond);
+        }
+      }
+    });
+  }, 5000);
+
+
 }
 
 
@@ -233,6 +285,7 @@ draw = () => {
   HUD.setTotalPoints(GlobalCounter.totalPoints);
   HUD.setStars();
   HUD.setMovesRemaining(GlobalCounter.movesRemaining);
+  if (GlobalCounter.singleHitKills > 9) this.movesRemainingCount.innerHTML = `<span class="magenta-text">FREE</span>`;
 
 
   for (i = 0; i < GlobalObjects.item.length; i++) {
@@ -255,46 +308,7 @@ draw = () => {
     }
   }
 
-  //SPAWNPOINT LOGIC
-  GlobalObjects.spawnPoints.forEach(spawnPoint => {
 
-    //MEASURE AND RECORD EVERY DISTANCE FROM EVERY SPAWN POINT
-    let spawnPointDistances = [];
-    GlobalObjects.item.forEach(entity => {
-      let spawnPointDistance = dist(spawnPoint.pos.x, spawnPoint.pos.y, entity.pos.x, entity.pos.y);
-      spawnPointDistances.push(spawnPointDistance);
-    });
-
-    spawnPointDistances.sort((x, y) => x - y);
-
-
-    //if there is enough place to spawn an item, it will be spawned every 600 frames or 10 seconds
-    // 70/30 % chance for Fish vs Diamond
-    if (spawnPointDistances[0] > 150 && frameCount % 300 == 0) {
-      if (random(100) < 70) {
-
-        let newFish = new Fish(
-          spawnPoint.pos.x, spawnPoint.pos.y,
-          GlobalCounter.entitySize,
-          FishType.getRandom()
-        );
-
-        newFish.isSpawnedItem = true;
-        GlobalObjects.item.unshift(newFish);
-      }
-      else {
-
-        let newDiamond = new Diamond(
-          spawnPoint.pos.x, spawnPoint.pos.y,
-          GlobalCounter.entitySize,
-          DiamondType.getRandom()
-        );
-
-        newDiamond.isSpawnedItem = true;
-        GlobalObjects.item.unshift(newDiamond);
-      }
-    }
-  });
 
 
   //THE BULLET LOGIC STARTS HERE
@@ -386,12 +400,17 @@ mousePressed = () => {
   //last frame clicked guards for the points not being calculated on mobile device
   if (!GlobalCounter.splashScreenIsActive && GlobalCounter.lastFrameClicked + 60 < frameCount) {
     if (!GlobalCounter.levelIsFinished) {
+
+      if (GlobalCounter.singleHitKills > 9) {
+        GlobalCounter.movesRemaining++;
+      }
+
       GlobalCounter.currentPoints = 0;
       GlobalCounter.singleHitKills = 0;
       GlobalCounter.lastMouseClickedCoordinates = [mouseX, mouseY];
       GlobalObjects.item.forEach((item) => {
         let mouseDistance = dist(item.pos.x, item.pos.y, mouseX, mouseY);
-        if (mouseDistance < 30
+        if (mouseDistance < GlobalCounter.entitySize / 2
           && !(item instanceof Bubble)
           && !(item instanceof Diamond)) {
 

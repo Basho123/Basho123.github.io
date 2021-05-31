@@ -132,7 +132,7 @@ class Bullet extends BaseEntity {
   constructor(xPosition, yPosition, xSpeed, ySpeed) {
     super(xPosition, yPosition);
 
-    this.collisionSize = 30;
+    this.collisionSize = GlobalCounter.entitySize/2;
     this.vel = createVector(xSpeed, ySpeed);
     this.type = "null";
     this.distanceTraveled = 0;
@@ -142,7 +142,7 @@ class Bullet extends BaseEntity {
   show() {
     push();
     fill(255);
-    circle(this.pos.x, this.pos.y, 25)
+    circle(this.pos.x, this.pos.y, GlobalCounter.entitySize/2)
     pop();
 
     this.pos.add(this.vel);

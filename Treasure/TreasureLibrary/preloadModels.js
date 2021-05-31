@@ -1,28 +1,27 @@
 // files.js for treasureGame
 
-class Font{
-    static openSans = '';
+const Font = {
+    openSans: '',
 }
 
-class Background{
-    static image1 = '';
-    static image2 = '';
-    static image3 = '';
+const Background = {
+    image1: '',
+    image2: '',
+    image3: '',
+}
+const FishModel = {
+    red: '',
+    blue: '',
+    green: '',
+    purple: '',
+    shark: '',
 }
 
-class FishModel{
-    static red = '';
-    static blue = '';
-    static green = '';
-    static purple = '';
-    static shark = '';
-}
-
-class SceneryModel{
-    static bubble = '';
-    static treasureChest = '';
-    static blueDiamond = '';
-    static redDiamond = '';
-    static greenDiamond = '';
-    static crystalSkull = '';
+const SceneryModel = {
+    bubble: '',
+    treasureChest: '',
+    blueDiamond: '',
+    redDiamond: '',
+    greenDiamond: '',
+    crystalSkull: '',
 }

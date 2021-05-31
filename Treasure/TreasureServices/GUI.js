@@ -1,27 +1,26 @@
 // GUI.js for Treasure Game
 
+//Extending existing document class
 class Document {
     static mainMenu = document.getElementById('mainMenu');
     static canvas = document.getElementsByTagName('canvas');
     static playButton = document.getElementById('playButton');
     static continueButton = document.getElementById('continueButton');
-
     static restartGameButton = document.getElementById('restartGame');
     static worldMapButton = document.getElementById('worldMapButton');
-
     static soundButton = document.getElementById('soundButton');
 
     static reload() {
         window.location.reload();
     };
-
+    
     static showIngameMenu() {
         Document.canvas[0].style.display = 'none';
         Document.playButton.style.display = 'none';
 
         Document.continueButton.style.display = 'block';
         Document.mainMenu.style.display = 'flex';
-    }
+    };
 
     static hideIngameMenu() {
         Document.canvas[0].style.display = 'flex';
@@ -29,32 +28,33 @@ class Document {
 
         Document.continueButton.style.display = 'none';
         Document.mainMenu.style.display = 'none';
-    }
+    };
 }
 
-class Tutorial {
-    static container = document.getElementById('tutorialContainer');
-    static show() {
+
+const Tutorial = {
+    container: document.getElementById('tutorialContainer'),
+    show() {
         this.container.style.display = 'flex';
         GlobalCounter.splashScreenIsActive = true;
-    };
-    static hide() {
+    },
+    hide() {
         this.container.style.display = 'none';
         GlobalCounter.splashScreenIsActive = false;
-    };
+    },
 };
 
-class LevelStartTooltip {
-    static container = document.getElementById('levelStart');
+const LevelStartTooltip = {
+    container: document.getElementById('levelStart'),
 
-    static levelStartContainer = document.getElementById('levelStartContainer');
-    static levelCount = document.getElementById('levelCountStart');
+    levelStartContainer: document.getElementById('levelStartContainer'),
+    levelCount: document.getElementById('levelCountStart'),
 
-    static objectiveInfoContainer = document.getElementById('objectiveInfoContainer');
-    static objectiveInfo = document.getElementById('objectiveInfoStart');
+    objectiveInfoContainer: document.getElementById('objectiveInfoContainer'),
+    objectiveInfo: document.getElementById('objectiveInfoStart'),
 
 
-    static show() {
+    show() {
         GlobalCounter.splashScreenIsActive = true;
         this.container.style.display = 'flex';
 
@@ -68,30 +68,30 @@ class LevelStartTooltip {
         setTimeout(() => {
             this.objectiveInfoContainer.style.display = 'flex';
         }, 2500);
-    }
+    },
 
-    static hide() {
+    hide() {
         GlobalCounter.splashScreenIsActive = false;
         this.container.style.display = 'none';
         this.levelStartContainer.style.display = 'none';
         this.objectiveInfoContainer.style.display = 'none';
-    }
+    },
 }
 
-class LevelFinishTooltip {
-    static container = document.getElementById('levelFinish');
+const LevelFinishTooltip = {
+    container: document.getElementById('levelFinish'),
 
-    static diamondsCollectedCount = document.getElementById('diamondsCollectedCount');
+    diamondsCollectedCount: document.getElementById('diamondsCollectedCount'),
 
-    static fishKilledContainer = document.getElementById('fishKilledContainer');
-    static fishKilledCount = document.getElementById('fishKilledCount');
+    fishKilledContainer: document.getElementById('fishKilledContainer'),
+    fishKilledCount: document.getElementById('fishKilledCount'),
 
-    static objectiveCompletedContainer = document.getElementById('objectiveCompletedContainer');
-    static objectiveCompletedText = document.getElementById('objectiveCompletedText');
+    objectiveCompletedContainer: document.getElementById('objectiveCompletedContainer'),
+    objectiveCompletedText: document.getElementById('objectiveCompletedText'),
 
-    static objectiveCompletedPoints = document.getElementById('objectiveCompletedPoints');
+    objectiveCompletedPoints: document.getElementById('objectiveCompletedPoints'),
 
-    static show() {
+    show() {
         this.container.style.display = 'flex';
 
         this.fishKilledCount.innerHTML = GlobalCounter.totalKills;
@@ -102,15 +102,15 @@ class LevelFinishTooltip {
         setTimeout(() => {
             this.fishKilledContainer.style.display = 'flex';
         }, 1000);
-    }
+    },
 
-    static hide() {
+    hide() {
         this.container.style.display = 'none';
         this.fishKilledContainer.style.display = 'none';
         this.objectiveCompletedContainer.style.display = 'none';
-    }
+    },
 
-    static showObjectiveCompletedLog(objectiveIsCompleted, questPoints) {
+    showObjectiveCompletedLog(objectiveIsCompleted, questPoints) {
         if (objectiveIsCompleted) {
             GlobalCounter.totalPoints += questPoints;
             LevelFinishTooltip.objectiveCompletedPoints.innerHTML = `<span class="green-text">+${questPoints} points</span>`;
@@ -126,42 +126,42 @@ class LevelFinishTooltip {
     }
 }
 
-class HUD {
-    static container = document.getElementById('HUD');
-    static movesRemainingCount = document.getElementById('movesRemainingCount');
-    static objectiveRemainingCount = document.getElementById('objectiveRemainingCount');
-    static objectiveName = document.getElementById('objectiveName');
-    static totalPoints = document.getElementById('totalPoints');
-    static star1 = document.getElementById('star1');
-    static star2 = document.getElementById('star2');
-    static star3 = document.getElementById('star3');
+const HUD = {
+    container: document.getElementById('HUD'),
+    movesRemainingCount: document.getElementById('movesRemainingCount'),
+    objectiveRemainingCount: document.getElementById('objectiveRemainingCount'),
+    objectiveName: document.getElementById('objectiveName'),
+    totalPoints: document.getElementById('totalPoints'),
+    star1: document.getElementById('star1'),
+    star2: document.getElementById('star2'),
+    star3: document.getElementById('star3'),
 
-    static show() {
+    show() {
         this.container.style.display = 'flex';
-    };
-    static hide() {
+    },
+    hide() {
         this.container.style.display = 'none';
-    };
+    },
 
-    static setMovesRemaining(moves) {
+    setMovesRemaining(moves) {
         if (moves <= 10) this.movesRemainingCount.innerHTML = `<span class="green-text">${moves}</span>`;
         if (moves <= 6) this.movesRemainingCount.innerHTML = `<span class="yellow-text">${moves}</span>`;
         if (moves <= 3) this.movesRemainingCount.innerHTML = `<span class="red-text">${moves}</span>`;
-    };
+    },
 
-    static setObjectiveRemainingCount(objectiveCount) {
+    setObjectiveRemainingCount(objectiveCount) {
         this.objectiveRemainingCount.innerHTML = objectiveCount;
 
         if (GlobalCounter.objectiveIsCompleted) {
             this.objectiveRemainingCount.innerHTML = `<span class="green-text" style="font-size: 25px;">Done!</span>`
         }
-    }
+    },
 
-    static setObjectiveName(objectiveName) {
+    setObjectiveName(objectiveName) {
         this.objectiveName.innerHTML = objectiveName;
-    }
+    },
 
-    static setTotalPoints(points) {
+    setTotalPoints(points) {
         let previousPoints = +this.totalPoints.innerHTML;
         let pointsToPrint = +this.totalPoints.innerHTML;
 
@@ -181,9 +181,9 @@ class HUD {
         }
 
         this.totalPoints.innerHTML = pointsToPrint;
-    };
+    },
 
-    static setStars() {
+    setStars() {
         let totalPoints = +this.totalPoints.innerHTML;
         if (totalPoints > 20000) {
             GlobalCounter.stars = 1;
@@ -197,95 +197,97 @@ class HUD {
             GlobalCounter.stars = 3;
             this.star3.innerHTML = `<img src="./Images/star.png" alt="" class="hud-stars">`;
         }
-    }
+    },
 }
 
-class Points {
-    static setForLevel(number) {
-        localStorage.setItem(`starsForLevel${number}`, GlobalCounter.stars);
-        localStorage.setItem(`pointsForLevel${number}`, GlobalCounter.totalPoints);
-    };
-    static getPointsForLevel(number) {
+const Points = {
+    setForLevel(number) {
+        localStorage.setItem(`starsForLevel${number}`, GlobalCounter.stars),
+            localStorage.setItem(`pointsForLevel${number}`, GlobalCounter.totalPoints)
+    },
+
+    getPointsForLevel(number) {
         return localStorage.getItem(`pointsForLevel${number}`);
-    };
-    static getStarsForLevel(number) {
+    },
+
+    getStarsForLevel(number) {
         return localStorage.getItem(`starsForLevel${number}`);
-    };
+    },
 };
 
-class Game {
-    static getCurrentLevel() {
+const Game = {
+    getCurrentLevel() {
         return +localStorage.getItem('treasureGameLevel');
-    };
+    },
 
-    static getMaxLevel() {
+    getMaxLevel() {
         return +localStorage.getItem('treasureGameMaxLevel');
-    };
+    },
 
-    static setLevel(number) {
+    setLevel(number) {
         localStorage.setItem('treasureGameLevel', number);
         GlobalCounter.level = number;
-    };
+    },
 
-    static setMaxLevel() {
+    setMaxLevel() {
         let level = +localStorage.getItem('treasureGameLevel');
         let maxLevel = +localStorage.getItem('treasureGameMaxLevel');
 
         if (level > maxLevel) {
             localStorage.setItem('treasureGameMaxLevel', level);
         };
-    };
+    },
 
-    static setImplicitMaxLevel(number) {
+    setImplicitMaxLevel(number) {
         localStorage.setItem('treasureGameMaxLevel', number);
-    };
-    static nextLevel() {
+    },
+    nextLevel() {
         let currentLevel = +localStorage.getItem('treasureGameLevel');
         currentLevel++;
         this.setLevel(currentLevel);
         GlobalCounter.level = currentLevel;
         this.setMaxLevel();
-    };
-    static mainMenu() {
+    },
+    mainMenu() {
         this.setLevel(0);
         GlobalCounter.level = 0;
-    };
-    static restart() {
+    },
+    restart() {
         GlobalCounter.level = 1;
         this.setLevel(GlobalCounter.level);
-    };
-    static pause() {
+    },
+    pause() {
         Document.mainMenu.style.display = 'block';
-    };
+    },
 
-    static startSession() {
+    startSession() {
         if (+sessionStorage.getItem('sessionStarted') != 1) {
             this.mainMenu();
             sessionStorage.setItem('sessionStarted', 1);
             Document.reload();
         }
-    };
+    },
 };
 
-class WorldMap {
-    static container = document.getElementById('worldMapContainer');
-    static buttons = document.getElementsByClassName('levelButtons');
+const WorldMap = {
+    container: document.getElementById('worldMapContainer'),
+    buttons: document.getElementsByClassName('levelButtons'),
 
-    static show() {
+    show() {
         this.container.style.display = 'flex';
-    }
+    },
 
-    static hide() {
+    hide() {
         this.container.style.display = 'none';
-    }
+    },
 
-    static populateButtons() {
+    populateButtons() {
         let totalLevels = +localStorage.getItem('treasureGameMaxLevel');
 
         // UNLOCKED LEVEL BUTTONS
         for (let i = 1; i < totalLevels + 1; i++) {
-            let emptyStar = `<img src="Images/emptyStar.png" alt="">`;
-            let shinyStar = `<img src="Images/star.png" alt="">`;
+            let emptyStar = `<img class="hud-stars" src="Images/emptyStar.png" alt="">`;
+            let shinyStar = `<img class="hud-stars" src="Images/star.png" alt="">`;
             let stars = Points.getStarsForLevel(i);
             let points = 0;
 
@@ -367,7 +369,7 @@ Document.continueButton.addEventListener('click', () => {
     Document.hideIngameMenu();
 });
 
-Document.soundButton.addEventListener('click',()=>{   
+Document.soundButton.addEventListener('click', () => {
     Sound.muteSwitch();
 });
 

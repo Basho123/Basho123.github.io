@@ -117,6 +117,7 @@ body {
 
 #tutorialContainer {
     width: 100%;
+    max-width: 1200px;
     height: 100%;
     user-select: none;
     display: none;
@@ -207,6 +208,10 @@ body {
 
 .red-text {
     color: red;
+}
+
+.magenta-text {
+    color: rgb(234, 0, 255);
 }
 
 .shadow {

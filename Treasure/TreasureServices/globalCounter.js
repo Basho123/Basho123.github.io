@@ -1,10 +1,10 @@
-class GlobalObjects {
-  static item = [];
-  static bullet = [];
-  static spawnPoints = [];
-  static backgroundBubbles = [];
+const GlobalObjects = {
+  item: [],
+  bullet: [],
+  spawnPoints: [],
+  backgroundBubbles: [],
 
-  static drawTerrain(image) {
+  drawTerrain(image) {
     push();
     texture(image);
     noStroke();
@@ -13,58 +13,58 @@ class GlobalObjects {
   }
 }
 
-class GlobalCounter {
-  static currentBulletProperty = "";
+const GlobalCounter = {
+  currentBulletProperty: "",
 
-  static resolutionX = 0;
-  static resolutionY = 0;
-  static floor = 0;
+  resolutionX: 0,
+  resolutionY: 0,
+  floor: 0,
 
-  static entitySize = 0;
-  static entityCollisionSize = 1.3;
+  entitySize: 0,
+  entityCollisionSize: 1.3,
 
-  static singleHitKills = 0;
-  static totalKills = 0;
+  singleHitKills: 0,
+  totalKills: 0,
 
-  static splashScreenIsActive = false;
+  splashScreenIsActive: false,
 
-  static moreThan3killsCount = 0;
-  static moreThan6killsCount = 0;
-  static moreThan9killsCount = 0;
+  moreThan3killsCount: 0,
+  moreThan6killsCount: 0,
+  moreThan9killsCount: 0,
 
-  static redFishKills = 0;
-  static blueFishKills = 0;
-  static greenFishKills = 0;
+  redFishKills: 0,
+  blueFishKills: 0,
+  greenFishKills: 0,
 
-  static redDiamondsCollected = 0;
-  static greenDiamondsCollected = 0;
-  static blueDiamondsCollected = 0;
+  redDiamondsCollected: 0,
+  greenDiamondsCollected: 0,
+  blueDiamondsCollected: 0,
 
-  static totalDiamondsCollected = 0;
+  totalDiamondsCollected: 0,
 
-  static objectiveIsCompleted = false;
+  objectiveIsCompleted: false,
 
-  static movesRemaining = 10;
-  static currentPoints = 0;
-  static totalPoints = 0;
+  movesRemaining: 10,
+  currentPoints: 0,
+  totalPoints: 0,
 
-  static sessionStarted = sessionStorage.getItem('sessionStarted');
+  sessionStarted: sessionStorage.getItem('sessionStarted'),
 
-  static level = +localStorage.getItem('treasureGameLevel');
-  static maxLevel = +localStorage.getItem('treasureGameMaxLevel');
+  level: +localStorage.getItem('treasureGameLevel'),
+  maxLevel: +localStorage.getItem('treasureGameMaxLevel'),
 
-  static levelIsFinished = false;
-  static fireOnceInDraw = false;
-  static stars = 0;
+  levelIsFinished: false,
+  fireOnceInDraw: false,
+  stars: 0,
 
-  static lastMouseClickedCoordinates = [0, 0];
-  static lastFrameClicked = 0;
+  lastMouseClickedCoordinates: [0, 0],
+  lastFrameClicked: 0,
 
-  static difficulty = this.level >= 0 && this.level < 5 ? Difficulty.EASY
+  difficulty: this.level >= 0 && this.level < 5 ? Difficulty.EASY
     : this.level >= 5 && this.level < 10 ? Difficulty.MEDIUM
-      : Difficulty.HARD
+      : Difficulty.HARD,
 
-  static addKill(item) {
+  addKill(item) {
     if ((item instanceof Fish)) {
       this.totalKills++;
       switch (item.type) {
@@ -102,26 +102,26 @@ class GlobalCounter {
           break;
       }
     }
-  }
+  },
 
-  static addPoints(item) {
+  addPoints(item) {
     //if one fish is killed 64 points are added because of the formula, but actually added 65 because of the counter speed
     if (item instanceof Fish) this.currentPoints += 128;
     if (item instanceof Diamond) this.currentPoints += 512;
     if (item instanceof Chest) this.currentPoints += 1024;
     if (item instanceof CrystalSkull) this.currentPoints += 2048;
-  }
+  },
 
-  static calculatePoints() {
+  calculatePoints() {
     setTimeout(() => {
       this.totalPoints += this.currentPoints * this.singleHitKills / 2;
     }, 1000);
-  }
+  },
 
-  static multiKillCount() {
+  multiKillCount() {
     this.singleHitKills++;
     if (this.singleHitKills == 3) this.moreThan3killsCount++;
     if (this.singleHitKills == 6) this.moreThan6killsCount++;
     if (this.singleHitKills == 9) this.moreThan9killsCount++;
-  }
-}
+  },
+};
