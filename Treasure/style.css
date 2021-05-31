@@ -76,6 +76,8 @@ body {
     background-color: burlywood;
     font-size: 40px;
     border-radius: 25px;
+    margin-top: 25px;
+
     box-shadow: rgba(0, 0, 0, 0.493) 20px 20px 30px;
 }
 
@@ -98,17 +100,6 @@ body {
     /* margin: 25px; */
     box-shadow: rgba(0, 0, 0, 0.493) 20px 20px 30px;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -141,7 +132,7 @@ body {
     height: 100%;
     user-select: none;
     display: none;
-    font-size: 50px;
+    font-size: 4vw;
     z-index: 2;
     color: rgb(255, 255, 255);
     background-color: rgba(0, 0, 0, 0.514);

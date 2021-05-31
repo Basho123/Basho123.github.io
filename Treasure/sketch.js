@@ -362,7 +362,7 @@ draw = () => {
   });
 
   // END LEVEL
-  if (GlobalCounter.movesRemaining == 0 && !GlobalCounter.levelIsFinished) {
+  if (GlobalCounter.movesRemaining <= 0 && !GlobalCounter.levelIsFinished) {
 
     LevelFinishTooltip.show();
 
@@ -376,7 +376,7 @@ draw = () => {
       if (GlobalCounter.objectiveIsCompleted && GlobalCounter.level < 30) Game.nextLevel();
       Game.setLevel(-1);
       Document.reload();
-    }, 10000);
+    }, 100000);
   }
 }
 
