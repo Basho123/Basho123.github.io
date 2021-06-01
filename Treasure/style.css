@@ -28,6 +28,20 @@ body {
 
 }
 
+#p5_loading{
+    width: 100vw;
+    height: 90vh;
+    margin: 0px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: rgb(29, 41, 53);
+
+}
+#loadingGif{
+    height: 100%;
+}
+
 #continueButton {
     display: none;
 }
