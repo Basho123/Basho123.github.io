@@ -2,6 +2,61 @@
 // imported classes from TreasureServices Folder
 // imported classes from TreasureEnums Folder
 
+//Enums 
+import Difficulty from './TreasureEnums/Difficulty/Difficulty.js';
+import Type from './TreasureEnums/Type/Type.js';
+import DiamondType from './TreasureEnums/Type/DiamondType.js';
+import FishType from './TreasureEnums/Type/FishType.js';
+import BulletType from './TreasureEnums/Type/BulletType.js';
+
+//Library
+//#region Entities
+import BaseEntity from './TreasureLibrary/Entities/BaseEntity.js';
+import BackgroundBubble from './TreasureLibrary/Entities/BackgroundBubble.js';
+import Bubble from './TreasureLibrary/Entities/Bubble.js';
+import Bullet from './TreasureLibrary/Entities/Bullet.js';
+import Chest from './TreasureLibrary/Entities/Chest.js';
+import CrystalSkull from './TreasureLibrary/Entities/CrystalSkull.js';
+import Diamond from './TreasureLibrary/Entities/Diamond.js';
+import Fish from './TreasureLibrary/Entities/Fish.js';
+import SpawnPoint from './TreasureLibrary/Entities/SpawnPoint.js';
+//#endregion
+//#region PreloadModels
+import Background from './TreasureLibrary/PreloadModels/Background.js';
+import FishModel from './TreasureLibrary/PreloadModels/FishModel.js';
+import Font from './TreasureLibrary/PreloadModels/Font.js';
+import SceneryModel from './TreasureLibrary/PreloadModels/SceneryModel.js';
+//#endregion
+//#region PreloadSounds
+import Sound from './TreasureLibrary/PreloadSounds/Sound.js';
+//#endregion
+
+
+//Services
+import GlobalCounter from './TreasureServices/GlobalCounter.js';
+import GlobalObjects from './TreasureServices/GlobalObjects.js';
+
+
+//#region GameLogic
+import Collision from './TreasureServices/GameLogic/Collision.js';
+import Game from './TreasureServices/GameLogic/Game.js';
+import Objective from './TreasureServices/GameLogic/Objective.js';
+//#endregion
+
+//#region  GUI
+import Document from './TreasureServices/GUI/Document.js';
+import HUD from './TreasureServices/GUI/HUD.js';
+import LevelFinishTooltip from './TreasureServices/GUI/LevelFinishTooltip.js';
+import LevelStartTooltip from './TreasureServices/GUI/LevelStartTooltip.js';
+import MouseText from './TreasureServices/GUI/MouseText.js';
+import Points from './TreasureServices/GUI/Points.js';
+import Tutorial from './TreasureServices/GUI/Tutorial.js';
+import WorldMap from './TreasureServices/GUI/WorldMap.js';
+//#endregion
+
+
+
+
 
 console.log(`You are at level ${GlobalCounter.level}`);
 Game.startSession();
@@ -13,7 +68,7 @@ LevelStartTooltip.objectiveInfo.innerHTML = currentObjective.info;
 LevelStartTooltip.levelCount.innerHTML = GlobalCounter.level;
 
 
-preload = () => {
+window.preload = () => {
   Background.image1 = loadImage('./Images/underWater1.png');
   Background.image2 = loadImage('./Images/underWater2.png');
   Background.image3 = loadImage('./Images/underWater3.png');
@@ -47,7 +102,7 @@ preload = () => {
   Font.openSans = loadFont('./Fonts/Open_Sans/OpenSans-Regular.ttf');
 }
 
-setup = () => {
+window.setup = () => {
 
   // GLOBAL VALUES SET
 
@@ -142,12 +197,12 @@ setup = () => {
   let treasureChestIsInserted = false;
 
 
-  for (i = spawnStartPositionX; i < spawnEndPositionX; i += entitySize * entityCollisionSize + 5) {
+  for (let i = spawnStartPositionX; i < spawnEndPositionX; i += entitySize * entityCollisionSize + 5) {
     //spawn points when space opens up
     GlobalObjects.spawnPoints.push(new SpawnPoint(i, 0, i));
 
 
-    for (g = spawnStartPositionY; g < spawnEndPositionY; g += entitySize * entityCollisionSize) {
+    for (let g = spawnStartPositionY; g < spawnEndPositionY; g += entitySize * entityCollisionSize) {
 
       // treasure chest spawn
       if (random(200) < 4 && !treasureChestIsInserted) {
@@ -179,7 +234,7 @@ setup = () => {
   }
 
   //populate initial background bubbles
-  for (i = 0; i < 20; i++) {
+  for (let i = 0; i < 20; i++) {
     GlobalObjects.backgroundBubbles.push(new BackgroundBubble(random(-200, 1600), random(100, 800), random(15) + 5));
   }
 
@@ -234,17 +289,15 @@ setup = () => {
 
 }
 
-
-
 //DRAW
-draw = () => {
+window.draw = () => {
   background(0);
   frameRate(60);
   currentObjective.condition();
 
 
   // DRAW BACKGROUND
-  switch (GlobalCounter.difficulty) {
+  switch (GlobalCounter.difficulty()) {
     case Difficulty.EASY: //EASY
       GlobalObjects.drawTerrain(Background.image1);
       break;
@@ -285,10 +338,10 @@ draw = () => {
   HUD.setTotalPoints(GlobalCounter.totalPoints);
   HUD.setStars();
   HUD.setMovesRemaining(GlobalCounter.movesRemaining);
-  if (GlobalCounter.singleHitKills > 9) this.movesRemainingCount.innerHTML = `<span class="magenta-text">FREE</span>`;
+  if (GlobalCounter.singleHitKills > 9) HUD.movesRemainingCount.innerHTML = `<span class="magenta-text">FREE</span>`;
 
 
-  for (i = 0; i < GlobalObjects.item.length; i++) {
+  for (let i = 0; i < GlobalObjects.item.length; i++) {
     GlobalObjects.item[i].show();
     // GlobalObjects.item[i].showCollisionBox();
     GlobalObjects.item[i].addGravity();
@@ -300,7 +353,7 @@ draw = () => {
       GlobalObjects.item[i].pos.y = floorBound;
     }
 
-    for (g = i + 1; g < GlobalObjects.item.length; g++) {
+    for (let g = i + 1; g < GlobalObjects.item.length; g++) {
       if (Collision.isOccuring(GlobalObjects.item[i], GlobalObjects.item[g])) {
         GlobalObjects.item[i].vel.y = 0;
         GlobalObjects.item[i].acc.y = 0;
@@ -395,7 +448,7 @@ draw = () => {
 }
 
 //When mouse is clicked
-mousePressed = () => {
+window.mousePressed = () => {
 
   //last frame clicked guards for the points not being calculated on mobile device
   if (!GlobalCounter.splashScreenIsActive && GlobalCounter.lastFrameClicked + 60 < frameCount) {
@@ -444,7 +497,7 @@ mousePressed = () => {
 };
 
 // KEYBOARD PRESSES
-keyPressed = () => {
+window.keyPressed = () => {
   // keyCode === 67  //C KEY
   // if (keyCode === 32) {  //   //SPACE KEY  
   if (keyCode === 27) { // ESCAPE KEY

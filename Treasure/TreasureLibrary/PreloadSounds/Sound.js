@@ -1,3 +1,6 @@
+import GlobalCounter from '../../TreasureServices/GlobalCounter.js';
+import HUD from '../../TreasureServices/GUI/HUD.js';
+
 const Sound = {
     bubble1: '',
     bubble2: '',
@@ -25,6 +28,7 @@ const Sound = {
             ];
 
             let randomNumber = Math.floor(random(arrayOfSounds.length));
+            arrayOfSounds[randomNumber].setVolume(0.3);
             arrayOfSounds[randomNumber].play();
         }
     },
@@ -81,4 +85,6 @@ const Sound = {
 
     },
 }
+
+export default Sound;
 

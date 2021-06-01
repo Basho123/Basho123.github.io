@@ -1,17 +1,13 @@
-const GlobalObjects = {
-  item: [],
-  bullet: [],
-  spawnPoints: [],
-  backgroundBubbles: [],
+import Difficulty from '../TreasureEnums/Difficulty/Difficulty.js';
+import Type from '../TreasureEnums/Type/Type.js';
+import BaseEntity from '../TreasureLibrary/Entities/BaseEntity.js';
+import Fish from '../TreasureLibrary/Entities/Fish.js';
+import Diamond from '../TreasureLibrary/Entities/Diamond.js';
+import Chest from '../TreasureLibrary/Entities/Chest.js';
+import CrystalSkull from '../TreasureLibrary/Entities/CrystalSkull.js';
 
-  drawTerrain(image) {
-    push();
-    texture(image);
-    noStroke();
-    plane(1920, 1080);
-    pop();
-  }
-}
+
+
 
 const GlobalCounter = {
   currentBulletProperty: "",
@@ -60,10 +56,11 @@ const GlobalCounter = {
   lastMouseClickedCoordinates: [0, 0],
   lastFrameClicked: 0,
 
-  difficulty: this.level >= 0 && this.level < 5 ? Difficulty.EASY
+  difficulty(){
+    return this.level >= 0 && this.level < 5 ? Difficulty.EASY
     : this.level >= 5 && this.level < 10 ? Difficulty.MEDIUM
-      : Difficulty.HARD,
-
+      : Difficulty.HARD;
+  },
   addKill(item) {
     if ((item instanceof Fish)) {
       this.totalKills++;
@@ -125,3 +122,5 @@ const GlobalCounter = {
     if (this.singleHitKills == 9) this.moreThan9killsCount++;
   },
 };
+
+export default GlobalCounter;

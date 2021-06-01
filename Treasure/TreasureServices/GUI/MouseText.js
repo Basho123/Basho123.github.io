@@ -1,4 +1,7 @@
 
+import GlobalCounter from '../GlobalCounter.js';
+import Font from '../../TreasureLibrary/PreloadModels/Font.js';
+
 
 const MouseText = {
     show(points, startingFrame, currentFrame, positionX, positionY) {
@@ -35,3 +38,5 @@ const MouseText = {
         }        
     },
 }
+
+export default MouseText;

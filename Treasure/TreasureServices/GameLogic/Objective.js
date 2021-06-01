@@ -1,4 +1,20 @@
-// objectives.js for treasureChest
+import GlobalCounter from '../GlobalCounter.js';
+
+let Easy = 0;
+let Medium = 0;
+let Hard = 0;
+
+let one = 0;
+let two = 0;
+let three = 0;
+let four = 0;
+let five = 0;
+let six = 0;
+let seven = 0;
+let eight = 0;
+let nine = 0;
+
+
 
 const Objective = {
     Difficulty: [
@@ -243,10 +259,12 @@ const Objective = {
     ],
 
     setRandom: ()=>{
-        let randomObjective = Math.floor(Math.random() * Objective.Difficulty[GlobalCounter.difficulty].length);
-        return Objective.Difficulty[GlobalCounter.difficulty][randomObjective];
+        let randomObjective = Math.floor(Math.random() * Objective.Difficulty[GlobalCounter.difficulty()].length);
+        return Objective.Difficulty[GlobalCounter.difficulty()][randomObjective];
     }
 
 
 }
+
+export default Objective;
 
