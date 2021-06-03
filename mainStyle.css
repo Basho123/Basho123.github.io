@@ -192,7 +192,7 @@
   }
 }
 
-.pageSection{
+.page-section{
     width: 100%;
  /* padding: 10px; */
  display: flex;
@@ -211,32 +211,32 @@
     display: flex;
     flex-wrap: wrap;    
 }
-/* a{ } cannot be used because of other pages override */
-.aTag{
+
+.custom-a-tag{
     width: 25%;
     background-color:white;
     color: rebeccapurple;
     text-decoration: none;
     font-size:13px;   
 }
-.aTag:hover{  
+.custom-a-tag:hover{  
     color: red;
     text-shadow: 0 0 10px yellow;
 }
 
-.cardStyle01{
+.card-style-01{
     width: 100%;
     padding: 20px;     
 background-color: rgb(224, 224, 224);
 margin-top: 25px;
 }
-.cardStyle02{
+.card-style-02{
     width: 100%;
     padding: 20px;   
 
 background-color: rgb(243, 243, 243);
 }
-.cvPageButtons{
+.cv-page-buttons{
     font-family: RobotoMono;
     background-color:rgb(10, 87, 0);
     color: white;
@@ -251,19 +251,19 @@ background-color: rgb(243, 243, 243);
 
 }
 
-.cvPageButtons:hover{   
+.cv-page-buttons:hover{   
     background-color:rgb(20, 173, 0);   
     box-shadow: 0px 0px 30px green;
 }
-.cvPageButtons:focus{   
+.cv-page-buttons:focus{   
    outline: none;
 }
 
-.sourceCodeButton{   
+.source-code-button{   
     background-color:rgb(138, 148, 0);   
 }
 
-.sourceCodeButton:hover{   
+.source-code-button:hover{   
     background-color:rgb(194, 197, 1);   
     box-shadow: 0px 0px 30px rgb(229, 255, 0);
 }
@@ -278,13 +278,13 @@ background-color: rgb(243, 243, 243);
 }
 
 
-.anchoredBackgroundImage{
+.anchored-background-image{
     height: 100px;
     border-radius: 15px;
     background-repeat: repeat;
     background-attachment: fixed;
 }
-.anchoredBackgroundImageCurtain{
+.anchored-background-image-curtain{
     height: 100px;
     border-radius: 15px;
     background-color: rgba(206, 206, 206, 0.623);
@@ -330,8 +330,9 @@ background-color: rgb(243, 243, 243);
     background-image: url("PageAssets/Images/farm.png"); 
     background-size: 100%;
 }
-#numbersToWordsBackgroundImage{  
-    background-image: url("PageAssets/Images/numbersToWordsConverter.png"); 
+
+#treasureGameBackgroundImage{  
+    background-image: url("PageAssets/Images/treasureGame.png"); 
     background-size: 100%;
 }
 
