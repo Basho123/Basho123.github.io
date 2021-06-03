@@ -3,8 +3,10 @@
     font-family: 'Roboto', sans-serif;
 }
 
+
+
 body {
-    background-image: url(../Images/clouds.jpg);
+    background-image: url(../Images/clouds3.gif);
     background-color: rgb(0, 0, 0);
     background-attachment: fixed;
     background-size: cover;
@@ -267,7 +269,7 @@ header {
 }
 
 .parent-div-style-1-d {
-    box-shadow: 0px 0px 100px rgb(83, 83, 83);
+    box-shadow: 0px 0px 200px rgb(83, 83, 83);
     /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#6c6666+1,6c6666+50,6c6666+100&0+1,1+50,1+50,0+100 */
     background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 1%, rgba(180, 230, 255, 0.6) 50%, rgba(0, 102, 102, 0) 100%);
     /* FF3.6-15 */
@@ -281,7 +283,7 @@ header {
 }
 
 .parent-div-style-2-d {
-    box-shadow: 0px 0px 100px rgb(83, 83, 83);
+    box-shadow: 0px 0px 200px rgb(83, 83, 83);
     /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#6c6666+1,6c6666+50,6c6666+100&0+1,1+50,1+50,0+100 */
     background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 1%, rgba(180, 230, 255, 0.6) 50%, rgba(0, 102, 102, 0) 100%);
     /* FF3.6-15 */
@@ -294,7 +296,7 @@ header {
 }
 
 .parent-div-style-1-n {
-    box-shadow: 0px 0px 100px rgb(0, 0, 0);
+    box-shadow: 0px 0px 200px rgb(0, 0, 0);
     /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#6c6666+1,6c6666+50,6c6666+100&0+1,1+50,1+50,0+100 */
     background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 1%, rgba(255, 255, 255, 0.1) 50%, rgba(0, 102, 102, 0) 100%);
     /* FF3.6-15 */
@@ -307,7 +309,7 @@ header {
 }
 
 .parent-div-style-2-n {
-    box-shadow: 0px 0px 100px rgb(10, 10, 10);
+    box-shadow: 0px 0px 200px rgb(10, 10, 10);
     /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#6c6666+1,6c6666+50,6c6666+100&0+1,1+50,1+50,0+100 */
     background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 1%, rgba(255, 255, 255, 0.1) 50%, rgba(0, 102, 102, 0) 100%);
     /* FF3.6-15 */
@@ -405,30 +407,7 @@ header {
     }
     .parent-div-style-1-d, .parent-div-style-1-n, .parent-div-style-2-d, .parent-div-style-2-n {
         justify-content: space-between;
+        border-radius: 0px;
         padding: 0px;
     }
-}
-
-.btn-grad {
-    background-image: linear-gradient(to right, #16A085 0%, #F4D03F 51%, #16A085 100%)
-}
-
-.btn-grad {
-    margin: 10px;
-    padding: 15px 45px;
-    text-align: center;
-    text-transform: uppercase;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: white;
-    box-shadow: 0 0 20px #eee;
-    border-radius: 10px;
-    display: block;
-}
-
-.btn-grad:hover {
-    background-position: right center;
-    /* change the direction of the change here */
-    color: #fff;
-    text-decoration: none;
 }
