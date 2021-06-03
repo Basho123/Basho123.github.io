@@ -17,7 +17,7 @@ let printTemplates = {
             //TIME AND DATE STRING ARE FETCHED HERE, 2 SEPARATE API LINKS ARE USED AND INTERTWINED, TIMEZONE SET ACCORDINGLY
             dayName = getDayName(element.dt_txt, `en-US`)
             let dateTimeArray = element.dt_txt.split(` `);
-            let date = dateTimeArray[0].substr(5).split(`-`);            
+            let date = dateTimeArray[0].substr(5).split(`-`);
             date = `${date[1]}/${date[0]}`
             hourDate = new Date(+(`${element.dt}000`) + (timezone * 1000))
             let dateArray = hourDate.toString().split(` `);
@@ -29,25 +29,21 @@ let printTemplates = {
             let windDirection = windDirectionFunction(element.wind.deg)
             //CREATE THE DIV ELEMENTS
             let parentDiv = document.createElement("DIV");
-            parentDiv.classList.add(`parentDiv`)
             grandparentDiv.appendChild(parentDiv);
 
             //ZIGZAG STYLE BACKGROUND COLOR
             if (divStyleBackgroundColorSwitch === true && dayOrNight == `d`) {
-                parentDiv.style.backgroundColor = `rgb(155,155,155)`
-                parentDiv.style.color = `rgb(0,0,0)`
+                parentDiv.classList.add(`parent-div-style-1-d`)
             }
             if (divStyleBackgroundColorSwitch === true && dayOrNight == `n`) {
-                parentDiv.style.backgroundColor = `rgb(25,25,25)`
-                parentDiv.style.color = `rgb(255,255,255)`
+                parentDiv.classList.add(`parent-div-style-1-n`)
             }
             else if (divStyleBackgroundColorSwitch === false && dayOrNight == `d`) {
-                parentDiv.style.backgroundColor = `rgb(125,125,125)`
-                parentDiv.style.color = `rgb(0,0,0)`
+                parentDiv.classList.add(`parent-div-style-2-d`)
+
             }
             else if (divStyleBackgroundColorSwitch === false && dayOrNight == `n`) {
-                parentDiv.style.backgroundColor = `rgb(5,5,5)`;
-                parentDiv.style.color = `rgb(255,255,255)`
+                parentDiv.classList.add(`parent-div-style-2-n`)
             }
             divStyleBackgroundColorSwitch = !divStyleBackgroundColorSwitch;
 
@@ -102,29 +98,28 @@ let printTemplates = {
 
         //SUNRISE TIME IS CONVERTED HERE
         let sunriseTime = new Date(+(`${response.current.sunrise}000`))
-                                                    .toString() //convert to string
-                                                    .split(` `) // split the string to array
-                                                    .slice(4, 5) //slice the time out of the full string array
-                                                    .toString() // convert the array to string
-                                                    .split(":") // split the time out of the
-                                                    .slice(0,2) // seconds
-                                                    .join(':'); // then join hours and minutes with ':' in single string
-        
+            .toString() //convert to string
+            .split(` `) // split the string to array
+            .slice(4, 5) //slice the time out of the full string array
+            .toString() // convert the array to string
+            .split(":") // split the time out of the
+            .slice(0, 2) // seconds
+            .join(':'); // then join hours and minutes with ':' in single string
+
 
         //SUNSET TIME IS CONVERTED HERE
         let sunsetTime = new Date(+(`${response.current.sunset}000`))
-                                                    .toString()
-                                                    .split(` `)
-                                                    .slice(4, 5)
-                                                    .toString()
-                                                    .split(":")
-                                                    .slice(0,2)
-                                                    .join(':');
-     
+            .toString()
+            .split(` `)
+            .slice(4, 5)
+            .toString()
+            .split(":")
+            .slice(0, 2)
+            .join(':');
+
 
         //DIV ELEMENTS ARE CREATED HERE
         let parentDiv = document.createElement("DIV");
-        parentDiv.classList.add(`parentDiv`)
         grandparentDiv.appendChild(parentDiv);
 
         //GETS d OR n LETTER FROM A STRING TO CHECK IF DAY OR NIGHT
@@ -135,13 +130,12 @@ let printTemplates = {
         let windDirection = windDirectionFunction(response.current.wind_deg)
 
         if (dayOrNight == `d`) {
-            parentDiv.style.backgroundColor = `rgb(125,125,125)`
-            parentDiv.style.color = `rgb(0,0,0)`
+            parentDiv.classList.add(`parent-div-style-1-d`)
         }
 
         else if (dayOrNight == `n`) {
-            parentDiv.style.backgroundColor = `rgb(25,25,25)`
-            parentDiv.style.color = `rgb(255,255,255)`
+            parentDiv.classList.add(`parent-div-style-1-n`)
+
         }
 
         let div1 = document.createElement("DIV");
@@ -203,24 +197,19 @@ let printTemplates = {
             let elementWindDirection = windDirectionFunction(element.wind_deg)
             let dayOrNight = element.weather[0].icon[element.weather[0].icon.length - 1];
             let parentDiv = document.createElement("DIV");
-            parentDiv.classList.add(`parentDiv`)
             grandparentDiv.appendChild(parentDiv);
 
             if (divStyleBackgroundColorSwitch === true && dayOrNight == `d`) {
-                parentDiv.style.backgroundColor = `rgb(155,155,155)`
-                parentDiv.style.color = `rgb(0,0,0)`
+                parentDiv.classList.add(`parent-div-style-1-d`);
             }
             if (divStyleBackgroundColorSwitch === true && dayOrNight == `n`) {
-                parentDiv.style.backgroundColor = `rgb(25,25,25)`
-                parentDiv.style.color = `rgb(255,255,255)`
+                parentDiv.classList.add(`parent-div-style-1-n`);
             }
             else if (divStyleBackgroundColorSwitch === false && dayOrNight == `d`) {
-                parentDiv.style.backgroundColor = `rgb(125,125,125)`
-                parentDiv.style.color = `rgb(0,0,0)`
+                parentDiv.classList.add(`parent-div-style-2-d`);
             }
             else if (divStyleBackgroundColorSwitch === false && dayOrNight == `n`) {
-                parentDiv.style.backgroundColor = `rgb(5,5,5)`;
-                parentDiv.style.color = `rgb(255,255,255)`
+                parentDiv.classList.add(`parent-div-style-2-n`);
             }
 
             divStyleBackgroundColorSwitch = !divStyleBackgroundColorSwitch;
@@ -288,21 +277,19 @@ let printTemplates = {
                 .toDateString()
                 .split(' ')
                 .slice(1, 3);
-               dateText[1][0] == '0' ? dateText[1] = dateText[1][1] : null;
+            dateText[1][0] == '0' ? dateText[1] = dateText[1][1] : null;
 
 
             let parentDiv = document.createElement("DIV");
-            parentDiv.classList.add(`parentDiv`)
             grandparentDiv.appendChild(parentDiv);
 
             if (divStyleBackgroundColorSwitch === true) {
-                parentDiv.style.backgroundColor = `rgb(15,15,15)`
-                parentDiv.style.color = `rgb(255,255,255)`
+                parentDiv.classList.add(`parent-div-style-1-n`)
+
             }
 
             else if (divStyleBackgroundColorSwitch === false) {
-                parentDiv.style.backgroundColor = `rgb(35,35,35)`
-                parentDiv.style.color = `rgb(255,255,255)`
+                parentDiv.classList.add(`parent-div-style-2-n`)
             }
 
             let elementWindDirection = windDirectionFunction(element.wind_deg)

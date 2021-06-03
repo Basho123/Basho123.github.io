@@ -1,45 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="lib/style.css" type="text/css">
-    <link rel="icon" type="image/png" href="https://cdn2.iconfinder.com/data/icons/flatline-solid-1/512/weather-app-temperature-forecast-application-512.png">
+    <link rel="icon" type="image/png"
+        href="https://cdn2.iconfinder.com/data/icons/flatline-solid-1/512/weather-app-temperature-forecast-application-512.png">
 
-  
+
     <title>Weather App</title>
 </head>
+
 <body>
+    <header>
 
-    <h1>Weather forecast</h1>
-    <input type="text" placeholder="enter city here" id="cityValue">
-    <button id="button">Search</button><br>
-    <button id="showHourly">Hourly Forecast</button>
-    <button id="showExtended">5-day extended forecast</button>
-    <button id="showWeeklyButton">Weekly forecast</button>
-    <h2 id="headerToChange"></h2>
-    <div>
-        <table>
-            <thead>
-                <tr id="tHeadRow">
-                    
-                </tr>
-            </thead>
-            <tbody id="tBody">
+        <div id="textInputContainer">
 
-            </tbody>
-        </table>
-    </div>
+            <search id="search-bar">
+                <div id="search-div"><input type="search" placeholder="enter city here" name="search" id="cityValue"
+                        class="search-input"><button id="button" class="search-button" name="search"> <img
+                            src="Images/magnifying2.png" alt="magnifying-glass" width="18px"> </button></div>
+            </search>
 
-    <div id="toShow">
 
-    </div>
+            <!-- <button id="button">Search</button>       -->
+        </div>
+
+        <div id="showButtonsContainer">
+            <button id="showHourly">Hourly Forecast</button>
+            <button id="showExtended">5-day extended forecast</button>
+            <button id="showWeeklyButton">Weekly forecast</button>
+        </div>
+
+        <h2 id="headerToChange"></h2>
+    </header>
+
+    <main>
+        <div>
+            <table>
+                <thead>
+                    <tr id="tHeadRow">
+
+                    </tr>
+                </thead>
+                <tbody id="tBody">
+
+                </tbody>
+            </table>
+        </div>
+
+        <div id="toShow">
+
+        </div>
+    </main>
+
 
     <script src="lib/fetchingPromises.js"></script>
     <script src="lib/utilityFunctions.js"></script>
     <script src="lib/printTemplates.js"></script>
     <script src="lib/script.js"></script>
-    
+
 </body>
+
 </html>

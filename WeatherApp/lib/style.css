@@ -1,41 +1,35 @@
-
-*{
-    font-family: Arial, Helvetica, sans-serif;
+@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;600;700;800;900&display=swap);
+* {
+    font-family: 'Roboto', sans-serif;
 }
 
-body{
-    background-color: black;
+body {
+    background-image: url(../Images/clouds.jpg);
+    background-color: rgb(0, 0, 0);
+    background-attachment: fixed;
+    background-size: cover;
     color: white;
     text-align: center;
     width: 1200px;
     display: block;
     margin: 0px auto;
 }
-@media screen and (max-width: 1200px){
-body{
-    width: 100%;
-}
+
+@media screen and (max-width: 1200px) {
+    body {
+        width: 100%;
+    }
 }
 
-table{
-    
+table {
     margin: 0px auto;
 }
 
-th,
-td{
-   
+th, td {
     padding: 10px;
 }
 
-input{
-    padding: 10px;    
-    background-color: rgb(161, 161, 161);
-    color: white;    
-    border-radius: 5px;
-}
-
-button{
+button {
     background-color: black;
     border: white 3px solid;
     color: white;
@@ -44,298 +38,397 @@ button{
     margin: 5px;
 }
 
-button:active{
+button:active {
     border: red 3px solid;
 }
 
-button:focus{   
+button:focus {
     border: red 3px solid;
     outline: none;
 }
 
+/* /////////////// */
+
+/* HEADER ELEMENTS */
+
+/* /////////////// */
+
+header {
+    padding-top: 2%;
+    position: relative;
+    margin: 0px auto;
+    width: 40%;
+    min-width: 330px;
+}
+
+#showButtonsContainer, #textInputContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#showButtonsContainer {
+    justify-content: space-between;
+}
+
+/* search */
+
+#search-div {
+    display: flex;
+    align-items: center;
+}
+
+#cityValue {
+    height: 30px;
+    width: 250px;
+    background-color: rgb(209, 209, 209);
+    padding: 5px 0px 5px 10px;
+    border-radius: 25px 0px 0px 25px;
+    border: solid #9c9c9c 1px;
+    border-right: 0px;
+}
+
+#cityValue:focus, #button:focus {
+    outline: none;
+}
+
+#button {
+    width: 35px;
+    height: 30px;
+    margin: 0px;
+    background-color: rgb(209, 209, 209);
+    padding: 0px 0px 3px 0px;
+    border-radius: 0px 25px 25px 0px;
+    border: solid #9c9c9c 1px;
+    border-left: 0px;
+}
+
+#button:hover {
+    cursor: pointer;
+}
+
 /* //////////////////////////// */
+
 /* CURRENT TEMPERATURE ELEMENTS */
+
 /* //////////////////////////// */
 
-
-.currentHours{
+.currentHours {
     font-size: 50px;
 }
 
-.currentDays{
+.currentDays {
     font-size: 30px;
 }
 
-.currentTemperature{
+.currentTemperature {
     font-size: 150px;
 }
 
-.currentFeelsLike{
+.currentFeelsLike {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-style: italic;
-    font-size: 20px;  
+    font-size: 20px;
 }
 
-
-.currentWeatherDescription{    
+.currentWeatherDescription {
     font-size: 25px;
 }
 
-.currentUv{    
+.currentUv {
     font-size: 25px;
     font-style: italic;
 }
 
-.sunset,
-.sunrise{
-    font-size: 30px;    
+.sunset, .sunrise {
+    font-size: 30px;
 }
 
-.aqi{
+.aqi {
     font-size: 40px;
 }
 
-.pm2_5,
-.pm10{
-    font-size:25px;
+.pm2_5, .pm10 {
+    font-size: 25px;
 }
 
 /* cells class */
 
 /* ///////////////////// */
+
 /* HOURLY TABLE ELEMENTS */
+
 /* ///////////////////// */
 
-.hourlyHours{
+.hourlyHours {
     font-weight: 500;
     font-size: 25px;
-    
 }
 
-.hourlyDays{
+.hourlyDays {
     color: rgb(180, 180, 180);
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     width: 60%;
-
 }
 
-.hourlyTemperature{
-    
+.hourlyTemperature {
     font-size: 50px;
     padding-left: 5px;
     padding-right: 35px;
 }
 
-.hourlyFeelsLike{
+.hourlyFeelsLike {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-style: italic;
 }
 
-.hourlyWeatherDescription{    
+.hourlyWeatherDescription {
     font-size: 15px;
 }
 
-
-.grandparentDiv{
+.grandparentDiv {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
 }
 
-.parentDiv{
+.parentDiv {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content:space-evenly;  
-    padding: 10px;    
+    justify-content: space-evenly;
+    padding: 10px;
 }
 
-.parentDiv2{
+.parentDiv2 {
     width: 100%;
     height: 100px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;    
-   
+    justify-content: space-around;
 }
 
-.div1,
-.div2,
-.div3,
-.div4,
-.div5,
-.div6{
+.div1, .div2, .div3, .div4, .div5, .div6 {
     display: flex;
-    flex-wrap: wrap;  
+    flex-wrap: wrap;
     flex-direction: column;
-    justify-content: center; 
-    padding: 5px; 
-}  
-    
+    justify-content: center;
+    padding: 5px;
+}
 
-.div4{
-    min-width: 130px;  
+.div4 {
+    min-width: 130px;
     justify-content: space-evenly;
 }
 
-.div5{  
-    min-width: 150px;      
-    justify-content: space-evenly;
-  
-}
-
-.div6{    
-    min-width: 150px;  
+.div5 {
+    min-width: 150px;
     justify-content: space-evenly;
 }
 
-.imageElement{    
-   width: 100%;
+.div6 {
+    min-width: 150px;
+    justify-content: space-evenly;
 }
 
-.tinyLetters{
+.imageElement {
+    width: 100%;
+}
+
+.tinyLetters {
     font-size: 13px;
 }
 
-
-.smallLetters{
+.smallLetters {
     font-size: 18px;
 }
 
-.mediumLetters{
+.mediumLetters {
     font-size: 45px;
 }
 
-.largeLetters{
+.largeLetters {
     font-size: 75px;
 }
 
+/* CARDS CSS */
 
-/* /////////////////////// */
-/* // MOBILE PHONE CSS  // */
-/* /////////////////////// */
-
-@media screen and (max-width: 700px){   
-        
-.currentHours{
-    font-size: 25px;
-}
-
-.currentDays{
-    font-size: 18px;
-}
-
-.currentTemperature{
-    font-size: 60px;
-}
-
-.currentFeelsLike{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-style: italic;
-    font-size: 10px;  
-}
-
-
-.currentWeatherDescription{    
-    font-size: 18px;
-}
-
-.currentUv{    
-    font-size: 15px;
-    font-style: italic;
-}
-
-.sunset,
-.sunrise{
-    font-size: 20px;    
-}
-
-.aqi{
-    font-size: 20px;
-}
-
-.pm2_5,
-.pm10{
-    font-size:15px;
-}
-
-/* cells class */
-
-/* ///////////////////// */
-/* HOURLY TABLE ELEMENTS */
-/* ///////////////////// */
-
-.hourlyHours{
-    font-weight: 500;
-    font-size: 20px;
-    
-}
-
-.hourlyDays{
-    color: rgb(153, 153, 153);
-}
-
-.hourlyTemperature{
-    
-    font-size: 50px;
-}
-
-.hourlyFeelsLike{  
-    font-size: 15px;
-}
-
-.hourlyWeatherDescription{    
-    font-size: 13px;
-}
-
-
-
-
-.parentDiv{
-    justify-content:space-between;  
-    padding: 0px;    
-}
-
-.parentDiv2{
-    height: 20px;
-}
-
-.div1,
-.div2,
-.div3,
-.div4,
-.div5,
-.div6{
+.parent-div-style-1-d, .parent-div-style-1-n, .parent-div-style-2-d, .parent-div-style-2-n {
+    border-radius: 35px;
+    width: 100%;
     display: flex;
-    flex-wrap: wrap;  
-    /* flex-direction: column; */
-    justify-content: center; 
-    padding-left: 10px;
-    padding-right: 10px; 
-
-}  
-    
-.tinyLetters{
-    font-size: 13px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding-top: 25px;
+    padding-bottom: 25px;
 }
 
-.imageElement{
-    margin: 0px auto;
-    width: 60%;
- }
-
-
-.smallLetters{
-    font-size: 18px;
+.parent-div-style-1-d {
+    box-shadow: 0px 0px 100px rgb(83, 83, 83);
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#6c6666+1,6c6666+50,6c6666+100&0+1,1+50,1+50,0+100 */
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 1%, rgba(180, 230, 255, 0.6) 50%, rgba(0, 102, 102, 0) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 1%, rgba(200, 200, 200, 0.6) 50%, rgba(0, 102, 102, 0) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 1%, rgba(200, 200, 200, 0.6) 50%, rgba(0, 102, 102, 0) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006c6666', endColorstr='#006c6666', GradientType=0);
+    /* IE6-9 */
+    /* color: black; */
 }
 
-.mediumLetters{
-    font-size: 20px;
+.parent-div-style-2-d {
+    box-shadow: 0px 0px 100px rgb(83, 83, 83);
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#6c6666+1,6c6666+50,6c6666+100&0+1,1+50,1+50,0+100 */
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 1%, rgba(180, 230, 255, 0.6) 50%, rgba(0, 102, 102, 0) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 1%, rgba(180, 230, 255, 0.6) 50%, rgba(0, 102, 102, 0) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 1%, rgba(220, 220, 220, 0.6) 50%, rgba(0, 102, 102, 0) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006c6666', endColorstr='#006c6666', GradientType=0);
+    /* IE6-9 */
 }
 
-.largeLetters{
-    font-size: 45px;
+.parent-div-style-1-n {
+    box-shadow: 0px 0px 100px rgb(0, 0, 0);
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#6c6666+1,6c6666+50,6c6666+100&0+1,1+50,1+50,0+100 */
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 1%, rgba(255, 255, 255, 0.1) 50%, rgba(0, 102, 102, 0) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 1%, rgba(255, 255, 255, 0.1) 50%, rgba(0, 102, 102, 0) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 1%, rgba(255, 255, 255, 0.1) 50%, rgba(0, 102, 102, 0) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006c6666', endColorstr='#006c6666', GradientType=0);
+    /* IE6-9 */
 }
+
+.parent-div-style-2-n {
+    box-shadow: 0px 0px 100px rgb(10, 10, 10);
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#6c6666+1,6c6666+50,6c6666+100&0+1,1+50,1+50,0+100 */
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 1%, rgba(255, 255, 255, 0.1) 50%, rgba(0, 102, 102, 0) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 1%, rgba(255, 255, 255, 0.2) 50%, rgba(0, 102, 102, 0) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 1%, rgba(255, 255, 255, 0.2) 50%, rgba(0, 102, 102, 0) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006c6666', endColorstr='#006c6666', GradientType=0);
+    /* IE6-9 */
+}
+
+/* /////////////////////// */
+
+/* // MOBILE PHONE CSS  // */
+
+/* /////////////////////// */
+
+@media screen and (max-width: 700px) {
+    .currentHours {
+        font-size: 25px;
     }
+    .currentDays {
+        font-size: 18px;
+    }
+    .currentTemperature {
+        font-size: 60px;
+    }
+    .currentFeelsLike {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-style: italic;
+        font-size: 10px;
+    }
+    .currentWeatherDescription {
+        font-size: 18px;
+    }
+    .currentUv {
+        font-size: 15px;
+        font-style: italic;
+    }
+    .sunset, .sunrise {
+        font-size: 20px;
+    }
+    .aqi {
+        font-size: 20px;
+    }
+    .pm2_5, .pm10 {
+        font-size: 15px;
+    }
+    /* cells class */
+    /* ///////////////////// */
+    /* HOURLY TABLE ELEMENTS */
+    /* ///////////////////// */
+    .hourlyHours {
+        font-weight: 500;
+        font-size: 20px;
+    }
+    .hourlyDays {
+        color: rgb(153, 153, 153);
+    }
+    .hourlyTemperature {
+        font-size: 50px;
+    }
+    .hourlyFeelsLike {
+        font-size: 15px;
+    }
+    .hourlyWeatherDescription {
+        font-size: 13px;
+    }
+    .div1, .div2, .div3, .div4, .div5, .div6 {
+        display: flex;
+        flex-wrap: wrap;
+        /* flex-direction: column; */
+        justify-content: center;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .tinyLetters {
+        font-size: 13px;
+    }
+    .imageElement {
+        margin: 0px auto;
+        width: 60%;
+    }
+    .smallLetters {
+        font-size: 18px;
+    }
+    .mediumLetters {
+        font-size: 20px;
+    }
+    .largeLetters {
+        font-size: 45px;
+    }
+    .parentDiv2 {
+        height: 20px;
+    }
+    .parent-div-style-1-d, .parent-div-style-1-n, .parent-div-style-2-d, .parent-div-style-2-n {
+        justify-content: space-between;
+        padding: 0px;
+    }
+}
+
+.btn-grad {
+    background-image: linear-gradient(to right, #16A085 0%, #F4D03F 51%, #16A085 100%)
+}
+
+.btn-grad {
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+}
+
+.btn-grad:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
