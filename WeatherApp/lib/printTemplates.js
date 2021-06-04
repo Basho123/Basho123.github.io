@@ -1,6 +1,6 @@
 // printTemplates.js for script.js
 
-let printTemplates = {
+const printTemplates = {
     //TEMPLATE TO BE USED IN BOTH GPS AND SEARCH INPUT DATA
     //THIS TEMPLATE IS FOR THE EXTENDED 5 DAY LIST
 
@@ -334,108 +334,99 @@ let printTemplates = {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //GET DATA FOR WEEK DAY LIST FROM SEARCH BAR
-    weeklyWeather: () => {
-        (async function getTheDataFromGPSOneCall() {
-            let dataWeekly = await getHourlyDataFromSearch();
-            let dataExtended = await getExtendedDataFromSearch();
+    weeklyWeather: async () => {
+        let dataWeekly = await getHourlyDataFromSearch();
+        let dataExtended = await getExtendedDataFromSearch();
 
-            apiParameters.globalCity = dataExtended.city.name;
+        apiParameters.globalCity = dataExtended.city.name;
 
-            if (home === false) {
-                printTemplates.printTemplateWeekly(dataWeekly)
-            }
-        })()
-
+        if (!isHome) {
+            printTemplates.printTemplateWeekly(dataWeekly)
+        } 
     },
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //GET DATA FOR WEEK DAY LIST FROM DEVICE LOCATION
-    weeklyWeatherGPS: () => {
-        (async function getTheDataFromGPSOneCall() {
-            let dataWeekly = await getHourlyDataFromGPS();
-            let dataExtended = await getExtendedDataFromGPS();
+    weeklyWeatherGPS: async () => {
+        let dataWeekly = await getHourlyDataFromGPS();
+        let dataExtended = await getExtendedDataFromGPS();
 
-            //SETTING THE GLOBAL CITY NAME DEFAULT VALUE
-            apiParameters.globalCity = dataExtended.city.name;
+        //SETTING THE GLOBAL CITY NAME DEFAULT VALUE
+        apiParameters.globalCity = dataExtended.city.name;
 
-            if (home === true) {
-                printTemplates.printTemplateWeekly(dataWeekly)
-            }
-        })()
+        if (isHome) {
+            printTemplates.printTemplateWeekly(dataWeekly)
+        }
     },
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //GET DATA FROM SEARCH BAR INPUTED CITY FOR EXTENDED 3 HOUR 5 DAY LIST
-    extendedWeather: () => {
-        (async function getTheData() {
-            let dataFromHourly = await getHourlyDataFromSearch();
-            let data = await getExtendedDataFromSearch()
-            let { city, list } = await data;
+    extendedWeather: async () => {
+        let dataFromHourly = await getHourlyDataFromSearch();
+        let data = await getExtendedDataFromSearch()
+        let { city, list } = await data;
 
-            //FETCH FOR TIMEZONE DATA FROM OTHER SOURCE, SINCE NOT AVAILABLE IN FIRST SOURCE          
-            let responseForTimeZone = await dataFromHourly;
+        //FETCH FOR TIMEZONE DATA FROM OTHER SOURCE, SINCE NOT AVAILABLE IN FIRST SOURCE          
+        let responseForTimeZone = await dataFromHourly;
 
-            //SETTING THE GLOBAL CITY NAME TO BE USED EVERYWHERE
-            apiParameters.globalCity = city.name;
+        //SETTING THE GLOBAL CITY NAME TO BE USED EVERYWHERE
+        apiParameters.globalCity = city.name;
 
-            if (home === false) {
-                printTemplates.printTemplateExtended(list, responseForTimeZone.timezone_offset);
-            }
-        })()
+        if (!isHome) {
+            printTemplates.printTemplateExtended(list, responseForTimeZone.timezone_offset);
+        }
     },
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //GET DATA FROM GEOLOCATION OF DEVICE FOR EXTENDED 3 HOUR 5 DAY LIST
-    extendedWeatherGPS: () => {
-        (async function getTheDataFromGPS() {
-            let data = await getExtendedDataFromGPS()
-            let { city, list } = await data;
+    extendedWeatherGPS: async () => {
 
-            //FETCH FOR TIMEZONE DATA FROM OTHER SOURCE, SINCE NOT AVAILABLE IN FIRST SOURCE
-            let dataForTimezone = await getHourlyDataFromSearch();
-            let responseForTimeZone = await dataForTimezone;
+        let data = await getExtendedDataFromGPS()
+        let { city, list } = await data;
 
-            //SETTING THE GLOBAL CITY NAME TO BE USED EVERYWHERE
-            apiParameters.globalCity = city.name;
+        //FETCH FOR TIMEZONE DATA FROM OTHER SOURCE, SINCE NOT AVAILABLE IN FIRST SOURCE
+        let dataForTimezone = await getHourlyDataFromSearch();
+        let responseForTimeZone = await dataForTimezone;
 
-            if (home === true) {
-                printTemplates.printTemplateExtended(list, responseForTimeZone.timezone_offset);
-            }
-        })()
+        //SETTING THE GLOBAL CITY NAME TO BE USED EVERYWHERE
+        apiParameters.globalCity = city.name;
+
+        if (isHome) {
+            printTemplates.printTemplateExtended(list, responseForTimeZone.timezone_offset);
+        }
+
     },
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //GET DATA FROM SEARCH BAR FOR HOURLY LIST
-    hourlyWeather: () => {
-        (async function getTheDataFromGPSOneCall() {
-            //FIRST FETCHING THE GLOBAL CITY VALUE BECAUSE OF PASSING GPS COORDINATES TO NEXT SOURCE
-            let dataHourly = await getHourlyDataFromSearch();
-            let dataExtended = await getExtendedDataFromSearch();
-            /* let aqi = await getPollutionDataromSearch(); */
+    hourlyWeather: async () => {
 
-            apiParameters.globalCity = dataExtended.city.name;
+        //FIRST FETCHING THE GLOBAL CITY VALUE BECAUSE OF PASSING GPS COORDINATES TO NEXT SOURCE
+        let dataHourly = await getHourlyDataFromSearch();
+        let dataExtended = await getExtendedDataFromSearch();
+        /* let aqi = await getPollutionDataromSearch(); */
 
-            if (home === false) {
-                printTemplates.printTemplateHourly(dataHourly, /*aqi*/)
-            }
-        })()
+        apiParameters.globalCity = dataExtended.city.name;
+
+        if (!isHome) {
+            printTemplates.printTemplateHourly(dataHourly, /*aqi*/)
+        }
+
 
     },
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //GET DATA FROM  GEOLOCATION OF DEVICE FOR HOURLY LIST
-    hourlyWeatherGPS: () => {
-        (async function getTheDataFromGPSOneCall() {
-            let dataHourly = await getHourlyDataFromGPS();
-            let dataExtended = await getExtendedDataFromGPS();
-            //let aqi = await getPollutionDataFromGPS();
+    hourlyWeatherGPS: async () => {
+        let dataHourly = await getHourlyDataFromGPS();
+        let dataExtended = await getExtendedDataFromGPS();
+        //let aqi = await getPollutionDataFromGPS();
 
-            //SETTING THE GLOBAL CITY NAME DEFAULT VALUE
-            apiParameters.globalCity = dataExtended.city.name;
+        //SETTING THE GLOBAL CITY NAME DEFAULT VALUE
+        apiParameters.globalCity = dataExtended.city.name;
 
-            if (home === true) {
-                printTemplates.printTemplateHourly(dataHourly, /*aqi*/)
-            }
-        })()
+        if (isHome) {
+            printTemplates.printTemplateHourly(dataHourly, /*aqi*/)
+        }
     }
 }
