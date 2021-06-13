@@ -160,7 +160,7 @@ const printTemplates = {
 
         div1.innerHTML = `<span class="currentHours">${hours}</span><br><span class="currentDays">${days}</span>`
         div2.innerHTML = `
-            <img class="imageElement"src="${apiParameters.imgUrl}${response.current.weather[0].icon}@4x.png">
+            <img class="imageElement"src="${apiParameters.imgUrl}${response.current.weather[0].icon}@2x.png">
             <span class = "currentWeatherDescription" style = "text-transform: capitalize;">${response.current.weather[0].description}</span>
         `
         div3.innerHTML = `
@@ -169,8 +169,8 @@ const printTemplates = {
             <span class="humidity">humidity ${response.current.humidity}%</span>
         `
         div4.innerHTML = `
-            <span class="largeLetters">${windDirection}</span>
-            <span class="smallLetters">Wind speed: ${response.current.wind_speed}m/s</span>
+            <span class="largeLetters largeLettersMobile">${windDirection}</span>
+            <span class="smallLetters smallLettersMobile">Wind speed: ${response.current.wind_speed}m/s</span>
         `
         div5.innerHTML = `
             <span class = "currentUv">UV index: ${response.current.uvi}</span>
