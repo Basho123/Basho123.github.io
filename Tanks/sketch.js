@@ -1827,7 +1827,7 @@ if (main.level > 0) {
     hud.enemyTanks.innerHTML = tankCount - 1;
     hud.moneyValue.innerText = playerEconomy.getMoneyCount();
 
-    if (pTank.isDead === true) {
+    if (pTank.isDead) {
 
       playerScore.setHigh();
       playerScore.reset();
@@ -1840,7 +1840,7 @@ if (main.level > 0) {
       }
 
     }
-    if (tankCount - 1 === 0 && pTank.isDead == false) {
+    if (tankCount - 1 === 0 && !pTank.isDead) {
       document.getElementsByClassName(`centerText`)[1].style.display = `flex`;
       //SOME TIMEOUT AFTER WINNING BEFORE GO TO NEXT LEVEL
       if (frameCount % 500 == 0) {
