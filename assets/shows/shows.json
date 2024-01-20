@@ -1,0 +1,46 @@
+[
+    {
+        "date": "2024-02-17",
+        "eventName": "Concert promotion of \"Monuments Of The Deceived\"",
+        "venue": "MKC",
+        "venueLocationUrl": "https://maps.app.goo.gl/8xUM5AAaJrbCC88z7",
+        "eventUrl": "https://fb.me/e/TQV2OA2X",
+        "time": "19:00",
+        "location": "Skopje, Macedonia",
+        "ticketsUrl": "https://bileti.mkc.mk/index.php?id=1356",
+        "otherBands": [
+            {
+                "bandName": "Dimholt",
+                "countryCode": "BUL"
+            },
+            {
+                "bandName": "Svartgren",
+                "countryCode": "SRB"
+            }
+        ]
+    },
+    {
+        "date": "2024-03-16",
+        "eventName": "Ancient, The Cainian Chronicle Special Set w/ Seprentine Creation & Historian",
+        "venue": "The Old Skulls",
+        "venueLocationUrl": "https://maps.app.goo.gl/uotKXNQQ5FRTn3Br7",
+        "eventUrl": "https://fb.me/e/3QWiBIupV",
+        "time": "19:00",
+        "location": "Sofia, Bulgaria",
+        "ticketsUrl": "https://fb.me/e/3QWiBIupV",
+        "otherBands": [
+            {
+                "bandName": "Ancient",
+                "countryCode": "NOR"
+            },
+            {
+                "bandName": "Seprentine Creation",
+                "countryCode": "BUL"
+            },
+            {
+                "bandName": "Historian",
+                "countryCode": "BUL"
+            }
+        ]
+    }
+]
