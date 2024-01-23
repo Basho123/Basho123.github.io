@@ -1,0 +1,17 @@
+# File produced by AccuTrans 3D
+
+newmtl Shopping_Cart
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 1.0 1.0 1.0
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl Shopping_Cart2
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 1.0 1.0 1.0
+  Ka 0 0 0
+  Ks 0 0 0
