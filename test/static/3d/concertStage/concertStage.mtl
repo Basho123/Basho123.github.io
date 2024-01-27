@@ -1,0 +1,49 @@
+# File produced by AccuTrans 3D
+
+newmtl Chrome
+  Ns 94.1176
+  d 1.0
+  illum 2
+  Kd 0.1476 0.1352 0.1352
+  Ka 1.0 1.0 1.0
+  Ks 0.5 0.5 0.5
+
+newmtl floor
+  Ns 94.1176
+  d 1.0
+  illum 2
+  Kd 0.0607 0.0607 0.0607
+  Ka 1.0 1.0 1.0
+  Ks 0.5 0.5 0.5
+
+newmtl footings
+  Ns 94.1176
+  d 1.0
+  illum 2
+  Kd 0.0093 0.0107 0.0023
+  Ka 1.0 1.0 1.0
+  Ks 0.5 0.5 0.5
+
+newmtl light_handle
+  Ns 92.1569
+  d 1.0
+  illum 2
+  Kd 0.0252 0.0234 0.0352
+  Ka 0 0 0
+  Ks 0.5 0.5 0.5
+
+newmtl light_inside_bar
+  Ns 92.1569
+  d 1.0
+  illum 2
+  Kd 0.4773 0.64 0.1882
+  Ka 0 0 0
+  Ks 0.5 0.5 0.5
+
+newmtl light_pot
+  Ns 92.1569
+  d 1.0
+  illum 2
+  Kd 0.0036 0.0006 0.0009
+  Ka 0 0 0
+  Ks 0.5 0.5 0.5
