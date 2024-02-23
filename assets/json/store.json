@@ -1,0 +1,114 @@
+{
+  "en": {
+    "contactUs": "Contact Us",
+    "products": {
+      "tShirt1": {
+        "name": "\"Monuments Of The Deceived\" T-Shirt",
+        "price": "20.00 €",
+        "srcs": ["/assets/store/tshirt1.webp", "/assets/store/tshirt1-r.webp"]
+      },
+      "cd1": {
+        "name": "\"Monuments Of The Deceived\" CD",
+        "price": "7.00 €",
+        "srcs": ["/assets/store/monuments-cd.webp"]
+      },
+
+      "hoodie1": {
+        "name": "\"Monuments Of The Deceived\" Hoodie",
+        "price": "42.00 €",
+        "srcs": ["/assets/store/hoodie1.webp", "/assets/store/hoodie1-r.webp"]
+      },
+      "beer": {
+        "name": "\"Ambroz Tenebrae Stout\" Beer 0.33l",
+        "price": "2.50 €",
+        "srcs": ["/assets/store/beer-product-2.webp"],
+        "discountPrice": "1.50 €",
+        "discountType": {
+          "sale": "-40% Off"
+        }
+      },
+      "bundle1": {
+        "name": "\"Monuments Of The Deceived\" CD + T-Shirt",
+        "price": "27.00 €",
+        "srcs": [
+          "/assets/store/monuments-cd.webp",
+          "/assets/store/tShirt1.webp"
+        ],
+        "discountPrice": "24.50 €",
+        "discountType": {
+          "offer": "Offer"
+        }
+      },
+      "bundle2": {
+        "name": "\"Monuments Of The Deceived\" CD + T-Shirt + Hoodie + Tenebrae",
+        "price": "70.00 €",
+        "srcs": [
+          "/assets/store/monuments-cd.webp",
+          "/assets/store/tShirt1.webp",
+          "/assets/store/hoodie1.webp",
+          "/assets/store/beer-product-2.webp"
+        ],
+        "discountPrice": "64.50 €",
+        "discountType": {
+          "bestOffer": "Fan pack"
+        }
+      }
+    }
+  },
+  "mk": {
+    "contactUs": "Контактирај Не",
+    "products": {
+      "tShirt1": {
+        "name": "\"Monuments Of The Deceived\" Маица",
+        "price": "1200 Ден.",
+        "srcs": ["/assets/store/tshirt1.webp", "/assets/store/tshirt1-r.webp"]
+      },
+      "cd1": {
+        "name": "\"Monuments Of The Deceived\" Компакт Диск",
+        "price": "400 Ден.",
+        "srcs": ["/assets/store/monuments-cd.webp"]
+      },
+      "hoodie1": {
+        "name": "\"Monuments Of The Deceived\" Блузон",
+        "price": "2500 Ден.",
+        "srcs": ["/assets/store/hoodie1.webp", "/assets/store/hoodie1-r.webp"]
+      },
+      "beer": {
+        "name": "\"Ambroz Tenebrae\" Темно Стаут Пиво 330 ml.",
+        "price": "150 Ден.",
+        "discountPrice": "90 Ден.",
+        "srcs": ["/assets/store/beer-product-2.webp"],
+
+        "discountType": {
+          "sale": "-40% Попуст"
+        }
+      },
+      "bundle1": {
+        "name": "\"Monuments Of The Deceived\" Компакт Диск + Маица",
+        "price": "1600 Ден.",
+        "srcs": [
+          "/assets/store/monuments-cd.webp",
+          "/assets/store/tShirt1.webp"
+        ],
+        "discountPrice": "1500 Ден.",
+        "discountType": {
+          "offer": "Понуда"
+        }
+      },
+      "bundle2": {
+        "name": "\"Monuments Of The Deceived\" Компакт Диск + Маица + Блузон + Tenebrae",
+        "price": "4250 Ден.",
+        "discountPrice": "3900 Ден.",
+        "discountType": {
+          "bestOffer": "Фан понуда!"
+        },
+        "srcs": [
+          "/assets/store/monuments-cd.webp",
+          "/assets/store/tShirt1.webp",
+          "/assets/store/hoodie1.webp",
+          "/assets/store/beer-product-2.webp"
+        ]
+      }
+    }
+  }
+}
