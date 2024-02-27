@@ -1,0 +1,44 @@
+{
+    "en": {
+        "contactUs": "Contact Us",
+        "products": {
+            "tShirt1": {
+                "name": "\"Monuments Of The Deceived\" T-Shirt",
+                "price": "20.00 €"
+            },
+            "cd1": {
+                "name": "\"Monuments Of The Deceived\" CD",
+                "price": "5.00 €"
+            },
+            "hoodie1": {
+                "name": "\"Monuments Of The Deceived\" Hoodie",
+                "price": "42.00 €"
+            },
+            "beer": {
+                "name": "\"Ambroz Tenebrae Stout\" Beer 0.33l",
+                "price": "2.50 €"
+            }
+        }
+    },
+    "mk": {
+        "contactUs": "Контактирај Не",
+        "products": {
+            "tShirt1": {
+                "name": "\"Monuments Of The Deceived\" Маица",
+                "price": "1200 Ден."
+            },
+            "cd1": {
+                "name": "\"Monuments Of The Deceived\" Компакт Диск",
+                "price": "300 Ден."
+            },
+            "hoodie1": {
+                "name": "\"Monuments Of The Deceived\" Блузон",
+                "price": "2500 Ден."
+            },
+            "beer": {
+                "name": "\"Ambroz Tenebrae\" Темно Стаут Пиво 330 ml.",
+                "price": "150 Ден."
+            }
+        }
+    }
+}

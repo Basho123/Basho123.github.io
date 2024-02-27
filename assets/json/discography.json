@@ -1,0 +1,56 @@
+{
+    "en": {
+        "firstAlbum": {
+            "headline": "Into The Endless Void",
+            "year": "Anno 2015",
+            "tracklist": "Track List:",
+            "recordMixMaster": "Record Mix Master: Tenebrae Studios"
+        },
+        "secondAlbum": {
+            "headline": "Monuments Of The Deceived",
+            "year": "Anno 2023",
+            "tracklist": "Track List:",
+            "recordMixMaster": "Record Mix Master: Tenebrae Studios"
+        },
+        "decayingLightMusicVideo": {
+            "headline": "Decaying Light Music Video",
+            "year": " Anno 2023 ",
+            "production": "Production: Studio 163",
+            "director": "Director/Cameraman/Editor : Josif Trajkoski",
+            "director2": "Assistant Director/Actor : Tome Temelkoski",
+            "location": "Crafted and modeled at Tenebrae Studios, Skopje and Prilep"
+        },
+        "godlessInterventionLyricsVideo": {
+            "headline": "Godless Intervention Lyrics Video",
+            "year": " Anno 2023 ",
+            "production": "Crafted By: Tenebrae Studios"
+        }
+    },
+    "mk": {
+        "firstAlbum": {
+            "headline": "Into The Endless Void",
+            "year": "Година 2015",
+            "tracklist": "Листа на Песни:",
+            "recordMixMaster": "Снимање и Мастеринг: Студио \"Tenebrae\""
+        },
+        "secondAlbum": {
+            "headline": "Monuments Of The Deceived",
+            "year": "Година 2023",
+            "tracklist": "Листа на Песни:",
+            "recordMixMaster": "Снимање и Мастеринг: Студио \"Tenebrae\""
+        },
+        "decayingLightMusicVideo": {
+            "headline": "Видео спот за \"Decaying Light\"",
+            "year": " Година 2023 ",
+            "production": "Продукција: Студио 163",
+            "director": "Режија / Камера / Монтажа : Јосиф Трајкоски",
+            "director2": "Асистент на Режија / Актер : Томе Темелкоски",
+            "location": "Снимано во студио \"Tenebrae\", Скопје и Прилеп"
+        },
+        "godlessInterventionLyricsVideo": {
+            "headline": "Лирик видео за \"Godless Intervention\"" ,
+            "year": " Година 2023 ",
+            "production": "Изработено од: Студио \"Tenebrae\""
+        }
+    }
+}
