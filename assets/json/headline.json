@@ -3,10 +3,6 @@
         "default": "Welcome to Ambroz's Official Website",
         "custom": [
             {
-                "date_end": "2024-02-29",
-                "name": "New Hoodies now Available For Sale"
-            },
-            {
                 "date_end": "2024-03-16",
                 "name": "Concert With 'Ancient' @Old Skulls, Sofia, on 16th this month."
             }
@@ -16,12 +12,8 @@
         "default": "Добредојдовте на официјалната веб-страна на Амброз",
         "custom": [
             {
-                "date_end": "2024-02-29",
-                "name": "Нови дуксери на продажба!"
-            },
-            {
                 "date_end": "2024-03-16",
-                "name": "Концерт со 'Ancient' во 'Черепите', Софија, на 16ти Март."
+                "name": "Концерт со \"Ancient\" во \"Черепите\", Софија, на 16-ти Март."
             }
         ]
     }
