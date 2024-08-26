@@ -88,7 +88,7 @@
         "price": "1600 Ден.",
         "srcs": [
           "/assets/store/monuments-cd.webp",
-          "/assets/store/tShirt1.webp"
+          "/assets/store/tshirt1.webp"
         ],
         "discountPrice": "1500 Ден.",
         "discountType": {
@@ -104,7 +104,7 @@
         },
         "srcs": [
           "/assets/store/monuments-cd.webp",
-          "/assets/store/tShirt1.webp",
+          "/assets/store/tshirt1.webp",
           "/assets/store/hoodie1.webp",
           "/assets/store/beer-product-2.webp"
         ]
