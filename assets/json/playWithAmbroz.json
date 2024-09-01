@@ -1,0 +1,624 @@
+{
+  "godlessIntervention": {
+    "name": "Godless Intervention",
+    "bpm": 165,
+    "noVocalsAudioUrl": "./Ambroz - 01 Godless Intervention_no-vocals.mp3",
+    "vocalsOnlyAudioUrl": "./Ambroz - 01 Godless Intervention_vocals-only.mp3",
+    "measure": "4/4",
+    "frames": [
+      {
+        "beat": "20.4",
+        "key": "I",
+        "guide": "I am"
+      },
+      {
+        "beat": "21.3",
+        "key": "L",
+        "guide": "Leaving"
+      },
+      {
+        "beat": "23.1",
+        "key": "I",
+        "guide": "And I will never"
+      },
+      {
+        "beat": "23.3",
+        "key": "T",
+        "guide": "Turn"
+      },
+      {
+        "beat": "24.1",
+        "key": "B",
+        "guide": "Back"
+      },
+      {
+        "beat": "25.1",
+        "key": "L",
+        "guide": "Not Leaving Any"
+      },
+      {
+        "beat": "25.3",
+        "key": "T",
+        "guide": "Trace"
+      },
+      {
+        "beat": "27.1",
+        "key": "I",
+        "guide": "In this endless"
+      },
+      {
+        "beat": "27.4",
+        "key": "R",
+        "guide": "Realm"
+      },
+
+      {
+        "beat": "29.1",
+        "key": "S",
+        "guide": "Seeking the"
+      },
+      {
+        "beat": "29.3",
+        "key": "T",
+        "guide": "Truth"
+      },
+      {
+        "beat": "311",
+        "key": "O",
+        "guide": "Or just"
+      },
+      {
+        "beat": "31.2",
+        "key": "L",
+        "guide": "Lost in"
+      },
+      {
+        "beat": "31.4",
+        "key": "T",
+        "guide": "Time"
+      },
+      {
+        "beat": "33.1",
+        "key": "W",
+        "guide": "Will i ever"
+      },
+      {
+        "beat": "33.3",
+        "key": "K",
+        "guide": "Know"
+      },
+      {
+        "beat": "35.1",
+        "key": "I",
+        "guide": "I will"
+      },
+      {
+        "beat": "35.3",
+        "key": "N",
+        "guide": "Never"
+      },
+      {
+        "beat": "36.1",
+        "key": "K",
+        "guide": "Know"
+      },
+      {
+        "beat": "40.4",
+        "key": "F",
+        "guide": "Far"
+      },
+      {
+        "beat": "41.4",
+        "key": "A",
+        "guide": "Away"
+      },
+      {
+        "beat": "43.1",
+        "key": "S",
+        "guide": "Searching"
+      },
+      {
+        "beat": "43.3",
+        "key": "T",
+        "guide": "The"
+      },
+      {
+        "beat": "44.1",
+        "key": "U",
+        "guide": "Unsearchable"
+      },
+      {
+        "beat": "52.4",
+        "key": "L",
+        "guide": "Listening"
+      },
+      {
+        "beat": "53.4",
+        "key": "T",
+        "guide": "To the"
+      },
+      {
+        "beat": "54.1",
+        "key": "V",
+        "guide": "Voices"
+      },
+      {
+        "beat": "57.1",
+        "key": "G",
+        "guide": "Guiding"
+      },
+      {
+        "beat": "58.3",
+        "key": "M",
+        "guide": "My"
+      },
+      {
+        "beat": "59.1",
+        "key": "W",
+        "guide": "Way"
+      },
+      {
+        "beat": "61.1",
+        "key": "M",
+        "guide": "Madness"
+      },
+      {
+        "beat": "62.4",
+        "key": "C",
+        "guide": "Corrupts"
+      },
+      {
+        "beat": "63.2",
+        "key": "M",
+        "guide": "Me"
+      },
+      {
+        "beat": "64.4",
+        "key": "O",
+        "guide": "Or"
+      },
+      {
+        "beat": "65.1",
+        "key": "S",
+        "guide": "Sane"
+      },
+      {
+        "beat": "65.3",
+        "key": "I",
+        "guide": "Is"
+      },
+      {
+        "beat": "66.1",
+        "key": "T",
+        "guide": "This"
+      },
+      {
+        "beat": "66.4",
+        "key": "R",
+        "guide": "Reality"
+      },
+      {
+        "beat": "76.4",
+        "key": "P",
+        "guide": "A Priority"
+      },
+      {
+        "beat": "77.2",
+        "key": "D",
+        "guide": "Defined"
+      },
+      {
+        "beat": "78.4",
+        "key": "C",
+        "guide": "Creating"
+      },
+      {
+        "beat": "79.1",
+        "key": "C",
+        "guide": "Chaos In My"
+      },
+
+      {
+        "beat": "79.3",
+        "key": "M",
+        "guide": "Mind"
+      },
+      {
+        "beat": "80.4",
+        "key": "A",
+        "guide": "Abrupt"
+      },
+      {
+        "beat": "81.2",
+        "key": "I",
+        "guide": "Images"
+      },
+      {
+        "beat": "82.4",
+        "key": "D",
+        "guide": "Decolorized"
+      },
+      {
+        "beat": "83.3",
+        "key": "P",
+        "guide": "Pain"
+      },
+      {
+        "beat": "84.4",
+        "key": "I",
+        "guide": "I am"
+      },
+      {
+        "beat": "86.1",
+        "key": "S",
+        "guide": "Screaming"
+      },
+      {
+        "beat": "87.1",
+        "key": "I",
+        "guide": "I am"
+      },
+      {
+        "beat": "88.1",
+        "key": "L",
+        "guide": "Leaving"
+      },
+      {
+        "beat": "88.4",
+        "key": "O",
+        "guide": "Obscene"
+      },
+      {
+        "beat": "89.4",
+        "key": "R",
+        "guide": "Results"
+      },
+      {
+        "beat": "91.1",
+        "key": "C",
+        "guide": "Cuts"
+      },
+      {
+        "beat": "91.3",
+        "key": "M",
+        "guide": "Me"
+      },
+      {
+        "beat": "91.4",
+        "key": "I",
+        "guide": "In"
+      },
+      {
+        "beat": "92.1",
+        "key": "H",
+        "guide": "Half"
+      },
+      {
+        "beat": "93.3",
+        "key": "M",
+        "guide": "My"
+      },
+      {
+        "beat": "93.4",
+        "key": "R",
+        "guide": "Reflection"
+      },
+      {
+        "beat": "96.4",
+        "key": "I",
+        "guide": "Is"
+      },
+      {
+        "beat": "97.1",
+        "key": "S",
+        "guide": "Shattering"
+      },
+      {
+        "beat": "98.2",
+        "key": "T",
+        "guide": "To"
+      },
+      {
+        "beat": "99.1",
+        "key": "D",
+        "guide": "Dust"
+      },
+      {
+        "beat": "108.4",
+        "key": "P",
+        "guide": "A Priority"
+      },
+      {
+        "beat": "109.2",
+        "key": "D",
+        "guide": "Defined"
+      },
+      {
+        "beat": "110.4",
+        "key": "C",
+        "guide": "Creating"
+      },
+      {
+        "beat": "111.1",
+        "key": "C",
+        "guide": "Chaos In My"
+      },
+
+      {
+        "beat": "111.3",
+        "key": "M",
+        "guide": "Mind"
+      },
+      {
+        "beat": "113.1",
+        "key": "A",
+        "guide": "Abrupt"
+      },
+      {
+        "beat": "113.3",
+        "key": "I",
+        "guide": "Images"
+      },
+      {
+        "beat": "114.4",
+        "key": "D",
+        "guide": "Decolorized"
+      },
+      {
+        "beat": "115.3",
+        "key": "P",
+        "guide": "Pain"
+      },
+      {
+        "beat": "117.1",
+        "key": "I",
+        "guide": "I do not"
+      },
+      {
+        "beat": "118.1",
+        "key": "D",
+        "guide": "Do"
+      },
+      {
+        "beat": "119.1",
+        "key": "N",
+        "guide": "Not"
+      },
+      {
+        "beat": "119.4",
+        "key": "E",
+        "guide": "Exist"
+      },
+      {
+        "beat": "121.1",
+        "key": "I",
+        "guide": "I"
+      },
+      {
+        "beat": "122.1",
+        "key": "A",
+        "guide": "Am"
+      },
+      {
+        "beat": "123.1",
+        "key": "N",
+        "guide": "Not"
+      },
+      {
+        "beat": "123.4",
+        "key": "F",
+        "guide": "Forever"
+      },
+      {
+        "beat": "125.1",
+        "key": "D",
+        "guide": "Do"
+      },
+      {
+        "beat": "126.1",
+        "key": "N",
+        "guide": "Not"
+      },
+      {
+        "beat": "127.1",
+        "key": "B",
+        "guide": "Believe"
+      },
+      {
+        "beat": "127.4",
+        "key": "I",
+        "guide": "In"
+      },
+      {
+        "beat": "128.1",
+        "key": "M",
+        "guide": "Me"
+      },
+      {
+        "beat": "129.1",
+        "key": "D",
+        "guide": "Disappointment"
+      },
+      {
+        "beat": "130.4",
+        "key": "I",
+        "guide": "Is"
+      },
+      {
+        "beat": "131.1",
+        "key": "M",
+        "guide": "My"
+      },
+      {
+        "beat": "131.4",
+        "key": "R",
+        "guide": "Relief"
+      },
+      {
+        "beat": "149.1",
+        "key": "L",
+        "guide": "Listening"
+      },
+      {
+        "beat": "150.4",
+        "key": "T",
+        "guide": "To the"
+      },
+      {
+        "beat": "151.1",
+        "key": "V",
+        "guide": "Voices"
+      },
+      {
+        "beat": "153.1",
+        "key": "G",
+        "guide": "Guiding"
+      },
+      {
+        "beat": "154.3",
+        "key": "M",
+        "guide": "My"
+      },
+      {
+        "beat": "155.1",
+        "key": "W",
+        "guide": "Way"
+      },
+      {
+        "beat": "157.1",
+        "key": "M",
+        "guide": "Madness"
+      },
+      {
+        "beat": "158.4",
+        "key": "C",
+        "guide": "Corrupts"
+      },
+      {
+        "beat": "159.2",
+        "key": "M",
+        "guide": "Me"
+      },
+      {
+        "beat": "160.4",
+        "key": "O",
+        "guide": "Or"
+      },
+      {
+        "beat": "161.1",
+        "key": "S",
+        "guide": "Sane"
+      },
+      {
+        "beat": "161.3",
+        "key": "I",
+        "guide": "Is"
+      },
+      {
+        "beat": "162.1",
+        "key": "T",
+        "guide": "This"
+      },
+      {
+        "beat": "162.4",
+        "key": "R",
+        "guide": "Reality"
+      },
+      {
+        "beat": "165.1",
+        "key": "I",
+        "guide": "I am"
+      },
+      {
+        "beat": "165.3",
+        "key": "L",
+        "guide": "Leaving"
+      },
+      {
+        "beat": "167.1",
+        "key": "I",
+        "guide": "And I will never"
+      },
+      {
+        "beat": "167.3",
+        "key": "T",
+        "guide": "Turn"
+      },
+      {
+        "beat": "168.1",
+        "key": "B",
+        "guide": "Back"
+      },
+      {
+        "beat": "169.1",
+        "key": "L",
+        "guide": "Not Leaving Any"
+      },
+      {
+        "beat": "169.3",
+        "key": "T",
+        "guide": "Trace"
+      },
+      {
+        "beat": "171.1",
+        "key": "I",
+        "guide": "In this endless"
+      },
+      {
+        "beat": "171.4",
+        "key": "R",
+        "guide": "Realm"
+      },
+      {
+        "beat": "173.1",
+        "key": "S",
+        "guide": "Seeking the"
+      },
+      {
+        "beat": "173.3",
+        "key": "T",
+        "guide": "Truth"
+      },
+      {
+        "beat": "175.1",
+        "key": "O",
+        "guide": "Or just"
+      },
+      {
+        "beat": "175.2",
+        "key": "L",
+        "guide": "Lost in"
+      },
+      {
+        "beat": "175.4",
+        "key": "T",
+        "guide": "Time"
+      },
+      {
+        "beat": "177.1",
+        "key": "W",
+        "guide": "Will I ever"
+      },
+      {
+        "beat": "177.3",
+        "key": "K",
+        "guide": "Know"
+      },
+      {
+        "beat": "179.1",
+        "key": "I",
+        "guide": "I will"
+      },
+      {
+        "beat": "179.3",
+        "key": "N",
+        "guide": "Never"
+      },
+      {
+        "beat": "180.1",
+        "key": "K",
+        "guide": "Know"
+      }
+    ]
+  }
+}

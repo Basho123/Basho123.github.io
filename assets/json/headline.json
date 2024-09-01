@@ -1,6 +1,6 @@
 {
     "en": {
-        "default": "Welcome to Ambroz's Official Website",
+        "default": "",
         "custom": [
             {
                 "date_end": "2024-03-16",
@@ -9,7 +9,7 @@
         ]
     },
     "mk": {
-        "default": "Добредојдовте на официјалната веб-страна на Амброз",
+        "default": "",
         "custom": [
             {
                 "date_end": "2024-03-16",
