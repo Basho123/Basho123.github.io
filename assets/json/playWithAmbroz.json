@@ -2,8 +2,8 @@
   "godlessIntervention": {
     "name": "Godless Intervention",
     "bpm": 165,
-    "noVocalsAudioUrl": "./Ambroz - 01 Godless Intervention_no-vocals.mp3",
-    "vocalsOnlyAudioUrl": "./Ambroz - 01 Godless Intervention_vocals-only.mp3",
+    "noVocalsAudioUrl": "./songs/godless-intervention-no-vocals.ogg",
+    "vocalsOnlyAudioUrl": "./songs/godless-intervention-vocals-only.ogg",
     "measure": "4/4",
     "frames": [
       {
@@ -618,6 +618,987 @@
         "beat": "180.1",
         "key": "K",
         "guide": "Know"
+      }
+    ]
+  },
+  "theLongCold": {
+    "name": "The Long Cold",
+    "bpm": 210,
+    "noVocalsAudioUrl": "./songs/the-long-cold-no-vocals.ogg",
+    "vocalsOnlyAudioUrl": "./songs/the-long-cold-vocals-only.ogg",
+    "measure": "4/4",
+    "frames": [
+      {
+        "beat": "32.4",
+        "key": "W",
+        "guide": "[SCREAM!]"
+      },
+      {
+        "beat": "34.1",
+        "key": "W",
+        "guide": "[SCREAM!]"
+      },
+      {
+        "beat": "37.1",
+        "key": "W",
+        "guide": "[SCREAM!]"
+      },
+      {
+        "beat": "40.1",
+        "key": "W",
+        "guide": "[STILL SCREAMING!!!]'"
+      },
+      {
+        "beat": "43.1",
+        "key": "W",
+        "guide": "[SCREAM!]"
+      },
+      {
+        "beat": "46.1",
+        "key": "W",
+        "guide": "[SCREAM!]"
+      },
+      {
+        "beat": "53.2",
+        "key": "O",
+        "guide": "Opus"
+      },
+      {
+        "beat": "54.1",
+        "key": "L",
+        "guide": "Lux"
+      },
+      {
+        "beat": "55.2",
+        "key": "Q",
+        "guide": "Quantum"
+      },
+      {
+        "beat": "55.4",
+        "key": "T",
+        "guide": "Tenebris"
+      },
+      {
+        "beat": "57.2",
+        "key": "A",
+        "guide": "A pact of"
+      },
+      {
+        "beat": "58.1",
+        "key": "I",
+        "guide": "illness"
+      },
+      {
+        "beat": "59.2",
+        "key": "A",
+        "guide": "A pact"
+      },
+      {
+        "beat": "59.4",
+        "key": "O",
+        "guide": "of shallow"
+      },
+      {
+        "beat": "60.3",
+        "key": "S",
+        "guide": "sickness"
+      },
+      {
+        "beat": "65.2",
+        "key": "U",
+        "guide": "Unearth the"
+      },
+      {
+        "beat": "66.1",
+        "key": "P",
+        "guide": "past"
+      },
+      {
+        "beat": "67.2",
+        "key": "U",
+        "guide": "Unearth the"
+      },
+      {
+        "beat": "68.1",
+        "key": "D",
+        "guide": "dirt"
+      },
+      {
+        "beat": "69.2",
+        "key": "A",
+        "guide": "A foul"
+      },
+      {
+        "beat": "70.1",
+        "key": "S",
+        "guide": "smell"
+      },
+      {
+        "beat": "71.2",
+        "key": "W",
+        "guide": "where worms"
+      },
+      {
+        "beat": "72.1",
+        "key": "D",
+        "guide": "dwell"
+      },
+      {
+        "beat": "73.2",
+        "key": "A",
+        "guide": "All means"
+      },
+      {
+        "beat": "73.4",
+        "key": "N",
+        "guide": "nothing"
+      },
+      {
+        "beat": "75.2",
+        "key": "N",
+        "guide": "nothing"
+      },
+      {
+        "beat": "75.4",
+        "key": "I",
+        "guide": "is all"
+      },
+      {
+        "beat": "77.2",
+        "key": "A",
+        "guide": "A playful"
+      },
+      {
+        "beat": "78.1",
+        "key": "G",
+        "guide": "game"
+      },
+      {
+        "beat": "79.3",
+        "key": "I",
+        "guide": "in a"
+      },
+      {
+        "beat": "80.1",
+        "key": "R",
+        "guide": "rotten"
+      },
+      {
+        "beat": "80.4",
+        "key": "D",
+        "guide": "domain"
+      },
+      {
+        "beat": "89.3",
+        "key": "R",
+        "guide": "Rust"
+      },
+      {
+        "beat": "90.1",
+        "key": "D",
+        "guide": "decompooo..."
+      },
+      {
+        "beat": "93.1",
+        "key": "O",
+        "guide": "..ooo..."
+      },
+      {
+        "beat": "95.1",
+        "key": "S",
+        "guide": "...oose"
+      },
+      {
+        "beat": "96.1",
+        "key": "T",
+        "guide": "Turn the"
+      },
+      {
+        "beat": "96.3",
+        "key": "I",
+        "guide": "Tiii.."
+      },
+      {
+        "beat": "99.1",
+        "key": "I",
+        "guide": "iide.."
+      },
+      {
+        "beat": "100.3",
+        "key": "A",
+        "guide": "As you"
+      },
+      {
+        "beat": "101.1",
+        "key": "D",
+        "guide": "diiii..."
+      },
+      {
+        "beat": "103.1",
+        "key": "I",
+        "guide": "...iieee"
+      },
+      {
+        "beat": "113.1",
+        "key": "O",
+        "guide": "One war"
+      },
+      {
+        "beat": "114.1",
+        "key": "W",
+        "guide": "won"
+      },
+      {
+        "beat": "115.2",
+        "key": "A",
+        "guide": "all others"
+      },
+      {
+        "beat": "115.3",
+        "key": "O",
+        "guide": "Others lost"
+      },
+      {
+        "beat": "117.2",
+        "key": "L",
+        "guide": "Leaving the"
+      },
+      {
+        "beat": "117.4",
+        "key": "L",
+        "guide": "the living"
+      },
+      {
+        "beat": "119.2",
+        "key": "D",
+        "guide": "death is"
+      },
+      {
+        "beat": "120.1",
+        "key": "M",
+        "guide": "a must"
+      },
+      {
+        "beat": "121.2",
+        "key": "S",
+        "guide": "Swallow the"
+      },
+      {
+        "beat": "122.1",
+        "key": "L",
+        "guide": "light"
+      },
+      {
+        "beat": "123.2",
+        "key": "A",
+        "guide": "A cold"
+      },
+      {
+        "beat": "123.4",
+        "key": "B",
+        "guide": "black shrine"
+      },
+      {
+        "beat": "125.3",
+        "key": "P",
+        "guide": "Powerless"
+      },
+      {
+        "beat": "126.3",
+        "key": "W",
+        "guide": "with pride"
+      },
+      {
+        "beat": "127.3",
+        "key": "S",
+        "guide": "summons none"
+      },
+      {
+        "beat": "128.2",
+        "key": "B",
+        "guide": "but I"
+      },
+      {
+        "beat": "133.2",
+        "key": "H",
+        "guide": "Here it"
+      },
+      {
+        "beat": "134.1",
+        "key": "E",
+        "guide": "ends"
+      },
+      {
+        "beat": "137.2",
+        "key": "A",
+        "guide": "And it"
+      },
+      {
+        "beat": "137.4",
+        "key": "B",
+        "guide": "begins"
+      },
+      {
+        "beat": "141.2",
+        "key": "T",
+        "guide": "The long"
+      },
+      {
+        "beat": "142.1",
+        "key": "C",
+        "guide": "cooooo..."
+      },
+      {
+        "beat": "145.1",
+        "key": "O",
+        "guide": "...oooold!"
+      },
+      {
+        "beat": "165.2",
+        "key": "O",
+        "guide": "Opus"
+      },
+      {
+        "beat": "166.1",
+        "key": "L",
+        "guide": "Lux"
+      },
+      {
+        "beat": "167.2",
+        "key": "Q",
+        "guide": "Quantum"
+      },
+      {
+        "beat": "167.4",
+        "key": "T",
+        "guide": "Tenebris"
+      },
+      {
+        "beat": "169.2",
+        "key": "A",
+        "guide": "A pact"
+      },
+      {
+        "beat": "170.1",
+        "key": "I",
+        "guide": "illness"
+      },
+      {
+        "beat": "171.2",
+        "key": "A",
+        "guide": "A pact"
+      },
+      {
+        "beat": "171.4",
+        "key": "O",
+        "guide": "of shallow"
+      },
+      {
+        "beat": "172.3",
+        "key": "S",
+        "guide": "sickness"
+      },
+      {
+        "beat": "177.2",
+        "key": "U",
+        "guide": "Unearth"
+      },
+      {
+        "beat": "177.4",
+        "key": "T",
+        "guide": "the"
+      },
+      {
+        "beat": "178.1",
+        "key": "P",
+        "guide": "past"
+      },
+      {
+        "beat": "179.2",
+        "key": "U",
+        "guide": "Unearth"
+      },
+      {
+        "beat": "179.4",
+        "key": "T",
+        "guide": "the"
+      },
+      {
+        "beat": "180.1",
+        "key": "D",
+        "guide": "dirt"
+      },
+      {
+        "beat": "181.2",
+        "key": "A",
+        "guide": "A foul"
+      },
+      {
+        "beat": "182.1",
+        "key": "S",
+        "guide": "smell"
+      },
+      {
+        "beat": "183.2",
+        "key": "W",
+        "guide": "where worms"
+      },
+      {
+        "beat": "184.1",
+        "key": "D",
+        "guide": "dweeee..."
+      },
+      {
+        "beat": "187.1",
+        "key": "E",
+        "guide": "...eeeee..."
+      },
+      {
+        "beat": "190.1",
+        "key": "L",
+        "guide": "..eeeel!"
+      },
+      {
+        "beat": "193.2",
+        "key": "H",
+        "guide": "Here it"
+      },
+      {
+        "beat": "193.4",
+        "key": "E",
+        "guide": "ends"
+      },
+      {
+        "beat": "197.2",
+        "key": "A",
+        "guide": "And it"
+      },
+      {
+        "beat": "197.4",
+        "key": "B",
+        "guide": "begins"
+      },
+      {
+        "beat": "201.2",
+        "key": "T",
+        "guide": "The long"
+      },
+      {
+        "beat": "202.1",
+        "key": "C",
+        "guide": "coooooo..."
+      },
+      {
+        "beat": "205.1",
+        "key": "O",
+        "guide": "...ooo..."
+      },
+      {
+        "beat": "208.1",
+        "key": "O",
+        "guide": "...oooold!"
+      },
+
+      {
+        "beat": "225.1",
+        "key": "A",
+        "guide": "All"
+      },
+      {
+        "beat": "226.1",
+        "key": "M",
+        "guide": "Means"
+      },
+      {
+        "beat": "227.1",
+        "key": "N",
+        "guide": "nothi..."
+      },
+      {
+        "beat": "230.1",
+        "key": "I",
+        "guide": "...ing!"
+      },
+      {
+        "beat": "234.1",
+        "key": "N",
+        "guide": "nothing"
+      },
+      {
+        "beat": "236.1",
+        "key": "I",
+        "guide": "is"
+      },
+      {
+        "beat": "237.1",
+        "key": "A",
+        "guide": "Aaaa..."
+      },
+      {
+        "beat": "240.1",
+        "key": "L",
+        "guide": "....aall!"
+      },
+      {
+        "beat": "249.2",
+        "key": "H",
+        "guide": "Here it"
+      },
+      {
+        "beat": "250.1",
+        "key": "E",
+        "guide": "ends"
+      },
+      {
+        "beat": "251.2",
+        "key": "A",
+        "guide": "And it"
+      },
+      {
+        "beat": "251.4",
+        "key": "B",
+        "guide": "begins"
+      },
+      {
+        "beat": "253.2",
+        "key": "T",
+        "guide": "The long"
+      },
+      {
+        "beat": "254.1",
+        "key": "C",
+        "guide": "Cold!!!"
+      }
+    ]
+  },
+  "decayingLight": {
+    "name": "Decaying Light",
+    "bpm": 138,
+    "noVocalsAudioUrl": "./songs/decaying-light-no-vocals.ogg",
+    "vocalsOnlyAudioUrl": "./songs/decaying-light-vocals-only.ogg",
+    "measure": "4/4",
+    "frames": [
+      {
+        "beat": "40.3",
+        "key": "A",
+        "guide": "A thousand"
+      },
+      {
+        "beat": "41.4",
+        "key": "R",
+        "guide": "reasons"
+      },
+      {
+        "beat": "44.1",
+        "key": "T",
+        "guide": "To end the cycle"
+      },
+      {
+        "beat": "44.3",
+        "key": "O",
+        "guide": "Of the world"
+      },
+      {
+        "beat": "45.1",
+        "key": "L",
+        "guide": "Lifeless"
+      },
+      {
+        "beat": "46.1",
+        "key": "C",
+        "guide": "Consumption"
+      },
+      {
+        "beat": "48.1",
+        "key": "O",
+        "guide": "Of all that is true"
+      },
+      {
+        "beat": "49.2",
+        "key": "F",
+        "guide": "Flammae exsistentiae"
+      },
+      {
+        "beat": "51.2",
+        "key": "L",
+        "guide": "Lumen obituu..."
+      },
+      {
+        "beat": "53.1",
+        "key": "R",
+        "guide": "...ruuuum!"
+      },
+      {
+        "beat": "57.3",
+        "key": "T",
+        "guide": "Trapped in"
+      },
+      {
+        "beat": "58.1",
+        "key": "H",
+        "guide": "hierarchy"
+      },
+      {
+        "beat": "59.1",
+        "key": "C",
+        "guide": "Caged in"
+      },
+      {
+        "beat": "60.1",
+        "key": "P",
+        "guide": "poverty"
+      },
+      {
+        "beat": "61.3",
+        "key": "A",
+        "guide": "A burden of hope"
+      },
+      {
+        "beat": "63.1",
+        "key": "L",
+        "guide": "Limiting"
+      },
+      {
+        "beat": "63.4",
+        "key": "R",
+        "guide": "reality"
+      },
+      {
+        "beat": "69.1",
+        "key": "T",
+        "guide": "Twisting"
+      },
+      {
+        "beat": "70.1",
+        "key": "R",
+        "guide": "raging"
+      },
+      {
+        "beat": "71.1",
+        "key": "F",
+        "guide": "Fading"
+      },
+      {
+        "beat": "73.1",
+        "key": "A",
+        "guide": "A past"
+      },
+      {
+        "beat": "74.1",
+        "key": "R",
+        "guide": "resemblance"
+      },
+      {
+        "beat": "76.1",
+        "key": "A",
+        "guide": "And calculated"
+      },
+      {
+        "beat": "76.3",
+        "key": "T",
+        "guide": "thoughts"
+      },
+      {
+        "beat": "77.1",
+        "key": "R",
+        "guide": "Radical"
+      },
+      {
+        "beat": "78.1",
+        "key": "B",
+        "guide": "betrayal"
+      },
+      {
+        "beat": "79.4",
+        "key": "O",
+        "guide": "Of the loyal"
+      },
+      {
+        "beat": "80.3",
+        "key": "H",
+        "guide": "host"
+      },
+      {
+        "beat": "89.2",
+        "key": "F",
+        "guide": "Flammae exsistentiae"
+      },
+      {
+        "beat": "91.2",
+        "key": "L",
+        "guide": "Lumen obitu..."
+      },
+      {
+        "beat": "93.1",
+        "key": "R",
+        "guide": "...ruuuum!"
+      },
+      {
+        "beat": "101.1",
+        "key": "L",
+        "guide": "Lurking"
+      },
+      {
+        "beat": "102.1",
+        "key": "H",
+        "guide": "Howling"
+      },
+      {
+        "beat": "103.1",
+        "key": "D",
+        "guide": "Despair"
+      },
+      {
+        "beat": "105.3",
+        "key": "O",
+        "guide": "Oh imprisoned Sun"
+      },
+      {
+        "beat": "107.3",
+        "key": "O",
+        "guide": "Once more, you will shine"
+      },
+      {
+        "beat": "109.3",
+        "key": "T",
+        "guide": "Throwing your rays"
+      },
+      {
+        "beat": "111.3",
+        "key": "I",
+        "guide": "Into thee"
+      },
+      {
+        "beat": "113.3",
+        "key": "B",
+        "guide": "Blinding everyone"
+      },
+      {
+        "beat": "117.3",
+        "key": "S",
+        "guide": "So merciles...."
+      },
+      {
+        "beat": "118.4",
+        "key": "L",
+        "guide": "...lyyyy..."
+      },
+      {
+        "beat": "121.1",
+        "key": "Y",
+        "guide": "...yyyyy!"
+      },
+      {
+        "beat": "129.1",
+        "key": "A",
+        "guide": "A thousand"
+      },
+      {
+        "beat": "130.1",
+        "key": "R",
+        "guide": "reasons"
+      },
+      {
+        "beat": "132.1",
+        "key": "T",
+        "guide": "To end the cycle"
+      },
+      {
+        "beat": "132.3",
+        "key": "O",
+        "guide": "Of the world"
+      },
+      {
+        "beat": "133.1",
+        "key": "L",
+        "guide": "Lifeless"
+      },
+      {
+        "beat": "134.1",
+        "key": "C",
+        "guide": "consumption"
+      },
+      {
+        "beat": "135.4",
+        "key": "O",
+        "guide": "Of all that is"
+      },
+      {
+        "beat": "136.3",
+        "key": "T",
+        "guide": "true"
+      },
+      {
+        "beat": "137.2",
+        "key": "F",
+        "guide": "Flammae exsistentiae"
+      },
+      {
+        "beat": "139.2",
+        "key": "L",
+        "guide": "Lumen obitu..."
+      },
+      {
+        "beat": "141.1",
+        "key": "R",
+        "guide": "...ruuuum!"
+      },
+      {
+        "beat": "145.3",
+        "key": "S",
+        "guide": "Shattered star"
+      },
+      {
+        "beat": "147.3",
+        "key": "A",
+        "guide": "A puzzle of time"
+      },
+      {
+        "beat": "149.3",
+        "key": "E",
+        "guide": "Endless source"
+      },
+      {
+        "beat": "151.3",
+        "key": "B",
+        "guide": "Brightest divine"
+      },
+      {
+        "beat": "153.3",
+        "key": "L",
+        "guide": "Light up the sky"
+      },
+      {
+        "beat": "155.3",
+        "key": "D",
+        "guide": "Deform the air"
+      },
+      {
+        "beat": "157.3",
+        "key": "G",
+        "guide": "Give a glimpse"
+      },
+      {
+        "beat": "159.3",
+        "key": "O",
+        "guide": "Of your solar fla..."
+      },
+      {
+        "beat": "162.1",
+        "key": "A",
+        "guide": "...are"
+      },
+      {
+        "beat": "169.3",
+        "key": "T",
+        "guide": "Trapped in hierarchy"
+      },
+      {
+        "beat": "171.3",
+        "key": "C",
+        "guide": "Caged in poverty"
+      },
+      {
+        "beat": "173.3",
+        "key": "A",
+        "guide": "A burden of hope"
+      },
+      {
+        "beat": "175.1",
+        "key": "L",
+        "guide": "Limiting reality"
+      },
+      {
+        "beat": "193.1",
+        "key": "W",
+        "guide": "[SCREAM!]"
+      },
+      {
+        "beat": "195.1",
+        "key": "A",
+        "guide": "[SCREAM!]"
+      },
+      {
+        "beat": "197.1",
+        "key": "A",
+        "guide": "[SCREAM!]"
+      },
+      {
+        "beat": "199.1",
+        "key": "E",
+        "guide": "[SCREAM!]"
+      },
+      {
+        "beat": "201.3",
+        "key": "S",
+        "guide": "Shattered star"
+      },
+      {
+        "beat": "203.3",
+        "key": "A",
+        "guide": "A puzzle of time"
+      },
+      {
+        "beat": "205.3",
+        "key": "E",
+        "guide": "Endless source"
+      },
+      {
+        "beat": "207.3",
+        "key": "B",
+        "guide": "Brightest divine"
+      },
+      {
+        "beat": "209.3",
+        "key": "S",
+        "guide": "Shattered star"
+      },
+      {
+        "beat": "211.3",
+        "key": "A",
+        "guide": "A puzzle of time"
+      },
+      {
+        "beat": "213.3",
+        "key": "E",
+        "guide": "Endless source"
+      },
+      {
+        "beat": "215.3",
+        "key": "B",
+        "guide": "Brightest divine"
+      },
+      {
+        "beat": "230.2",
+        "key": "A",
+        "guide": "A thousand reasons"
+      },
+
+      {
+        "beat": "232.1",
+        "key": "T",
+        "guide": "To end the cycle of the world"
+      },
+      {
+        "beat": "234.2",
+        "key": "L",
+        "guide": "Lifeless consumption"
+      },
+      {
+        "beat": "236.1",
+        "key": "O",
+        "guide": "Of all that is true"
+      },
+
+      {
+        "beat": "238.1",
+        "key": "F",
+        "guide": "The flames of existence"
+      },
+      {
+        "beat": "239.3",
+        "key": "A",
+        "guide": "Are a dying light"
       }
     ]
   }
