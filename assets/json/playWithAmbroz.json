@@ -7,9 +7,31 @@
     "measure": "4/4",
     "frames": [
       {
+        "beat": "1.1",
+        "program": "intro"
+      },
+      {
+        "beat": "20.1",
+        "program": "blast"
+      },
+      {
+        "beat": "20.2",
+        "program": "blackout"
+      },
+      {
+        "beat": "20.3",
+        "program": "blast"
+      },
+
+      {
         "beat": "20.4",
         "key": "I",
-        "guide": "I am"
+        "guide": "I am",
+        "program": "blackout"
+      },
+      {
+        "beat": "21.1",
+        "program": "verse"
       },
       {
         "beat": "21.3",
@@ -103,6 +125,14 @@
         "guide": "Know"
       },
       {
+        "beat": "36.3",
+        "program": "blackout"
+      },
+      {
+        "beat": "37.1",
+        "program": "fast"
+      },
+      {
         "beat": "40.4",
         "key": "F",
         "guide": "Far"
@@ -131,6 +161,10 @@
         "beat": "52.4",
         "key": "L",
         "guide": "Listening"
+      },
+      {
+        "beat": "53.1",
+        "program": "verse"
       },
       {
         "beat": "53.4",
@@ -198,6 +232,14 @@
         "guide": "Reality"
       },
       {
+        "beat": "68.3",
+        "program": "blackout"
+      },
+      {
+        "beat": "69.1",
+        "program": "fast"
+      },
+      {
         "beat": "76.4",
         "key": "P",
         "guide": "A Priority"
@@ -249,19 +291,26 @@
         "guide": "I am"
       },
       {
+        "beat": "85.1",
+        "program": "blast"
+      },
+      {
         "beat": "86.1",
         "key": "S",
-        "guide": "Screaming"
+        "guide": "Screaming",
+        "program": "fast"
       },
       {
         "beat": "87.1",
         "key": "I",
-        "guide": "I am"
+        "guide": "I am",
+        "program": "blast"
       },
       {
         "beat": "88.1",
         "key": "L",
-        "guide": "Leaving"
+        "guide": "Leaving",
+        "program": "fast"
       },
       {
         "beat": "88.4",
@@ -269,19 +318,37 @@
         "guide": "Obscene"
       },
       {
+        "beat": "89.1",
+        "program": "blast"
+      },
+      {
+        "beat": "89.3",
+        "program": "fast"
+      },
+      {
         "beat": "89.4",
         "key": "R",
         "guide": "Results"
       },
       {
+        "beat": "90.1",
+        "program": "blast"
+      },
+      {
+        "beat": "90.3",
+        "program": "fast"
+      },
+      {
         "beat": "91.1",
         "key": "C",
-        "guide": "Cuts"
+        "guide": "Cuts",
+        "program": "blast"
       },
       {
         "beat": "91.3",
         "key": "M",
-        "guide": "Me"
+        "guide": "Me",
+        "program": "fast"
       },
       {
         "beat": "91.4",
@@ -294,6 +361,10 @@
         "guide": "Half"
       },
       {
+        "beat": "93.1",
+        "program": "blast"
+      },
+      {
         "beat": "93.3",
         "key": "M",
         "guide": "My"
@@ -304,6 +375,10 @@
         "guide": "Reflection"
       },
       {
+        "beat": "94.1",
+        "program": "fast"
+      },
+      {
         "beat": "96.4",
         "key": "I",
         "guide": "Is"
@@ -311,12 +386,25 @@
       {
         "beat": "97.1",
         "key": "S",
-        "guide": "Shattering"
+        "guide": "Shattering",
+        "program": "blast"
+      },
+      {
+        "beat": "97.3",
+        "program": "fast"
+      },
+      {
+        "beat": "98.1",
+        "program": "blast"
       },
       {
         "beat": "98.2",
         "key": "T",
         "guide": "To"
+      },
+      {
+        "beat": "98.3",
+        "program": "fast"
       },
       {
         "beat": "99.1",
@@ -372,7 +460,8 @@
       {
         "beat": "117.1",
         "key": "I",
-        "guide": "I do not"
+        "guide": "I do not",
+        "program": "blast"
       },
       {
         "beat": "118.1",
@@ -390,9 +479,14 @@
         "guide": "Exist"
       },
       {
+        "beat": "120.4",
+        "program": "fast"
+      },
+      {
         "beat": "121.1",
         "key": "I",
-        "guide": "I"
+        "guide": "I",
+        "program": "blast"
       },
       {
         "beat": "122.1",
@@ -408,6 +502,10 @@
         "beat": "123.4",
         "key": "F",
         "guide": "Forever"
+      },
+      {
+        "beat": "124.3",
+        "program": "fast"
       },
       {
         "beat": "125.1",
@@ -455,9 +553,66 @@
         "guide": "Relief"
       },
       {
+        "beat": "132.1",
+        "program": "blackout"
+      },
+      {
+        "beat": "133.1",
+        "program": "faster"
+      },
+      {
+        "beat": "141.1",
+        "program": "blast"
+      },
+      {
+        "beat": "142.1",
+        "program": "fast"
+      },
+      {
+        "beat": "143.1",
+        "program": "blast"
+      },
+      {
+        "beat": "144.1",
+        "program": "fast"
+      },
+      {
+        "beat": "145.1",
+        "program": "blast"
+      },
+      {
+        "beat": "145.3",
+        "program": "fast"
+      },
+      {
+        "beat": "146.1",
+        "program": "blast"
+      },
+      {
+        "beat": "146.3",
+        "program": "fast"
+      },
+      {
+        "beat": "147.1",
+        "program": "blast"
+      },
+      {
+        "beat": "147.1",
+        "program": "fast"
+      },
+      {
+        "beat": "148.1",
+        "program": "blast"
+      },
+      {
+        "beat": "148.3",
+        "program": "blackout"
+      },
+      {
         "beat": "149.1",
         "key": "L",
-        "guide": "Listening"
+        "guide": "Listening",
+        "program": "slow"
       },
       {
         "beat": "150.4",
@@ -525,9 +680,19 @@
         "guide": "Reality"
       },
       {
+        "beat": "163.1",
+        "program": "blast"
+      },
+      {
+        "beat": "164.3",
+        "program": "blackout"
+      },
+
+      {
         "beat": "165.1",
         "key": "I",
-        "guide": "I am"
+        "guide": "I am",
+        "program": "fast"
       },
       {
         "beat": "165.3",
@@ -572,7 +737,8 @@
       {
         "beat": "173.1",
         "key": "S",
-        "guide": "Seeking the"
+        "guide": "Seeking the",
+        "program": "blast"
       },
       {
         "beat": "173.3",
@@ -618,6 +784,10 @@
         "beat": "180.1",
         "key": "K",
         "guide": "Know"
+      },
+      {
+        "beat": "181.1",
+        "program": "intro"
       }
     ]
   },
@@ -629,9 +799,89 @@
     "measure": "4/4",
     "frames": [
       {
+        "beat": "1.1",
+        "program": "intro"
+      },
+      {
+        "beat": "15.1",
+        "program": "blackout"
+      },
+      {
+        "beat": "16.1",
+        "program": "faster"
+      },
+      {
+        "beat": "17.1",
+        "program": "verse"
+      },
+      {
+        "beat": "18.1",
+        "program": "faster"
+      },
+      {
+        "beat": "19.1",
+        "program": "fast"
+      },
+      {
+        "beat": "20.1",
+        "program": "verse"
+      },
+      {
+        "beat": "21.1",
+        "program": "faster"
+      },
+      {
+        "beat": "22.1",
+        "program": "verse"
+      },
+      {
+        "beat": "23.1",
+        "program": "fast"
+      },
+      {
+        "beat": "24.1",
+        "program": "verse"
+      },
+      {
+        "beat": "25.1",
+        "program": "faster"
+      },
+      {
+        "beat": "26.1",
+        "program": "verse"
+      },
+      {
+        "beat": "27.1",
+        "program": "faster"
+      },
+      {
+        "beat": "28.1",
+        "program": "verse"
+      },
+      {
+        "beat": "29.1",
+        "program": "fast"
+      },
+      {
+        "beat": "30.1",
+        "program": "verse"
+      },
+      {
+        "beat": "31.1",
+        "program": "faster"
+      },
+      {
+        "beat": "32.1",
+        "program": "blackout"
+      },
+      {
         "beat": "32.4",
         "key": "W",
         "guide": "[SCREAM!]"
+      },
+      {
+        "beat": "33.1",
+        "program": "blast"
       },
       {
         "beat": "34.1",
@@ -659,9 +909,14 @@
         "guide": "[SCREAM!]"
       },
       {
+        "beat": "49.1",
+        "program": "blackout"
+      },
+      {
         "beat": "53.2",
         "key": "O",
-        "guide": "Opus"
+        "guide": "Opus",
+        "program": "fast"
       },
       {
         "beat": "54.1",
@@ -702,6 +957,14 @@
         "beat": "60.3",
         "key": "S",
         "guide": "sickness"
+      },
+      {
+        "beat": "64.1",
+        "program": "blackout"
+      },
+      {
+        "beat": "65.1",
+        "program": "fast"
       },
       {
         "beat": "65.2",
@@ -789,6 +1052,10 @@
         "guide": "domain"
       },
       {
+        "beat": "81.1",
+        "program": "faster"
+      },
+      {
         "beat": "89.3",
         "key": "R",
         "guide": "Rust"
@@ -819,6 +1086,10 @@
         "guide": "Tiii.."
       },
       {
+        "beat": "97.1",
+        "program": "fast"
+      },
+      {
         "beat": "99.1",
         "key": "I",
         "guide": "iide.."
@@ -841,7 +1112,8 @@
       {
         "beat": "113.1",
         "key": "O",
-        "guide": "One war"
+        "guide": "One war",
+        "program": "faster"
       },
       {
         "beat": "114.1",
@@ -877,6 +1149,10 @@
         "beat": "120.1",
         "key": "M",
         "guide": "a must"
+      },
+      {
+        "beat": "121.1",
+        "program": "fast"
       },
       {
         "beat": "121.2",
@@ -919,6 +1195,10 @@
         "guide": "but I"
       },
       {
+        "beat": "129.1",
+        "program": "blast"
+      },
+      {
         "beat": "133.2",
         "key": "H",
         "guide": "Here it"
@@ -954,9 +1234,22 @@
         "guide": "...oooold!"
       },
       {
+        "beat": "149.1",
+        "program": "fast"
+      },
+      {
+        "beat": "161.1",
+        "program": "intro"
+      },
+      {
+        "beat": "163.1",
+        "program": "blackout"
+      },
+      {
         "beat": "165.2",
         "key": "O",
-        "guide": "Opus"
+        "guide": "Opus",
+        "program": "faster"
       },
       {
         "beat": "166.1",
@@ -997,6 +1290,10 @@
         "beat": "172.3",
         "key": "S",
         "guide": "sickness"
+      },
+      {
+        "beat": "177.1",
+        "program": "fast"
       },
       {
         "beat": "177.2",
@@ -1059,6 +1356,10 @@
         "guide": "..eeeel!"
       },
       {
+        "beat": "193.1",
+        "program": "faster"
+      },
+      {
         "beat": "193.2",
         "key": "H",
         "guide": "Here it"
@@ -1079,6 +1380,10 @@
         "guide": "begins"
       },
       {
+        "beat": "201.1",
+        "program": "blast"
+      },
+      {
         "beat": "201.2",
         "key": "T",
         "guide": "The long"
@@ -1091,18 +1396,153 @@
       {
         "beat": "205.1",
         "key": "O",
-        "guide": "...ooo..."
+        "guide": "...ooo...",
+        "program": "fast"
       },
       {
         "beat": "208.1",
         "key": "O",
         "guide": "...oooold!"
       },
+      {
+        "beat": "209.1",
+        "program": "faster"
+      },
+      {
+        "beat": "209.3",
+        "program": "blackout"
+      },
+      {
+        "beat": "209.4",
+        "program": "faster"
+      },
+      {
+        "beat": "210.2",
+        "program": "blackout"
+      },
+      {
+        "beat": "211.1",
+        "program": "faster"
+      },
+      {
+        "beat": "211.3",
+        "program": "blackout"
+      },
+      {
+        "beat": "211.4",
+        "program": "faster"
+      },
+      {
+        "beat": "212.2",
+        "program": "blackout"
+      },
+      {
+        "beat": "213.1",
+        "program": "faster"
+      },
+      {
+        "beat": "213.3",
+        "program": "blackout"
+      },
+      {
+        "beat": "213.4",
+        "program": "faster"
+      },
+      {
+        "beat": "214.2",
+        "program": "blackout"
+      },
+      {
+        "beat": "215.1",
+        "program": "faster"
+      },
+      {
+        "beat": "215.3",
+        "program": "blackout"
+      },
+      {
+        "beat": "215.4",
+        "program": "faster"
+      },
+      {
+        "beat": "216.2",
+        "program": "blackout"
+      },
+      {
+        "beat": "209.1",
+        "program": "faster"
+      },
+      {
+        "beat": "209.3",
+        "program": "blackout"
+      },
+      {
+        "beat": "217.4",
+        "program": "faster"
+      },
+      {
+        "beat": "217.2",
+        "program": "blackout"
+      },
 
+      {
+        "beat": "218.1",
+        "key": "A",
+        "guide": "All"
+      },
+      {
+        "beat": "219.1",
+        "program": "faster"
+      },
+      {
+        "beat": "219.3",
+        "program": "blackout"
+      },
+      {
+        "beat": "219.4",
+        "program": "faster"
+      },
+      {
+        "beat": "220.2",
+        "program": "blackout"
+      },
+      {
+        "beat": "221.1",
+        "program": "faster"
+      },
+      {
+        "beat": "221.3",
+        "program": "blackout"
+      },
+      {
+        "beat": "221.4",
+        "program": "faster"
+      },
+      {
+        "beat": "222.2",
+        "program": "blackout"
+      },
+      {
+        "beat": "223.1",
+        "program": "faster"
+      },
+      {
+        "beat": "223.3",
+        "program": "blackout"
+      },
+      {
+        "beat": "223.4",
+        "program": "faster"
+      },
+      {
+        "beat": "224.2",
+        "program": "blackout"
+      },
       {
         "beat": "225.1",
         "key": "A",
-        "guide": "All"
+        "guide": "All",
+        "program": "fast"
       },
       {
         "beat": "226.1",
@@ -1140,9 +1580,85 @@
         "guide": "....aall!"
       },
       {
+        "beat": "241.1",
+        "program": "blast"
+      },
+      {
+        "beat": "241.3",
+        "program": "blackout"
+      },
+      {
+        "beat": "241.4",
+        "program": "blast"
+      },
+      {
+        "beat": "242.2",
+        "program": "slow"
+      },
+      {
+        "beat": "243.1",
+        "program": "blast"
+      },
+      {
+        "beat": "243.3",
+        "program": "blackout"
+      },
+      {
+        "beat": "243.4",
+        "program": "blast"
+      },
+      {
+        "beat": "244.2",
+        "program": "slow"
+      },
+      {
+        "beat": "245.1",
+        "program": "blast"
+      },
+      {
+        "beat": "245.3",
+        "program": "blackout"
+      },
+      {
+        "beat": "245.4",
+        "program": "blast"
+      },
+      {
+        "beat": "246.2",
+        "program": "slow"
+      },
+      {
+        "beat": "247.1",
+        "program": "blast"
+      },
+      {
+        "beat": "247.3",
+        "program": "blackout"
+      },
+      {
+        "beat": "247.4",
+        "program": "blast"
+      },
+      {
+        "beat": "248.2",
+        "program": "slow"
+      },
+      {
+        "beat": "249.1",
+        "program": "blast"
+      },
+      {
         "beat": "249.2",
         "key": "H",
         "guide": "Here it"
+      },
+      {
+        "beat": "249.3",
+        "program": "blackout"
+      },
+      {
+        "beat": "249.4",
+        "program": "blast"
       },
       {
         "beat": "250.1",
@@ -1150,14 +1666,36 @@
         "guide": "ends"
       },
       {
+        "beat": "250.2",
+        "program": "slow"
+      },
+      {
+        "beat": "251.1",
+        "program": "blast"
+      },
+      {
         "beat": "251.2",
         "key": "A",
         "guide": "And it"
       },
       {
+        "beat": "251.3",
+        "program": "blackout"
+      },
+
+      {
         "beat": "251.4",
         "key": "B",
-        "guide": "begins"
+        "guide": "begins",
+        "program": "blast"
+      },
+      {
+        "beat": "252.2",
+        "program": "slow"
+      },
+      {
+        "beat": "253.1",
+        "program": "blast"
       },
       {
         "beat": "253.2",
@@ -1165,9 +1703,45 @@
         "guide": "The long"
       },
       {
+        "beat": "253.3",
+        "program": "blackout"
+      },
+      {
+        "beat": "253.4",
+        "program": "blast"
+      },
+      {
         "beat": "254.1",
         "key": "C",
         "guide": "Cold!!!"
+      },
+      {
+        "beat": "254.2",
+        "program": "slow"
+      },
+      {
+        "beat": "255.1",
+        "program": "blast"
+      },
+      {
+        "beat": "255.3",
+        "program": "blackout"
+      },
+      {
+        "beat": "255.4",
+        "program": "blast"
+      },
+      {
+        "beat": "256.3",
+        "program": "blackout"
+      },
+      {
+        "beat": "256.4",
+        "program": "blast"
+      },
+      {
+        "beat": "257.1",
+        "program": "slow"
       }
     ]
   },
@@ -1178,6 +1752,10 @@
     "vocalsOnlyAudioUrl": "./songs/decaying-light-vocals-only.ogg",
     "measure": "4/4",
     "frames": [
+      {
+        "beat": "1.1",
+        "program": "verse"
+      },
       {
         "beat": "40.3",
         "key": "A",
