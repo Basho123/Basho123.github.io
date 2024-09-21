@@ -1754,12 +1754,88 @@
     "frames": [
       {
         "beat": "1.1",
-        "program": "verse"
+        "program": "slow"
+      },
+      {
+        "beat": "4.3",
+        "program": "blast"
+      },
+      {
+        "beat": "4.4",
+        "program": "blackout"
+      },
+      {
+        "beat": "5.1",
+        "program": "slow"
+      },
+      {
+        "beat": "8.3",
+        "program": "blast"
+      },
+      {
+        "beat": "8.4",
+        "program": "blackout"
+      },
+      {
+        "beat": "9.1",
+        "program": "slow"
+      },
+      {
+        "beat": "12.1",
+        "program": "faster"
+      },
+      {
+        "beat": "12.4",
+        "program": "blackout"
+      },
+      {
+        "beat": "13.1",
+        "program": "slow"
+      },
+      {
+        "beat": "17.1",
+        "program": "soft-strobe"
+      },
+      {
+        "beat": "21.1",
+        "program": "faster"
+      },
+      {
+        "beat": "25.1",
+        "program": "soft-strobe"
+      },
+      {
+        "beat": "29.1",
+        "program": "faster"
+      },
+      {
+        "beat": "33.1",
+        "program": "blackout"
+      },
+      {
+        "beat": "37.1",
+        "program": "soft-strobe"
+      },
+      {
+        "beat": "37.2",
+        "program": "blackout"
+      },
+      {
+        "beat": "40.1",
+        "program": "faster"
+      },
+      {
+        "beat": "40.4",
+        "program": "blackout"
       },
       {
         "beat": "40.3",
         "key": "A",
         "guide": "A thousand"
+      },
+      {
+        "beat": "41.1",
+        "program": "verse"
       },
       {
         "beat": "41.4",
@@ -1792,6 +1868,10 @@
         "guide": "Of all that is true"
       },
       {
+        "beat": "49.1",
+        "program": "soft-strobe"
+      },
+      {
         "beat": "49.2",
         "key": "F",
         "guide": "Flammae exsistentiae"
@@ -1805,6 +1885,14 @@
         "beat": "53.1",
         "key": "R",
         "guide": "...ruuuum!"
+      },
+      {
+        "beat": "55.1",
+        "program": "faster"
+      },
+      {
+        "beat": "57.1",
+        "program": "verse"
       },
       {
         "beat": "57.3",
@@ -1834,7 +1922,12 @@
       {
         "beat": "63.1",
         "key": "L",
-        "guide": "Limiting"
+        "guide": "Limiting",
+        "program": "soft-strobe"
+      },
+      {
+        "beat": "63.2",
+        "program": "verse"
       },
       {
         "beat": "63.4",
@@ -1842,9 +1935,22 @@
         "guide": "reality"
       },
       {
+        "beat": "64.1",
+        "program": "soft-strobe"
+      },
+      {
+        "beat": "64.2",
+        "program": "verse"
+      },
+      {
+        "beat": "65.1",
+        "program": "fast"
+      },
+      {
         "beat": "69.1",
         "key": "T",
-        "guide": "Twisting"
+        "guide": "Twisting",
+        "program": "soft-strobe"
       },
       {
         "beat": "70.1",
@@ -1859,7 +1965,8 @@
       {
         "beat": "73.1",
         "key": "A",
-        "guide": "A past"
+        "guide": "A past",
+        "program": "verse"
       },
       {
         "beat": "74.1",
@@ -1897,6 +2004,14 @@
         "guide": "host"
       },
       {
+        "beat": "81.1",
+        "program": "blast"
+      },
+      {
+        "beat": "89.1",
+        "program": "faster"
+      },
+      {
         "beat": "89.2",
         "key": "F",
         "guide": "Flammae exsistentiae"
@@ -1912,9 +2027,14 @@
         "guide": "...ruuuum!"
       },
       {
+        "beat": "97.1",
+        "program": "faster"
+      },
+      {
         "beat": "101.1",
         "key": "L",
-        "guide": "Lurking"
+        "guide": "Lurking",
+        "program": "soft-strobe"
       },
       {
         "beat": "102.1",
@@ -1927,9 +2047,14 @@
         "guide": "Despair"
       },
       {
+        "beat": "105.1",
+        "program": "blast"
+      },
+      {
         "beat": "105.3",
         "key": "O",
-        "guide": "Oh imprisoned Sun"
+        "guide": "Oh imprisoned Sun",
+        "program": "verse"
       },
       {
         "beat": "107.3",
@@ -1937,14 +2062,29 @@
         "guide": "Once more, you will shine"
       },
       {
+        "beat": "109.1",
+        "program": "blast"
+      },
+
+      {
         "beat": "109.3",
         "key": "T",
-        "guide": "Throwing your rays"
+        "guide": "Throwing your rays",
+        "program": "verse"
       },
       {
         "beat": "111.3",
         "key": "I",
         "guide": "Into thee"
+      },
+      {
+        "beat": "113.1",
+        "program": "fast"
+      },
+      {
+        "beat": "113.3",
+        "key": "B",
+        "guide": "Blinding everyone"
       },
       {
         "beat": "113.3",
