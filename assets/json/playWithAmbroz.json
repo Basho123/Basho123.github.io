@@ -11,6 +11,26 @@
         "program": "intro"
       },
       {
+        "beat": "6.1",
+        "key": "X",
+        "guide": "♩ intro choir ♩"
+      },
+      {
+        "beat": "8.1",
+        "key": "X",
+        "guide": "♩ intro choir ♩"
+      },
+      {
+        "beat": "12.1",
+        "key": "X",
+        "guide": "♪ intro choir ♪"
+      },
+      {
+        "beat": "16.1",
+        "key": "X",
+        "guide": "♫ intro choir intensifies ♫"
+      },
+      {
         "beat": "20.1",
         "program": "blast"
       },
@@ -156,6 +176,11 @@
         "beat": "44.1",
         "key": "U",
         "guide": "Unsearchable"
+      },
+      {
+        "beat": "48.1",
+        "key": "X",
+        "guide": "♩ verse builds ♩"
       },
       {
         "beat": "52.4",
@@ -558,10 +583,20 @@
       },
       {
         "beat": "133.1",
+        "key": "X",
+        "guide": "♩ lead guitar verse ♩",
+        "program": "faster"
+      },
+      {
+        "beat": "137.1",
+        "key": "X",
+        "guide": "♩ lead guitar verse ♩",
         "program": "faster"
       },
       {
         "beat": "141.1",
+        "key": "X",
+        "guide": "♩ drums intensifying ♩",
         "program": "blast"
       },
       {
@@ -803,6 +838,21 @@
         "program": "intro"
       },
       {
+        "beat": "5.1",
+        "key": "X",
+        "guide": "♩ intro builds up ♩"
+      },
+      {
+        "beat": "9.1",
+        "key": "X",
+        "guide": "♫ cymbals intensify ♫"
+      },
+      {
+        "beat": "13.1",
+        "key": "X",
+        "guide": "♪ Horns blowing ♪"
+      },
+      {
         "beat": "15.1",
         "program": "blackout"
       },
@@ -812,6 +862,8 @@
       },
       {
         "beat": "17.1",
+        "key": "X",
+        "guide": "♫ intro intensifies ♫",
         "program": "verse"
       },
       {
@@ -839,7 +891,9 @@
         "program": "fast"
       },
       {
-        "beat": "24.1",
+        "beat": "25.1",
+        "key": "X",
+        "guide": "♫ intro builds up ♫",
         "program": "verse"
       },
       {
@@ -855,8 +909,10 @@
         "program": "faster"
       },
       {
-        "beat": "28.1",
-        "program": "verse"
+        "beat": "29.1",
+        "program": "verse",
+        "key": "X",
+        "guide": "♪ Horns blowing ♪"
       },
       {
         "beat": "29.1",
@@ -1051,9 +1107,15 @@
         "key": "D",
         "guide": "domain"
       },
+
       {
         "beat": "81.1",
         "program": "faster"
+      },
+      {
+        "beat": "84.1",
+        "key": "X",
+        "guide": "♩ Instrumental ♩"
       },
       {
         "beat": "89.3",
@@ -1231,11 +1293,9 @@
       {
         "beat": "145.1",
         "key": "O",
+        "program": "fast",
+
         "guide": "...oooold!"
-      },
-      {
-        "beat": "149.1",
-        "program": "fast"
       },
       {
         "beat": "161.1",
@@ -1246,10 +1306,13 @@
         "program": "blackout"
       },
       {
-        "beat": "165.2",
-        "key": "O",
-        "guide": "Opus",
+        "beat": "165.1",
         "program": "faster"
+      },
+      {
+        "beat": "165.3",
+        "key": "O",
+        "guide": "Opus"
       },
       {
         "beat": "166.1",
@@ -1293,7 +1356,7 @@
       },
       {
         "beat": "177.1",
-        "program": "fast"
+        "program": "blast"
       },
       {
         "beat": "177.2",
@@ -1343,7 +1406,12 @@
       {
         "beat": "184.1",
         "key": "D",
-        "guide": "dweeee..."
+        "guide": "dweeee...",
+        "program": "faster"
+      },
+      {
+        "beat": "185.1",
+        "program": "blast"
       },
       {
         "beat": "187.1",
@@ -1396,8 +1464,7 @@
       {
         "beat": "205.1",
         "key": "O",
-        "guide": "...ooo...",
-        "program": "fast"
+        "guide": "...ooo..."
       },
       {
         "beat": "208.1",
@@ -1405,7 +1472,7 @@
         "guide": "...oooold!"
       },
       {
-        "beat": "209.1",
+        "beat": "209.3",
         "program": "faster"
       },
       {
@@ -1469,26 +1536,20 @@
         "program": "blackout"
       },
       {
-        "beat": "209.1",
+        "beat": "217.1",
         "program": "faster"
       },
       {
-        "beat": "209.3",
+        "beat": "217.3",
         "program": "blackout"
       },
       {
-        "beat": "217.4",
+        "beat": "218.4",
         "program": "faster"
       },
       {
-        "beat": "217.2",
+        "beat": "218.2",
         "program": "blackout"
-      },
-
-      {
-        "beat": "218.1",
-        "key": "A",
-        "guide": "All"
       },
       {
         "beat": "219.1",
@@ -1552,7 +1613,12 @@
       {
         "beat": "227.1",
         "key": "N",
-        "guide": "nothi..."
+        "guide": "no..."
+      },
+      {
+        "beat": "227.2",
+        "key": "T",
+        "guide": "..thi..."
       },
       {
         "beat": "230.1",
@@ -1766,6 +1832,8 @@
       },
       {
         "beat": "5.1",
+        "key": "X",
+        "guide": "♪ intro choir ♪",
         "program": "slow"
       },
       {
@@ -1778,6 +1846,8 @@
       },
       {
         "beat": "9.1",
+        "key": "X",
+        "guide": "♩ intro choir ♩",
         "program": "slow"
       },
       {
@@ -1798,6 +1868,8 @@
       },
       {
         "beat": "21.1",
+        "key": "D",
+        "guide": "♫ drums intensifying ♫",
         "program": "faster"
       },
       {
@@ -1810,6 +1882,8 @@
       },
       {
         "beat": "33.1",
+        "key": "G",
+        "guide": "♫ lead guitar verse ♫",
         "program": "blackout"
       },
       {
@@ -2225,6 +2299,27 @@
         "beat": "175.1",
         "key": "L",
         "guide": "Limiting reality"
+      },
+
+      {
+        "beat": "177.1",
+        "key": "G",
+        "guide": "♪ Guitar Solo ♪"
+      },
+      {
+        "beat": "181.1",
+        "key": "G",
+        "guide": "♪ Guitar Solo ♪"
+      },
+      {
+        "beat": "184.1",
+        "key": "G",
+        "guide": "♪ Guitar Solo ♪"
+      },
+      {
+        "beat": "188.1",
+        "key": "G",
+        "guide": "♪ Guitar Solo ♪"
       },
       {
         "beat": "193.1",

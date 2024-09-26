@@ -1,0 +1,12 @@
+{
+  "perform": {
+    "1": {
+      "start": "2024-10-01",
+      "end": "2024-10-31",
+      "message": {
+        "en": "A perform event competition is currently ongoing, click to compete!",
+        "mk": "Натпреварот во настапување моментално е во тек, кликнете за да настапувате!"
+      }
+    }
+  }
+}
