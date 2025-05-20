@@ -1,70 +1,70 @@
 {
-    "en": [
-        {
-            "headlineLeft": "The Beginning",
-            "paragraphContentLeft": "In 2004, founders Cvetan Spirkovski and Dijana Peshovska started Ambroz, a black metal band. They laid the foundation for the band, which soon gained recognition in Macedonia.",
-            "imageSrcLeft": "../assets/aboutUs/aboutUs-1.webp",
-            "headlineRight": "Members of Ambroz",
-            "paragraphContentRight": "Ambroz's lineup includes Cvetan Spirkovski and Ivan Jamandilovski on guitars, Igor Stojkovski on bass, Dijana Peshovska on keyboards, Damjan Klincharevski as the vocalist, and Nikola Dimitrovski on drums.",
-            "imageSrcRight": "../assets/aboutUs/aboutUs-2.webp"
-        },
-        {
-            "headlineLeft": "Into The Endless Void",
-            "paragraphContentLeft": "In 2015, Ambroz released their debut album, captivating listeners with raw intensity and atmospheric soundscapes. It marked a milestone in their black metal journey.",
-            "imageSrcLeft": "../assets/aboutUs/aboutUs-4.webp",
-            "headlineRight": "First shot outside Macedonia",
-            "paragraphContentRight": "In a pivotal moment, Ambroz played in Sofia for the first time, expanding their audience beyond Macedonia.",
-            "imageSrcRight": "../assets/aboutUs/aboutUs-3.webp"
-        },
-        {
-            "headlineLeft": "A new sound",
-            "paragraphContentLeft": "Due to changes in the band's lineup, Ambroz underwent transformation, reshaping their music and exploring new sonic territories.",
-            "imageSrcLeft": "../assets/aboutUs/aboutUs-5.webp",
-            "headlineRight": "The Pandemic",
-            "paragraphContentRight": "During the pandemic, Ambroz found inspiration in isolation, exploring new musical directions and reflecting deeply on their art.",
-            "imageSrcRight": "../assets/aboutUs/aboutUs-6.webp"
-        },
-        {
-            "headlineLeft": "Growing up",
-            "paragraphContentLeft": "Maturing musically and personally, Ambroz dedicated themselves to refining their craft, ready to unveil their next chapter.",
-            "imageSrcLeft": "../assets/aboutUs/aboutUs-7.webp",
-            "headlineRight": "Monuments Of The Deceived",
-            "paragraphContentRight": "In a triumphant culmination, Ambroz released their second album, showcasing their growth and solidifying their place in the black metal scene.",
-            "imageSrcRight": "../assets/aboutUs/aboutUs-8.webp"
-        }
-    ],
-    "mk": [
-        {
-            "headlineLeft": "Почетоците",
-            "paragraphContentLeft": "Во 2004 година, основачите Цветан Спирковски и Дијана Пешовска го започнаа ова музичко патешествие, од кое што се роди Амброз. Обединети во нивната страст кон блек метал музиката, тие ја поставија основата за бенд кој наскоро ќе ја разбрани македонската музичка сцена.",
-            "imageSrcLeft": "../assets/aboutUs/aboutUs-1.webp",
-            "headlineRight": "Членови на Амброз",
-            "paragraphContentRight": "Членови на групата се Цветан Спирковски и Иван Јамандиловски на гитари, Игор Стојковски на бас, Дијана Пешовска на клавијатури, Дамјан Клинчаревски како вокал и Никола Димитровски зад тапаните.",
-            "imageSrcRight": "../assets/aboutUs/aboutUs-2.webp"
-        },
-        {
-            "headlineLeft": "Во Бескрајното Празно",
-            "paragraphContentLeft": "Во 2015 година, Амброз го издаде својот прв албум, „Во Бескрајното Празно“ („Into The Endless Void“), нахранувајќи ги слушателите со неговата сирова интензивност и атмосферски пејзажи. Ова издание го зацврстува присуството на бендот во блек метал сцената и го отвори нивното прво поглавје.",
-            "imageSrcLeft": "../assets/aboutUs/aboutUs-4.webp",
-            "headlineRight": "Првиот настап надвор од Македонија",
-            "paragraphContentRight": "По долга и напорна работа, Амброз подготвен за прв пат отпатува надвор од Македонија каде што ја претстави својата музика на поширока публика. Ова беше еден пресвртнички чекор во нивната еволуција, изложувајќи ги своите темни мелодии на поголема публика надвор од својата родина.",
-            "imageSrcRight": "../assets/aboutUs/aboutUs-3.webp"
-        },
-        {
-            "headlineLeft": "Нов звук",
-            "paragraphContentLeft": "Извесни промени се случуваа во составот на бендот, и Амброз неколку пати поминуваше трансформативна фаза. Блаодарение на нов талент и музички идеи тие го преобразија нивниот звук, додавајќи нови слоеви на комплексност и длабочина на нивната музика.",
-            "imageSrcLeft": "../assets/aboutUs/aboutUs-5.webp",
-            "headlineRight": "Пандемијата",
-            "paragraphContentRight": "Среде глобалната пандемија, Амброз успеа да најде светла точка. Принудениот изолационен период го поддржа нивниот креативен процес, давајќи им можност за да допрат до нови звучни рамнини. Овој период за нив беше период за иновативни композиции и интензивно уметничко само-одразување.",
-            "imageSrcRight": "../assets/aboutUs/aboutUs-6.webp"
-        },
-        {
-            "headlineLeft": "Растење",
-            "paragraphContentLeft": "Зреејќи и како музичари и како личности, Амброз се посветија на строг креативен процес. Со преселување во ново студио, сериозно пристапија на креирањето, инвестирајќи време и напор за да го усовршат своето мајсторство. Бендот еволуираше и стана подготвен за откривање на нивното следно поглавје.",
-            "imageSrcLeft": "../assets/aboutUs/aboutUs-7.webp",
-            "headlineRight": "Спомениците на Измамените",
-            "paragraphContentRight": "Со цврстиот чекор кој го фати, Амброз го издаде својот втор албум, „Спомениците на Измамените“  („Monuments Of The Deceived“). Овој монументален опус го прикажа нивниот раст, кој што дополнително го стабилизира нивното место во блек метал сцената. Секоја песна од албумот стои како доказ за посветеноста на нивната уметничка еволуција.",
-            "imageSrcRight": "../assets/aboutUs/aboutUs-8.webp"
-        }
-    ]
+  "en": [
+    {
+      "headlineLeft": "The Beginning",
+      "paragraphContentLeft": "In 2004, founders Cvetan Spirkovski and Dijana Peshovska started Ambroz, a black metal band. They laid the foundation for the band, which soon gained recognition in Macedonia.",
+      "imageSrcLeft": "../assets/aboutUs/aboutUs-1.webp",
+      "headlineRight": "Members of Ambroz",
+      "paragraphContentRight": "Ambroz's current lineup includes Ivan Jamandilovski on guitar, Igor Stojkovski on bass, Dijana Peshovska on keyboards and Damjan Klincharevski as the vocalist.",
+      "imageSrcRight": "../assets/aboutUs/aboutUs-2.webp"
+    },
+    {
+      "headlineLeft": "Into The Endless Void",
+      "paragraphContentLeft": "In 2015, Ambroz released their debut album, captivating listeners with raw intensity and atmospheric soundscapes. It marked a milestone in their black metal journey. Band's lineup at the time included Cvetan Spirkovski and Ivan Jamandilovski on guitars, Igor Stojkovski on bass, Dijana Peshovska on keyboards, Damjan Klincharevski as the vocalist and Ivan Tomich on drums.",
+      "imageSrcLeft": "../assets/aboutUs/aboutUs-4.webp",
+      "headlineRight": "First shot outside Macedonia",
+      "paragraphContentRight": "In a pivotal moment, Ambroz played in Sofia for the first time, expanding their audience beyond Macedonia.",
+      "imageSrcRight": "../assets/aboutUs/aboutUs-3.webp"
+    },
+    {
+      "headlineLeft": "A new sound",
+      "paragraphContentLeft": "Due to changes in the band's lineup, Ambroz underwent transformation, reshaping their music and exploring new sonic territories.",
+      "imageSrcLeft": "../assets/aboutUs/aboutUs-5.webp",
+      "headlineRight": "The Pandemic",
+      "paragraphContentRight": "During the pandemic, Ambroz found inspiration in isolation, exploring new musical directions and reflecting deeply on their art.",
+      "imageSrcRight": "../assets/aboutUs/aboutUs-6.webp"
+    },
+    {
+      "headlineLeft": "Growing up",
+      "paragraphContentLeft": "Maturing musically and personally, Ambroz dedicated themselves to refining their craft, ready to unveil their next chapter.",
+      "imageSrcLeft": "../assets/aboutUs/aboutUs-7.webp",
+      "headlineRight": "Monuments Of The Deceived",
+      "paragraphContentRight": "In a triumphant culmination, Ambroz released their second album, showcasing their growth and solidifying their place in the black metal scene. . Band's lineup at the time included Cvetan Spirkovski and Ivan Jamandilovski on guitars, Igor Stojkovski on bass, Dijana Peshovska on keyboards, Damjan Klincharevski as the vocalist and Nikola Dimitrovski on drums.",
+      "imageSrcRight": "../assets/aboutUs/aboutUs-8.webp"
+    }
+  ],
+  "mk": [
+    {
+      "headlineLeft": "Почетоците",
+      "paragraphContentLeft": "Во 2004 година, основачите Цветан Спирковски и Дијана Пешовска го започнаа ова музичко патешествие, од кое што се роди Амброз. Обединети во нивната страст кон блек метал музиката, тие ја поставија основата за бенд кој наскоро ќе ја разбрани македонската музичка сцена.",
+      "imageSrcLeft": "../assets/aboutUs/aboutUs-1.webp",
+      "headlineRight": "Членови на Амброз",
+      "paragraphContentRight": "Моментални членови на групата се Иван Јамандиловски на гитари, Игор Стојковски на бас, Дијана Пешовска на клавијатури и Дамјан Клинчаревски како вокал.",
+      "imageSrcRight": "../assets/aboutUs/aboutUs-2.webp"
+    },
+    {
+      "headlineLeft": "Во Бескрајното Празно",
+      "paragraphContentLeft": "Во 2015 година, Амброз го издаде својот прв албум, „Во Бескрајното Празно“ („Into The Endless Void“), нахранувајќи ги слушателите со неговата сирова интензивност и атмосферски пејзажи. Ова издание го зацврстува присуството на бендот во блек метал сцената и го отвори нивното прво поглавје. Во тоа време Амброз беа Цветан Спирковски и Иван Јамандиловски на гитари, Игор Стојковски на бас, Дијана Пешовска на клавијатури, Дамјан Клинчаревски како вокал и Иван Томиќ зад тапаните.",
+      "imageSrcLeft": "../assets/aboutUs/aboutUs-4.webp",
+      "headlineRight": "Првиот настап надвор од Македонија",
+      "paragraphContentRight": "По долга и напорна работа, Амброз подготвен за прв пат отпатува надвор од Македонија каде што ја претстави својата музика на поширока публика. Ова беше еден пресвртнички чекор во нивната еволуција, изложувајќи ги своите темни мелодии на поголема публика надвор од својата родина.",
+      "imageSrcRight": "../assets/aboutUs/aboutUs-3.webp"
+    },
+    {
+      "headlineLeft": "Нов звук",
+      "paragraphContentLeft": "Извесни промени се случуваа во составот на бендот, и Амброз неколку пати поминуваше трансформативна фаза. Блаодарение на нов талент и музички идеи тие го преобразија нивниот звук, додавајќи нови слоеви на комплексност и длабочина на нивната музика.",
+      "imageSrcLeft": "../assets/aboutUs/aboutUs-5.webp",
+      "headlineRight": "Пандемијата",
+      "paragraphContentRight": "Среде глобалната пандемија, Амброз успеа да најде светла точка. Принудениот изолационен период го поддржа нивниот креативен процес, давајќи им можност за да допрат до нови звучни рамнини. Овој период за нив беше период за иновативни композиции и интензивно уметничко само-одразување.",
+      "imageSrcRight": "../assets/aboutUs/aboutUs-6.webp"
+    },
+    {
+      "headlineLeft": "Растење",
+      "paragraphContentLeft": "Зреејќи и како музичари и како личности, Амброз се посветија на строг креативен процес. Со преселување во ново студио, сериозно пристапија на креирањето, инвестирајќи време и напор за да го усовршат своето мајсторство. Бендот еволуираше и стана подготвен за откривање на нивното следно поглавје.",
+      "imageSrcLeft": "../assets/aboutUs/aboutUs-7.webp",
+      "headlineRight": "Спомениците на Измамените",
+      "paragraphContentRight": "Со цврстиот чекор кој го фати, Амброз го издаде својот втор албум, „Спомениците на Измамените“  („Monuments Of The Deceived“). Овој монументален опус го прикажа нивниот раст, кој што дополнително го стабилизира нивното место во блек метал сцената. Секоја песна од албумот стои како доказ за посветеноста на нивната уметничка еволуција. Во тоа време Амброз беа Цветан Спирковски и Иван Јамандиловски на гитари, Игор Стојковски на бас, Дијана Пешовска на клавијатури, Дамјан Клинчаревски како вокал и Никола Димитровски зад тапаните.",
+      "imageSrcRight": "../assets/aboutUs/aboutUs-8.webp"
+    }
+  ]
 }
